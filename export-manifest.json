@@ -1,0 +1,42 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\index.html"
+  },
+  {
+    "route": "/transportnaya-bezopasnost/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\transportnaya-bezopasnost\\index.html"
+  },
+  {
+    "route": "/ohrana-obektov/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\ohrana-obektov\\index.html"
+  },
+  {
+    "route": "/fizicheskaya-ohrana/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\fizicheskaya-ohrana\\index.html"
+  },
+  {
+    "route": "/trevozhnaya-knopka/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\trevozhnaya-knopka\\index.html"
+  },
+  {
+    "route": "/ohrana-doma/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\ohrana-doma\\index.html"
+  },
+  {
+    "route": "/politika-konfidencialnosti/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\politika-konfidencialnosti\\index.html"
+  },
+  {
+    "route": "/soglasie-na-obrabotku-personalnyh-dannyh/",
+    "status": 200,
+    "html": "D:\\Bagira_QA\\github-pages\\bagira-preview\\soglasie-na-obrabotku-personalnyh-dannyh\\index.html"
+  }
+]
