@@ -373,13 +373,22 @@ ul {
 }
 
 .home .home-glow--hero {
-	width: 899.865906px;
-	height: 371.5513px;
-	transform: matrix(
-		0.891512573, 0.452995956,
-		-0.452995956, 0.891512573,
-		625.311218, 137
-	);
+    top: 243.80496px;
+    left: 532.33936px;
+    width: 819.87402px;
+    height: 525.26794px;
+    transform: none;
+    filter: none;
+    border-radius: 0;
+    background: none;
+    overflow: visible;
+}
+
+.home .home-glow--hero::before {
+    content: "";
+    position: absolute;
+    inset: -57.11% -36.59%;
+    background: url('../images/hero-subtract-figma.svg') center / 100% 100% no-repeat;
 }
 
 .home .home-glow--consultation {
@@ -3179,14 +3188,6 @@ ul {
     }
 }
 
-/* Bagira hero: preserve Figma geometry at 1100-1279px */
-@media (min-width: 1100px) and (max-width: 1279px) {
-    .home .hero__visual {
-        left: 46.666667%;
-        right: auto;
-        width: 54.75%;
-    }
-}
 
 /* responsive response tablet */
 @media (min-width: 768px) and (max-width: 1279px) {
