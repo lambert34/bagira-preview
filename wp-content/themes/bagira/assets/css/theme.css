@@ -5107,7 +5107,7 @@ ul {
         max-width: none !important;
         object-fit: cover !important;
         object-position: center top !important;
-        transform: scale(1.35) !important;
+        transform: none !important;
         transform-origin: center center;
     }
 
