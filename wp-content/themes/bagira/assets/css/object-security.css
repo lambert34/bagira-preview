@@ -6175,3 +6175,86 @@ ul {
         background-size: contain;
     }
 }
+
+/* Object Security desktop: Figma-matched image transitions, illumination and tariff type. */
+@media (min-width: 768px) {
+	body.postid-16 .service-hero {
+		isolation: isolate;
+		overflow: hidden;
+		background:
+			radial-gradient(ellipse 50% 52% at 38% 100%, rgba(33, 51, 142, .25) 0%, rgba(13, 23, 60, .15) 47%, rgba(8, 13, 22, 0) 76%),
+			radial-gradient(ellipse 46% 70% at 52% 55%, rgba(33, 51, 142, .06) 0%, rgba(8, 13, 22, 0) 78%);
+	}
+
+	body.postid-16 .service-hero__visual {
+		-webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 78%, rgba(0, 0, 0, .88) 84%, rgba(0, 0, 0, .28) 100%);
+		mask-image: linear-gradient(to bottom, #000 0%, #000 78%, rgba(0, 0, 0, .88) 84%, rgba(0, 0, 0, .28) 100%);
+	}
+
+	body.postid-16 .service-standards {
+		isolation: isolate;
+	}
+
+	body.postid-16 .service-standards::before {
+		position: absolute;
+		z-index: 0;
+		inset: -1px;
+		background:
+			radial-gradient(ellipse 15% 13% at 100% 0%, rgba(255, 255, 255, .34) 0%, rgba(142, 142, 165, .14) 26%, rgba(8, 13, 22, 0) 64%),
+			radial-gradient(ellipse 52% 30% at 52% 0%, rgba(33, 51, 142, .1) 0%, rgba(8, 13, 22, 0) 75%);
+		pointer-events: none;
+		content: '';
+	}
+
+	body.postid-16 .service-standards__layout {
+		position: relative;
+		z-index: 1;
+	}
+
+	body.postid-16 .service-standard--featured .service-standard__image img {
+		object-position: right top;
+	}
+
+	body.postid-16 .service-standards__stack .service-standard__copy {
+		width: 541px;
+		max-width: 541px;
+	}
+
+	body.postid-16 .service-tariff__price strong {
+		font-weight: 400;
+	}
+
+	body.postid-16 .service-tariff__feature-label {
+		color: rgba(255, 255, 255, .7);
+	}
+
+	body.postid-16 .service-tariff__feature-value {
+		color: #fff;
+	}
+
+	body.postid-16 .service-protected {
+		background: radial-gradient(ellipse 42% 18% at 0% 100%, rgba(33, 51, 142, .07) 0%, rgba(8, 13, 22, 0) 78%);
+	}
+
+	body.postid-16 .service-protected > .container {
+		position: relative;
+		z-index: 1;
+	}
+
+	body.postid-16 .consultation--service {
+		position: relative;
+		isolation: isolate;
+		background: radial-gradient(ellipse 55% 60% at 0% 40%, rgba(33, 51, 142, .28) 0%, rgba(33, 51, 142, .2) 36%, rgba(25, 38, 107, .09) 64%, rgba(8, 13, 22, 0) 82%);
+	}
+
+	body.postid-16 .consultation--service > .container {
+		position: relative;
+		z-index: 1;
+	}
+
+	body.postid-16 .consultation--service .consultation__content {
+		background:
+			radial-gradient(ellipse 90% 130% at 0% 45%, rgba(33, 51, 142, .22) 0%, rgba(19, 30, 92, .12) 52%, rgba(5, 8, 22, 0) 82%),
+			rgba(5, 8, 22, .5);
+	}
+}
