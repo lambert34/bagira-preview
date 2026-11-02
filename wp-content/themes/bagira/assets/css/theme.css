@@ -351,6 +351,8 @@ ul {
 	width: 1280px;
 	height: 4834px;
 	overflow: hidden;
+	-webkit-mask-image: linear-gradient(90deg, transparent 0, #000 180px, #000 calc(100% - 180px), transparent 100%);
+	mask-image: linear-gradient(90deg, transparent 0, #000 180px, #000 calc(100% - 180px), transparent 100%);
 	transform: translateX(-50%);
 	pointer-events: none;
 }
@@ -3393,7 +3395,9 @@ ul {
 	.home .home-glows {
 		width: 100%;
 		height: 100%;
-	}
+	-webkit-mask-image: none;
+	mask-image: none;
+}
 
 	.home .home-glow--hero {
 		left: -120px;
