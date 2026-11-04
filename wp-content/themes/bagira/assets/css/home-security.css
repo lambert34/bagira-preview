@@ -7901,3 +7901,43 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipme
 }
 
 /* BAGIRA-HOME-DEVICE-LAYER-CLEAN-V1:END */
+
+/* BAGIRA-TWO-DEVICE-FIGMA-DEFAULT-20261104:START */
+/* At 1280px, Figma is zoomed 112% in the reference screenshot. Card boxes are
+   already the correct size. New full-sized assets must be scaled back to the
+   original Figma device artwork dimensions in DEFAULT mode only. */
+@media (min-width: 1024px) {
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+    .service-equipment__item[data-bagira-device="infrared"]:not(:hover):not(:focus-within):not(.is-flipped)
+    .service-equipment__item-image {
+      left: 164px;
+      top: 42px;
+      width: 180px;
+      height: 142px;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+    .service-equipment__item[data-bagira-device="infrared"]:not(:hover):not(:focus-within):not(.is-flipped)
+    .service-equipment__item-image img {
+      width: 180px;
+      height: auto;
+      max-width: none;
+      object-fit: contain;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+    .service-equipment__item[data-bagira-device="magnetic"]:not(:hover):not(:focus-within):not(.is-flipped)
+    .service-equipment__item-image {
+      left: 225px;
+      top: 36px;
+      width: 143px;
+      height: 163px;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+    .service-equipment__item[data-bagira-device="magnetic"]:not(:hover):not(:focus-within):not(.is-flipped)
+    .service-equipment__item-image img {
+      width: 143px;
+      height: auto;
+      max-width: none;
+      object-fit: contain;
+  }
+}
+/* BAGIRA-TWO-DEVICE-FIGMA-DEFAULT-20261104:END */
