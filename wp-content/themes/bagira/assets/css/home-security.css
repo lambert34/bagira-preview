@@ -7941,3 +7941,55 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipme
   }
 }
 /* BAGIRA-TWO-DEVICE-FIGMA-DEFAULT-20261104:END */
+
+/* BAGIRA-SMOKE-FIGMA-DEFAULT-20261104:START */
+/* Normal desktop state only. Complete image intentionally cropped by the card's right edge. */
+@media (min-width: 1024px) {
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item[data-bagira-device="smoke"]:not(:hover):not(:focus-within):not(.is-flipped) .service-equipment__item-image {
+    left: 216px;
+    top: 38px;
+    right: auto;
+    bottom: auto;
+    width: 205px;
+    height: 186px;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item[data-bagira-device="smoke"]:not(:hover):not(:focus-within):not(.is-flipped) .service-equipment__item-image img {
+    display: block;
+    width: 205px;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+  }
+}
+/* BAGIRA-SMOKE-FIGMA-DEFAULT-20261104:END */
+/* BAGIRA-SMOKE-DEFAULT-FIGMA-ALIGN-V2:START */
+/* Only smoke detector DEFAULT state at desktop size. Keep hover and mobile untouched. */
+@media (min-width: 1024px) {
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):not(:hover):not(:focus-within):not(.is-flipped)
+  .service-equipment__item-image {
+    position: absolute !important;
+    left: 200px !important;
+    top: 45px !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 165px !important;
+    height: 150px !important;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):not(:hover):not(:focus-within):not(.is-flipped)
+  .service-equipment__item-image img {
+    display: block !important;
+    width: 165px !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: left top !important;
+    transform: none !important;
+  }
+}
+/* BAGIRA-SMOKE-DEFAULT-FIGMA-ALIGN-V2:END */
