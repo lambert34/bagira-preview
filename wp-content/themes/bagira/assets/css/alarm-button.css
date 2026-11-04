@@ -6703,3 +6703,78 @@ ul {
 			rgba(5, 8, 22, .5);
 	}
 }
+
+/* BAGIRA-ALARM-COMPLETE-HOVER-20261104:START */
+/* The original right-cropped images remain untouched in DEFAULT state. */
+/* Full device layers are drawn only on the active/back face. */
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(1) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-3.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(2) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-6.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(3) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-1.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(4) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-4.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(5) { --bagira-alarm-full-hover: url("../images/equipment-full/infrared-full.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(6) { --bagira-alarm-full-hover: url("../images/equipment-full/magnetic-full.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(7) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-5.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(8) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-7.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(9) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-2.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(10) { --bagira-alarm-full-hover: url("../../../../uploads/2026/09/Снимок-экрана-2026-06-30-в-21.46.47-1.webp"); }
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(11) { --bagira-alarm-full-hover: url("../../../../uploads/2026/11/hover-8.webp"); }
+
+/* The device, not its old cropped wrapper, is centered on active cards. */
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:is(:hover,:focus-within,.is-flipped) .service-equipment__item-image {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+body.postid-18 .service-equipment__group:first-child .service-equipment__item .service-equipment__face--back::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(80%, 198px);
+  height: min(78%, 184px);
+  transform: translate(-50%, -50%);
+  background-image: var(--bagira-alarm-full-hover);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: .37;
+  filter: brightness(.92) saturate(.87);
+  mix-blend-mode: normal;
+  pointer-events: none;
+}
+body.postid-18 .service-equipment__group:first-child .service-equipment__item .service-equipment__face--back > h3,
+body.postid-18 .service-equipment__group:first-child .service-equipment__item .service-equipment__face--back .service-equipment__item-text {
+  position: relative;
+  z-index: 2;
+}
+/* A tall detector should look like the Figma silhouette, not fill the card. */
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(1) .service-equipment__face--back::before,
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(3) .service-equipment__face--back::before,
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(7) .service-equipment__face--back::before {
+  height: min(73%, 177px);
+}
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(4) .service-equipment__face--back::before {
+  opacity: .31;
+}
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(5) .service-equipment__face--back::before,
+body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(6) .service-equipment__face--back::before {
+  opacity: .34;
+}
+/* On touchscreen, only a card that was explicitly opened receives the device overlay. */
+@media (max-width: 767px) {
+  body.postid-18 .service-equipment__group:first-child .service-equipment__item .service-equipment__face--back::before {
+    width: min(82%, 177px);
+    height: min(78%, 160px);
+  }
+  body.postid-18 .service-equipment__group:first-child .service-equipment__item:not(.is-flipped) .service-equipment__item-image {
+    opacity: .85 !important;
+    visibility: visible !important;
+  }
+  body.postid-18 .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__item-image {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+/* BAGIRA-ALARM-COMPLETE-HOVER-20261104:END */
