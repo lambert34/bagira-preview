@@ -600,35 +600,35 @@ body.postid-19 .service-tariff__details-note {
 	}
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__item {
+body.postid-19 .service-equipment__group .service-equipment__item {
 	cursor: pointer;
 	transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:hover,
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:focus-within {
+body.postid-19 .service-equipment__group .service-equipment__item:hover,
+body.postid-19 .service-equipment__group .service-equipment__item:focus-within {
 	transform: none;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__flip-inner {
+body.postid-19 .service-equipment__group .service-equipment__flip-inner {
 	display: block;
 	position: relative;
 	height: 100%;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__face {
+body.postid-19 .service-equipment__group .service-equipment__face {
 	display: block;
 	position: absolute;
 	inset: 0;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__face--front h3 {
+body.postid-19 .service-equipment__group .service-equipment__face--front h3 {
 	position: relative;
 	z-index: 4;
 	transition: opacity 140ms ease;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__face--back {
+body.postid-19 .service-equipment__group .service-equipment__face--back {
 	z-index: 3;
 	display: flex;
 	flex-direction: column;
@@ -641,7 +641,7 @@ body.postid-19 .service-equipment__group:first-child .service-equipment__face--b
 	transition: opacity 180ms ease;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__face--back h3 {
+body.postid-19 .service-equipment__group .service-equipment__face--back h3 {
 	position: relative;
 	z-index: 1;
 	max-width: 215px;
@@ -651,7 +651,7 @@ body.postid-19 .service-equipment__group:first-child .service-equipment__face--b
 	line-height: 1.16;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text {
+body.postid-19 .service-equipment__group .service-equipment__face--back .service-equipment__item-text {
 	position: relative;
 	z-index: 1;
 	max-width: 220px;
@@ -661,11 +661,11 @@ body.postid-19 .service-equipment__group:first-child .service-equipment__face--b
 	line-height: 1.28;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__item-image {
+body.postid-19 .service-equipment__group .service-equipment__item-image {
 	transition: opacity 180ms ease, filter 180ms ease;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__flip-toggle {
+body.postid-19 .service-equipment__group .service-equipment__flip-toggle {
 	display: block;
 	position: absolute;
 	z-index: 6;
@@ -679,26 +679,26 @@ body.postid-19 .service-equipment__group:first-child .service-equipment__flip-to
 	cursor: pointer;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__flip-toggle:focus-visible {
+body.postid-19 .service-equipment__group .service-equipment__flip-toggle:focus-visible {
 	outline: 2px solid #fff;
 	outline-offset: -4px;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__face--back,
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:hover .service-equipment__face--back,
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:focus-within .service-equipment__face--back {
+body.postid-19 .service-equipment__group .service-equipment__item.is-flipped .service-equipment__face--back,
+body.postid-19 .service-equipment__group .service-equipment__item:hover .service-equipment__face--back,
+body.postid-19 .service-equipment__group .service-equipment__item:focus-within .service-equipment__face--back {
 	opacity: 1;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__face--front h3,
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:hover .service-equipment__face--front h3,
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:focus-within .service-equipment__face--front h3 {
+body.postid-19 .service-equipment__group .service-equipment__item.is-flipped .service-equipment__face--front h3,
+body.postid-19 .service-equipment__group .service-equipment__item:hover .service-equipment__face--front h3,
+body.postid-19 .service-equipment__group .service-equipment__item:focus-within .service-equipment__face--front h3 {
 	opacity: 0;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__item-image,
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:hover .service-equipment__item-image,
-body.postid-19 .service-equipment__group:first-child .service-equipment__item:focus-within .service-equipment__item-image {
+body.postid-19 .service-equipment__group .service-equipment__item.is-flipped .service-equipment__item-image,
+body.postid-19 .service-equipment__group .service-equipment__item:hover .service-equipment__item-image,
+body.postid-19 .service-equipment__group .service-equipment__item:focus-within .service-equipment__item-image {
 	opacity: .26;
 	filter: saturate(.65) brightness(.66);
 }
@@ -734,9 +734,9 @@ body.postid-19 .consultation--service {
 	body.postid-19 .service-tariff--has-details .service-tariff__price-columns,
 	body.postid-19 .service-tariff--has-details .service-tariff__price-panel,
 	body.postid-19 .service-tariff__details,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item-image,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face--back {
+	body.postid-19 .service-equipment__group .service-equipment__item,
+	body.postid-19 .service-equipment__group .service-equipment__item-image,
+	body.postid-19 .service-equipment__group .service-equipment__face--back {
 		transition: none;
 	}
 }
@@ -1074,8 +1074,8 @@ body.postid-19 .consultation--service {
 		outline-offset: 3px;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__flip-inner,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face {
+	body.postid-19 .service-equipment__group .service-equipment__flip-inner,
+	body.postid-19 .service-equipment__group .service-equipment__face {
 		min-height: 180px;
 		transform: none !important;
 		transform-style: flat;
@@ -1083,52 +1083,52 @@ body.postid-19 .consultation--service {
 		-webkit-backface-visibility: visible;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face {
+	body.postid-19 .service-equipment__group .service-equipment__face {
 		padding: 14px;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face--back {
+	body.postid-19 .service-equipment__group .service-equipment__face--back {
 		gap: 8px;
 		padding: 14px;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face--back h3,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text {
+	body.postid-19 .service-equipment__group .service-equipment__face--back h3,
+	body.postid-19 .service-equipment__group .service-equipment__face--back .service-equipment__item-text {
 		max-width: 74%;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face--back h3 {
+	body.postid-19 .service-equipment__group .service-equipment__face--back h3 {
 		font-size: 15px;
 		line-height: 1.18;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text {
+	body.postid-19 .service-equipment__group .service-equipment__face--back .service-equipment__item-text {
 		font-size: 12px;
 		line-height: 1.24;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item.is-flipped {
+	body.postid-19 .service-equipment__group .service-equipment__item.is-flipped {
 		grid-column: 1 / -1;
 		min-height: 220px;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__flip-inner,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__face {
+	body.postid-19 .service-equipment__group .service-equipment__item.is-flipped .service-equipment__flip-inner,
+	body.postid-19 .service-equipment__group .service-equipment__item.is-flipped .service-equipment__face {
 		min-height: 220px;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item:hover:not(.is-flipped) .service-equipment__face--back,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item:focus-within:not(.is-flipped) .service-equipment__face--back {
+	body.postid-19 .service-equipment__group .service-equipment__item:hover:not(.is-flipped) .service-equipment__face--back,
+	body.postid-19 .service-equipment__group .service-equipment__item:focus-within:not(.is-flipped) .service-equipment__face--back {
 		opacity: 0;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item:hover:not(.is-flipped) .service-equipment__face--front h3,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item:focus-within:not(.is-flipped) .service-equipment__face--front h3 {
+	body.postid-19 .service-equipment__group .service-equipment__item:hover:not(.is-flipped) .service-equipment__face--front h3,
+	body.postid-19 .service-equipment__group .service-equipment__item:focus-within:not(.is-flipped) .service-equipment__face--front h3 {
 		opacity: 1;
 	}
 
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item:hover:not(.is-flipped) .service-equipment__item-image,
-	body.postid-19 .service-equipment__group:first-child .service-equipment__item:focus-within:not(.is-flipped) .service-equipment__item-image {
+	body.postid-19 .service-equipment__group .service-equipment__item:hover:not(.is-flipped) .service-equipment__item-image,
+	body.postid-19 .service-equipment__group .service-equipment__item:focus-within:not(.is-flipped) .service-equipment__item-image {
 		opacity: .85;
 		filter: none;
 	}
@@ -1700,6 +1700,8 @@ ul {
 	width: 1280px;
 	height: 4834px;
 	overflow: hidden;
+	-webkit-mask-image: linear-gradient(90deg, transparent 0, #000 180px, #000 calc(100% - 180px), transparent 100%);
+	mask-image: linear-gradient(90deg, transparent 0, #000 180px, #000 calc(100% - 180px), transparent 100%);
 	transform: translateX(-50%);
 	pointer-events: none;
 }
@@ -4743,6 +4745,8 @@ ul {
 	.home .home-glows {
 		width: 100%;
 		height: 100%;
+		-webkit-mask-image: none;
+		mask-image: none;
 	}
 
 	.home .home-glow--hero {
@@ -7390,11 +7394,11 @@ body.postid-19 .service-hero__highlight-secondary {
 	color: rgba(255, 255, 255, .62);
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__face--back h3 {
+body.postid-19 .service-equipment__group .service-equipment__face--back h3 {
 	color: #fff;
 }
 
-body.postid-19 .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text {
+body.postid-19 .service-equipment__group .service-equipment__face--back .service-equipment__item-text {
 	color: rgba(255, 255, 255, .72);
 }
 
@@ -7533,3 +7537,767 @@ body.postid-19 .service-equipment__group:first-child .service-equipment__face--b
 		transition: none;
 	}
 }
+
+/* Transport Security: two-tone hero copy, map labels and mobile composition. */
+body.postid-15 .service-hero__content p {
+	color: rgba(255, 255, 255, .62);
+}
+
+body.postid-15 .service-hero__subtitle-primary {
+	color: #fff;
+}
+
+body.postid-15 .service-hero__subtitle-secondary {
+	color: rgba(255, 255, 255, .62);
+}
+
+body.postid-15 .service-geography__city-label {
+	position: absolute;
+	z-index: 2;
+	display: block;
+	color: #fff;
+	font-family: "Alumni Sans", sans-serif;
+	font-size: 40px;
+	font-style: italic;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -.02em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	font-synthesis: none;
+	font-variation-settings: "wght" 800;
+	text-rendering: geometricPrecision;
+	pointer-events: none;
+}
+
+body.postid-15 .service-geography__city-label--novosibirsk {
+	top: calc(72.37% + 1px);
+	left: 40.31%;
+	width: 171px;
+	height: 48px;
+}
+
+body.postid-15 .service-geography__city-label--barnaul {
+	top: calc(85.88% + 1px);
+	left: 41.59%;
+	width: 109px;
+	height: 48px;
+}
+
+@media (max-width: 767px) {
+	body.postid-15 .site-header__inner {
+		position: relative;
+		width: calc(100% - 32px);
+		padding: 12px 0;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+	}
+
+	body.postid-15 .site-header__brand,
+	body.postid-15 .site-header__brand img,
+	body.postid-15 .site-header__brand .custom-logo-link {
+		width: 100px;
+	}
+
+	body.postid-15 .site-header__contact {
+		display: none;
+	}
+
+	body.postid-15 .mobile-menu-toggle {
+		display: inline-flex;
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	body.postid-15 .site-navigation {
+		display: none;
+		grid-column: 1 / -1;
+		grid-row: 2;
+		width: 100%;
+		padding: 16px;
+		margin: 8px 0 0;
+		border: 1px solid #252536;
+		border-radius: 16px;
+		background: #111421;
+	}
+
+	body.postid-15 .site-navigation.is-mobile-open {
+		display: block;
+	}
+
+	body.postid-15 .site-navigation__list {
+		align-items: stretch;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	body.postid-15 .site-navigation__list > li > a {
+		display: block;
+		padding: 12px 0;
+	}
+
+	body.postid-15 .site-navigation__list .sub-menu {
+		position: static;
+		display: block;
+		min-width: 0;
+		max-width: none;
+		padding: 0 0 0 14px;
+		transform: none;
+		border: 0;
+		opacity: 1;
+		visibility: visible;
+		background: transparent;
+		box-shadow: none;
+	}
+
+	body.postid-15 .service-hero__content p {
+		color: rgba(255, 255, 255, .62);
+	}
+
+	body.postid-15 .service-standards--mosaic .service-standard__image {
+		position: relative;
+		inset: auto;
+		display: flex;
+		width: calc(100% + 36px);
+		margin: 16px -18px -18px;
+		overflow: hidden;
+		align-items: flex-end;
+	}
+
+	body.postid-15 .service-standards--mosaic .service-standard__image img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		object-fit: contain;
+		transform: none;
+	}
+
+	body.postid-15 .service-standards--mosaic .service-standard--featured .service-standard__image {
+		height: 180px;
+	}
+
+	body.postid-15 .service-standards--mosaic .service-standard--featured .service-standard__image img {
+		object-position: left bottom;
+	}
+
+	body.postid-15 .service-standards--mosaic .service-standards__stack .service-standard:first-child .service-standard__image {
+		top: auto;
+		right: auto;
+		bottom: auto;
+		left: auto;
+		width: calc(100% + 36px);
+		height: 158px;
+	}
+
+	body.postid-15 .service-standards--mosaic .service-standards__stack .service-standard:first-child .service-standard__image img {
+		object-position: right bottom;
+	}
+
+	body.postid-15 .service-protected-card__overlay {
+		background: linear-gradient(
+			180deg,
+			rgba(8, 13, 22, 0) 20%,
+			rgba(8, 13, 22, .18) 38%,
+			rgba(8, 13, 22, .68) 58%,
+			rgba(8, 13, 22, .92) 100%
+		) !important;
+	}
+
+	body.postid-15 .service-geography__city-label {
+		font-size: calc((100vw - 40px) * .036563);
+	}
+
+	body.postid-15 .service-geography__city-label--novosibirsk {
+		width: calc((100vw - 40px) * .156307);
+		height: calc((100vw - 40px) * .043876);
+	}
+
+	body.postid-15 .service-geography__city-label--barnaul {
+		width: calc((100vw - 40px) * .099634);
+		height: calc((100vw - 40px) * .043876);
+	}
+}
+
+/* Home Security: center the visible device artwork in desktop active states. */
+@media (min-width: 768px) {
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item-image {
+		--equipment-active-shift-x: 0px;
+		--equipment-active-shift-y: 0px;
+		transition: transform 260ms ease, opacity 180ms ease, filter 180ms ease;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(1) .service-equipment__item-image {
+		--equipment-active-shift-x: -123px;
+		--equipment-active-shift-y: -7px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2) .service-equipment__item-image {
+		--equipment-active-shift-x: -110px;
+		--equipment-active-shift-y: -3px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3) .service-equipment__item-image {
+		--equipment-active-shift-x: -94px;
+		--equipment-active-shift-y: -1px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4) .service-equipment__item-image {
+		--equipment-active-shift-x: -113px;
+		--equipment-active-shift-y: -5px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5) .service-equipment__item-image {
+		--equipment-active-shift-x: -32px;
+		--equipment-active-shift-y: -7px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6) .service-equipment__item-image {
+		--equipment-active-shift-x: -94px;
+		--equipment-active-shift-y: -3px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(7) .service-equipment__item-image {
+		--equipment-active-shift-x: -116px;
+		--equipment-active-shift-y: -2px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8) .service-equipment__item-image {
+		--equipment-active-shift-x: -110px;
+		--equipment-active-shift-y: -1px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1) .service-equipment__item-image {
+		--equipment-active-shift-x: -142px;
+		--equipment-active-shift-y: 1px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2) .service-equipment__item-image {
+		--equipment-active-shift-x: -109px;
+		--equipment-active-shift-y: -7px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(3) .service-equipment__item-image {
+		--equipment-active-shift-x: -71px;
+		--equipment-active-shift-y: 0px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4) .service-equipment__item-image {
+		--equipment-active-shift-x: -109px;
+		--equipment-active-shift-y: -2px;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item:hover .service-equipment__item-image,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item:focus-within .service-equipment__item-image,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item.is-flipped .service-equipment__item-image {
+		transform: translate3d(var(--equipment-active-shift-x), var(--equipment-active-shift-y), 0);
+		opacity: .54;
+		filter: saturate(.25) brightness(.9) contrast(.92);
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6):hover .service-equipment__item-image,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6):focus-within .service-equipment__item-image,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6).is-flipped .service-equipment__item-image {
+		opacity: .66;
+		filter: saturate(.28) brightness(1.04) contrast(.98);
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back {
+		background: linear-gradient(90deg, rgba(8, 13, 22, .9) 0%, rgba(8, 13, 22, .64) 58%, rgba(8, 13, 22, .34) 100%);
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:hover .service-equipment__item-image,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:focus-within .service-equipment__item-image,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item.is-flipped .service-equipment__item-image {
+		opacity: .38;
+		filter: saturate(.3) brightness(.84) contrast(.94);
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1) .service-equipment__item-image::after {
+		position: absolute;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		height: 100%;
+		background: url("/bagira-preview/wp-content/uploads/2026/09/Снимок-экрана-2026-07-01-в-23.36.38-1.webp") center / 100% 100% no-repeat;
+		transform: scaleX(-1);
+		content: none;
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):hover .service-equipment__item-image::after,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):focus-within .service-equipment__item-image::after,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1).is-flipped .service-equipment__item-image::after {
+		content: "";
+	}
+
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item:hover .service-equipment__item-image img,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item:focus-within .service-equipment__item-image img,
+	body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item.is-flipped .service-equipment__item-image img {
+		transform: none;
+	}
+}
+
+/* BAGIRA-FULL-EQUIPMENT-ASSETS:START */
+/* Post 19 only. Normal card images and layouts deliberately unchanged. */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6) {
+  --bagira-full-device: url('../images/equipment-full/infrared-full.webp');
+  --bagira-full-width: 228px; --bagira-full-height: 184px; --bagira-full-opacity: .86;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(7) {
+  --bagira-full-device: url('../images/equipment-full/magnetic-full.webp');
+  --bagira-full-width: 172px; --bagira-full-height: 200px; --bagira-full-opacity: .83;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1) {
+  --bagira-full-device: url('../images/equipment-full/smoke-full.webp');
+  --bagira-full-width: 209px; --bagira-full-height: 190px; --bagira-full-opacity: .80;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2) {
+  --bagira-full-device: url('../images/equipment-full/temperature-full.webp');
+  --bagira-full-width: 149px; --bagira-full-height: 191px; --bagira-full-opacity: .83;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4) {
+  --bagira-full-device: url('../images/equipment-full/gas-full.webp');
+  --bagira-full-width: 145px; --bagira-full-height: 201px; --bagira-full-opacity: .82;
+}
+/* Only the five confirmed, complete-device active states are affected. */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment :is(
+  .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6),
+  .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(7),
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1),
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2),
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4)
+) .service-equipment__face--back::before {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: 0;
+  top: 50%; left: 50%;
+  width: min(var(--bagira-full-width), 94%);
+  height: min(var(--bagira-full-height), 90%);
+  transform: translate(-50%, -50%);
+  background-image: var(--bagira-full-device);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: var(--bagira-full-opacity);
+  filter: grayscale(1) brightness(1.06);
+  pointer-events: none;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment :is(
+  .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6),
+  .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(7),
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1),
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2),
+  .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4)
+):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image {
+  opacity: 0;
+}
+/* Hide obsolete mirrored smoke-half only in the ACTIVE state. */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after {
+  content: none !important;
+}
+@media (max-width: 767px) {
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment :is(
+    .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(6),
+    .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(7),
+    .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1),
+    .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2),
+    .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4)
+  ) .service-equipment__face--back::before {
+    opacity: .68;
+    max-height: 190px;
+  }
+}
+/* BAGIRA-FULL-EQUIPMENT-ASSETS:END */
+
+/* BAGIRA-FIVE-OTHER-FULL-ACTIVE:START */
+/* Page 19 only: active back-face images for the five remaining technology cards. */
+/* Default/front images and their right-edge cropping are NOT changed. */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2) {
+  --bagira-other-device: url('../../../../uploads/2026/09/1027453522-1.png');
+  --bagira-other-width: 175px; --bagira-other-height: 204px;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3) {
+  --bagira-other-device: url('../../../../uploads/2026/09/Камера-в-белом-цвете-1.png');
+  --bagira-other-width: 215px; --bagira-other-height: 204px;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4) {
+  --bagira-other-device: url('../../../../uploads/2026/09/1875-1.png');
+  --bagira-other-width: 175px; --bagira-other-height: 208px;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5) {
+  --bagira-other-device: url('../../../../uploads/2026/09/Group-2131329138.png');
+  --bagira-other-width: 242px; --bagira-other-height: 190px;
+}
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8) {
+  --bagira-other-device: url('../../../../uploads/2026/09/images-2-1.png');
+  --bagira-other-width: 170px; --bagira-other-height: 209px;
+}
+/* The asset layer is INSIDE the active face: no right-side wrapper cropping. */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:is(:nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(8)) .service-equipment__face--back::after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: min(90%, var(--bagira-other-width));
+  height: min(88%, var(--bagira-other-height));
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  background-image: var(--bagira-other-device);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: .48;
+  filter: grayscale(1) brightness(.86) contrast(.95);
+  pointer-events: none;
+}
+/* Prevent the old partly clipped image from appearing behind the replacement. */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:is(:nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(8)):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image {
+  opacity: 0 !important;
+}
+/* Ensure every active caption is rendered above the replacement layer. */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:is(:nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(8)) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:is(:nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(8)) .service-equipment__face--back .service-equipment__item-text {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 767px) {
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:is(:nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(8)) .service-equipment__face--back::after {
+    width: min(86%, var(--bagira-other-width));
+    height: min(87%, var(--bagira-other-height));
+    opacity: .42;
+  }
+}
+/* BAGIRA-FIVE-OTHER-FULL-ACTIVE:END */
+
+/* BAGIRA-HOVER-EIGHT-20261104:START */
+/* Home Security postid-19. Only active/hover states; front/default images remain unchanged. */
+/* sound : hover (1).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-1.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* temperature : hover (2).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-2.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* siren : hover (3).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-3.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* laser : hover (4).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-4.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* glass : hover (5).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-5.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* camera : hover (6).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-6.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* smoke : hover (7).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-7.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(1):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* gas : hover (8).webp */
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4) { --bagira-new-hover-device: url("../../../../uploads/2026/11/hover-8.webp"); }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::before { content: none !important; background-image: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image { opacity: 0 !important; visibility: hidden !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__item-image::after { content: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  content: "" !important; display: block !important; position: absolute !important;
+  left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
+  width: min(86%, 225px) !important; height: min(83%, 200px) !important;
+  transform: translate(-50%, -50%) !important; background-image: var(--bagira-new-hover-device) !important;
+  background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;
+  opacity: .52 !important; filter: grayscale(1) brightness(.82) contrast(.94) !important;
+  z-index: 0 !important; pointer-events: none !important; border: 0 !important; box-shadow: none !important; }
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back .service-equipment__item-text { position: relative !important; z-index: 2 !important; }
+@media (max-width: 767px) { body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:nth-child(4):is(:hover, :focus-within, .is-flipped) .service-equipment__face--back::after {
+  width: min(86%, 190px) !important; height: min(80%, 175px) !important; opacity: .50 !important; } }
+/* BAGIRA-HOVER-EIGHT-20261104:END */
+
+/* ===== BAGIRA HOME HOTFIX 2026-11-04 ===== */
+/* Replace cropped sources with full images and make active state dimmed (not grayscale). */
+
+.service-equipment__item[data-equipment-key]{
+  position: relative;
+  overflow: hidden;
+}
+
+.service-equipment__item[data-equipment-key]::before,
+.service-equipment__item[data-equipment-key]::after{
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  opacity: 0 !important;
+}
+
+.service-equipment__item[data-equipment-key] .service-equipment__item-title,
+.service-equipment__item[data-equipment-key] .service-equipment__item-text,
+.service-equipment__item[data-equipment-key] .service-equipment__item-description,
+.service-equipment__item[data-equipment-key] .service-equipment__item-content{
+  position: relative;
+  z-index: 2;
+}
+
+.service-equipment__item[data-equipment-key] .service-equipment__item-image{
+  position: absolute !important;
+  right: -8px !important;
+  bottom: 0 !important;
+  left: auto !important;
+  top: auto !important;
+  width: 46% !important;
+  height: 80% !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  opacity: .95 !important;
+  filter: brightness(.96) saturate(.96) !important;
+  transform: none !important;
+  transition:
+    opacity .35s ease,
+    filter .35s ease,
+    transform .35s ease,
+    width .35s ease,
+    height .35s ease,
+    left .35s ease,
+    top .35s ease,
+    right .35s ease,
+    bottom .35s ease !important;
+}
+
+.service-equipment__item[data-equipment-key] .service-equipment__item-image img,
+.service-equipment__item[data-equipment-key] .service-equipment__item-image picture img{
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: right bottom !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* active state: centered and just dimmed, not grayscale */
+.service-equipment__item[data-equipment-key]:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key]:focus-within .service-equipment__item-image,
+.service-equipment__item[data-equipment-key].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key].is-active .service-equipment__item-image{
+  left: 50% !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transform: translate(-50%, -50%) !important;
+  width: 56% !important;
+  height: 78% !important;
+  opacity: .30 !important;
+  filter: brightness(.68) saturate(.90) !important;
+}
+
+.service-equipment__item[data-equipment-key]:hover .service-equipment__item-image img,
+.service-equipment__item[data-equipment-key]:focus-within .service-equipment__item-image img,
+.service-equipment__item[data-equipment-key].is-flipped .service-equipment__item-image img,
+.service-equipment__item[data-equipment-key].is-active .service-equipment__item-image img,
+.service-equipment__item[data-equipment-key]:hover .service-equipment__item-image picture img,
+.service-equipment__item[data-equipment-key]:focus-within .service-equipment__item-image picture img,
+.service-equipment__item[data-equipment-key].is-flipped .service-equipment__item-image picture img,
+.service-equipment__item[data-equipment-key].is-active .service-equipment__item-image picture img{
+  object-position: center center !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* per-device tuning */
+.service-equipment__item[data-equipment-key='button']    .service-equipment__item-image{ width: 38% !important; height: 82% !important; right: -6px !important; }
+.service-equipment__item[data-equipment-key='siren']     .service-equipment__item-image{ width: 34% !important; height: 84% !important; }
+.service-equipment__item[data-equipment-key='camera']    .service-equipment__item-image{ width: 48% !important; height: 82% !important; right: -12px !important; }
+.service-equipment__item[data-equipment-key='sound']     .service-equipment__item-image{ width: 32% !important; height: 84% !important; }
+.service-equipment__item[data-equipment-key='laser']     .service-equipment__item-image{ width: 50% !important; height: 72% !important; right: -10px !important; }
+.service-equipment__item[data-equipment-key='infrared']  .service-equipment__item-image{ width: 46% !important; height: 74% !important; right: -10px !important; }
+.service-equipment__item[data-equipment-key='magnetic']  .service-equipment__item-image{ width: 34% !important; height: 84% !important; right: -6px !important; }
+.service-equipment__item[data-equipment-key='glass']     .service-equipment__item-image{ width: 32% !important; height: 84% !important; right: -4px !important; }
+.service-equipment__item[data-equipment-key='smoke']     .service-equipment__item-image{ width: 42% !important; height: 76% !important; right: -8px !important; }
+.service-equipment__item[data-equipment-key='temperature'] .service-equipment__item-image{ width: 30% !important; height: 72% !important; right: 6px !important; }
+.service-equipment__item[data-equipment-key='water']     .service-equipment__item-image{ width: 42% !important; height: 76% !important; right: -8px !important; }
+.service-equipment__item[data-equipment-key='gas']       .service-equipment__item-image{ width: 30% !important; height: 82% !important; right: 6px !important; }
+
+.service-equipment__item[data-equipment-key='button']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='button'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='button'].is-active .service-equipment__item-image{ width: 42% !important; }
+
+.service-equipment__item[data-equipment-key='siren']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='siren'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='siren'].is-active .service-equipment__item-image{ width: 42% !important; }
+
+.service-equipment__item[data-equipment-key='camera']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='camera'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='camera'].is-active .service-equipment__item-image{ width: 52% !important; }
+
+.service-equipment__item[data-equipment-key='sound']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='sound'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='sound'].is-active .service-equipment__item-image{ width: 38% !important; }
+
+.service-equipment__item[data-equipment-key='laser']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='laser'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='laser'].is-active .service-equipment__item-image{ width: 58% !important; opacity: .24 !important; }
+
+.service-equipment__item[data-equipment-key='infrared']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='infrared'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='infrared'].is-active .service-equipment__item-image{ width: 58% !important; }
+
+.service-equipment__item[data-equipment-key='magnetic']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='magnetic'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='magnetic'].is-active .service-equipment__item-image{ width: 40% !important; }
+
+.service-equipment__item[data-equipment-key='glass']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='glass'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='glass'].is-active .service-equipment__item-image{ width: 38% !important; }
+
+.service-equipment__item[data-equipment-key='smoke']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='smoke'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='smoke'].is-active .service-equipment__item-image{ width: 52% !important; }
+
+.service-equipment__item[data-equipment-key='temperature']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='temperature'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='temperature'].is-active .service-equipment__item-image{ width: 38% !important; }
+
+.service-equipment__item[data-equipment-key='gas']:hover .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='gas'].is-flipped .service-equipment__item-image,
+.service-equipment__item[data-equipment-key='gas'].is-active .service-equipment__item-image{ width: 38% !important; }
+
+/* mobile: keep cards stable */
+@media (max-width: 767px){
+  .service-equipment__item[data-equipment-key] .service-equipment__item-image{
+    right: -6px !important;
+    width: 42% !important;
+    height: 72% !important;
+  }
+
+  .service-equipment__item[data-equipment-key]:hover .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key]:focus-within .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key].is-flipped .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key].is-active .service-equipment__item-image{
+    width: 50% !important;
+    height: 72% !important;
+    opacity: .28 !important;
+  }
+
+  .service-equipment__item[data-equipment-key='laser']:hover .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key='laser'].is-flipped .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key='laser'].is-active .service-equipment__item-image{
+    width: 56% !important;
+  }
+
+  .service-equipment__item[data-equipment-key='infrared']:hover .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key='infrared'].is-flipped .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key='infrared'].is-active .service-equipment__item-image{
+    width: 56% !important;
+  }
+
+  .service-equipment__item[data-equipment-key='magnetic']:hover .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key='magnetic'].is-flipped .service-equipment__item-image,
+  .service-equipment__item[data-equipment-key='magnetic'].is-active .service-equipment__item-image{
+    width: 42% !important;
+  }
+}
+/* ===== /BAGIRA HOME HOTFIX 2026-11-04 ===== */
