@@ -7714,3 +7714,128 @@ body.postid-15 .service-geography__city-label--barnaul {
 		height: calc((100vw - 40px) * .043876);
 	}
 }
+
+/* BAGIRA-TRANSPORT-PROTECTED-FIGMA-MOBILE-20261109:START */
+@media screen and (max-width: 767px) {
+  body.postid-15 section.service-protected--default.service-protected--items-2 > .container {
+    box-sizing: border-box !important;
+    width: calc(100% - 30px) !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin-inline: auto !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected__grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none !important;
+    gap: 15px !important;
+    width: 100% !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 article.service-protected-card {
+    box-sizing: border-box !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: stretch !important;
+    grid-column: 1 !important;
+    width: 100% !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+    padding: 15px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__image,
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__image img,
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__image img {
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__overlay {
+    z-index: 1 !important;
+    background: linear-gradient(180deg,rgba(8,13,22,.03) 0%,rgba(8,13,22,.07) 25%,rgba(8,13,22,.25) 49%,rgba(8,13,22,.69) 75%,rgba(8,13,22,.91) 100%) !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__copy {
+    position: relative !important;
+    z-index: 2 !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card h3 {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 10px !important;
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 110% !important;
+    letter-spacing: 0 !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__copy div,
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__copy p {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    color: rgba(255,255,255,.80) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 110% !important;
+    letter-spacing: 0 !important;
+  }
+/* BAGIRA-TRANSPORT-FIGMA-STROKE-V3:START */
+/* Figma: #20202F, 1px INSIDE, 20px radius. Keep photos, type, gradient and geometry. */
+@media screen and (max-width: 767px) {
+  body.postid-15 section.service-protected--default.service-protected--items-2 article.service-protected-card {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-radius: 20px !important;
+    background: #080d16 !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 article.service-protected-card::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 3 !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    border: 1px solid #20202f !important;
+    border-radius: inherit !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__image,
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__image img,
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__overlay {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  body.postid-15 section.service-protected--default.service-protected--items-2 .service-protected-card__image img {
+    display: block !important;
+  }
+}
+/* BAGIRA-TRANSPORT-FIGMA-STROKE-V3:END */
+}
+/* BAGIRA-TRANSPORT-PROTECTED-FIGMA-MOBILE-20261109:END */
