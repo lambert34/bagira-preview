@@ -7993,3 +7993,24 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipme
   }
 }
 /* BAGIRA-SMOKE-DEFAULT-FIGMA-ALIGN-V2:END */
+
+/* BAGIRA-HEADER-RECORDING-PULSE-V1:START */
+/* 9px red status indicator: gentle large -> small -> large recording pulse. */
+@keyframes bagira-header-recording-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(.52); opacity: .72; }
+}
+.site-header .work-hours img {
+  transform-origin: 50% 50%;
+  animation: bagira-header-recording-pulse 1.55s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .work-hours img {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
+}
+/* BAGIRA-HEADER-RECORDING-PULSE-V1:END */

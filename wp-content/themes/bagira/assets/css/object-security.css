@@ -6258,3 +6258,24 @@ ul {
 			rgba(5, 8, 22, .5);
 	}
 }
+
+/* BAGIRA-HEADER-RECORDING-PULSE-V1:START */
+/* 9px red status indicator: gentle large -> small -> large recording pulse. */
+@keyframes bagira-header-recording-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(.52); opacity: .72; }
+}
+.site-header .work-hours img {
+  transform-origin: 50% 50%;
+  animation: bagira-header-recording-pulse 1.55s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .work-hours img {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
+}
+/* BAGIRA-HEADER-RECORDING-PULSE-V1:END */
