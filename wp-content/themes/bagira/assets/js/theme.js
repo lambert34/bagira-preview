@@ -239,4 +239,60 @@
         }
     }
 
+
+    // BAGIRA-HOME-SERVICES-MOBILE-CAROUSEL-20261109:START
+    // Accessible arrows for native swipe carousel. Markup/links are unchanged.
+    ( function () {
+        var grid = document.querySelector( 'body.home .services__grid' );
+        var title = document.querySelector( 'body.home .services h2' );
+        if ( !grid || !title || document.querySelector( '.home-services__controls' ) ) { return; }
+        var cards = Array.prototype.slice.call( grid.querySelectorAll( ':scope > .service-card' ) );
+        if ( cards.length < 2 ) { return; }
+        var controls = document.createElement( 'div' );
+        controls.className = 'home-services__controls';
+        var previous = document.createElement( 'button' );
+        var next = document.createElement( 'button' );
+        previous.type = next.type = 'button';
+        previous.textContent = '←';
+        next.textContent = '→';
+        previous.setAttribute( 'aria-label', 'Предыдущая услуга' );
+        next.setAttribute( 'aria-label', 'Следующая услуга' );
+        controls.appendChild( previous );
+        controls.appendChild( next );
+        title.insertAdjacentElement( 'afterend', controls );
+        var mobile = window.matchMedia( '(max-width: 767px)' );
+        var framePending = false;
+        function currentIndex() {
+            var bounds = grid.getBoundingClientRect();
+            var best = 0, distance = Infinity;
+            cards.forEach( function ( card, index ) {
+                var d = Math.abs( card.getBoundingClientRect().left - bounds.left );
+                if ( d < distance ) { distance = d; best = index; }
+            } );
+            return best;
+        }
+        function update() {
+            if ( !mobile.matches ) { return; }
+            var index = currentIndex();
+            previous.disabled = index === 0;
+            next.disabled = index === cards.length - 1;
+        }
+        function go( delta ) {
+            if ( !mobile.matches ) { return; }
+            var index = Math.max( 0, Math.min( cards.length - 1, currentIndex() + delta ) );
+            var x = grid.scrollLeft + cards[index].getBoundingClientRect().left - grid.getBoundingClientRect().left;
+            grid.scrollTo( { left: x, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' } );
+        }
+        previous.addEventListener( 'click', function () { go( -1 ); } );
+        next.addEventListener( 'click', function () { go( 1 ); } );
+        grid.addEventListener( 'scroll', function () {
+            if ( framePending ) { return; }
+            framePending = true;
+            window.requestAnimationFrame( function () { framePending = false; update(); } );
+        }, { passive: true } );
+        window.addEventListener( 'resize', update );
+        update();
+    } )();
+    // BAGIRA-HOME-SERVICES-MOBILE-CAROUSEL-20261109:END
+
 }() );
