@@ -7860,3 +7860,242 @@ body.postid-15 .service-geography__city-label--barnaul {
   }
 }
 /* BAGIRA-HEADER-RECORDING-PULSE-V1:END */
+
+/* BAGIRA-TRANSPORT-TABLET-WP-V3-MAIN:START */
+/* BAGIRA TRANSPORT TABLET WP DIRECT V3 — POST 15 ONLY */
+@media (min-width:768px) and (max-width:1023px) {
+  /* 1. Header: actual city spans are already in WordPress HTML. */
+  body.postid-15 .site-header .header-phones span {
+    display:inline !important;
+    color:var(--bagira-white-50, rgba(255,255,255,.5)) !important;
+    font-weight:500 !important;
+  }
+  body.postid-15 .site-header .header-phones a {
+    white-space:nowrap !important;
+    font-size:12px !important;
+  }
+
+  /* 2. Slightly enlarge the existing hero artwork, keeping it below the copy. */
+  body.postid-15 .service-hero--standards-mosaic .service-hero__visual {
+    position:absolute !important;
+    top:auto !important;
+    bottom:9px !important;
+    right:clamp(28px, 7vw, 70px) !important;
+    left:auto !important;
+    width:min(56vw, 430px) !important;
+    height:auto !important;
+    aspect-ratio:726 / 506 !important;
+    z-index:2 !important;
+  }
+  body.postid-15 .service-hero--standards-mosaic .service-hero__visual img {
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    object-position:center bottom !important;
+  }
+
+  /* 3. Figma-like discount card, not a shallow thin banner. */
+  body.postid-15 .service-promo {
+    position:relative !important;
+    box-sizing:border-box !important;
+    width:calc(100% - 48px) !important;
+    max-width:760px !important;
+    height:278px !important;
+    min-height:278px !important;
+    margin:68px auto 0 !important;
+    padding:0 !important;
+    border-radius:22px !important;
+    overflow:hidden !important;
+  }
+  body.postid-15 .service-promo__content {
+    position:relative !important;
+    inset:auto !important;
+    z-index:2 !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    width:100% !important;
+    height:100% !important;
+    padding:36px 36px 26px !important;
+  }
+  body.postid-15 .service-promo h2 {
+    width:min(100%, 470px) !important;
+    max-width:470px !important;
+    margin:0 !important;
+    font-size:30px !important;
+    font-weight:700 !important;
+    line-height:1.12 !important;
+    letter-spacing:0 !important;
+  }
+  body.postid-15 .service-promo__note {
+    margin:14px 0 0 !important;
+    font-size:14px !important;
+    line-height:1.25 !important;
+  }
+  body.postid-15 .service-promo__note p { margin:0 !important; }
+  body.postid-15 .service-promo__content .button {
+    box-sizing:border-box !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:190px !important;
+    min-width:0 !important;
+    height:46px !important;
+    min-height:46px !important;
+    padding:0 20px !important;
+    margin:25px 0 0 !important;
+    border-radius:10px !important;
+    white-space:nowrap !important;
+    font-size:14px !important;
+  }
+  body.postid-15 .service-promo__image {
+    position:absolute !important;
+    top:auto !important;
+    left:auto !important;
+    right:-55px !important;
+    bottom:-50px !important;
+    z-index:1 !important;
+    width:450px !important;
+    height:260px !important;
+    opacity:.48 !important;
+    pointer-events:none !important;
+  }
+  body.postid-15 .service-promo__image img {
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    object-position:right bottom !important;
+  }
+
+  /* 4. Both protected cards in ONE horizontal row at tablet width. */
+  body.postid-15 .service-protected--default.service-protected--items-2 > .container {
+    box-sizing:border-box !important;
+    width:calc(100% - 48px) !important;
+    max-width:760px !important;
+    padding:0 !important;
+    margin-inline:auto !important;
+  }
+  body.postid-15 .service-protected--default.service-protected--items-2 .service-protected__grid {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:auto !important;
+    gap:16px !important;
+    width:100% !important;
+    min-width:0 !important;
+  }
+  body.postid-15 .service-protected--default.service-protected--items-2 article.service-protected-card {
+    position:relative !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-end !important;
+    grid-column:auto !important;
+    grid-row:auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:250px !important;
+    min-height:250px !important;
+    max-height:250px !important;
+    margin:0 !important;
+    padding:15px !important;
+    border-radius:20px !important;
+    overflow:hidden !important;
+  }
+  body.postid-15 .service-protected--default.service-protected--items-2 .service-protected-card__copy {
+    position:relative !important;
+    inset:auto !important;
+    z-index:2 !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+  }
+  body.postid-15 .service-protected--default.service-protected--items-2 .service-protected-card__copy h3 {
+    width:100% !important;
+    margin:0 0 8px !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:17px !important;
+    font-weight:700 !important;
+    line-height:1.1 !important;
+  }
+  body.postid-15 .service-protected--default.service-protected--items-2 .service-protected-card__copy p {
+    width:100% !important;
+    margin:0 !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:12px !important;
+    font-weight:400 !important;
+    line-height:1.23 !important;
+    color:rgba(255,255,255,.8) !important;
+  }
+
+  /* 5. Consultation like previous page: two balanced columns with photo. */
+  body.postid-15 .service-page .consultation--service {
+    box-sizing:border-box !important;
+    width:100% !important;
+    margin-top:54px !important;
+    padding:0 0 76px !important;
+  }
+  body.postid-15 .service-page .consultation--service .consultation__panel {
+    box-sizing:border-box !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) 240px !important;
+    width:calc(100% - 48px) !important;
+    max-width:760px !important;
+    height:auto !important;
+    min-height:485px !important;
+    padding:0 !important;
+    margin-inline:auto !important;
+    overflow:hidden !important;
+    border-radius:22px !important;
+  }
+  body.postid-15 .consultation--service .consultation__content {
+    box-sizing:border-box !important;
+    min-width:0 !important;
+    padding:32px 26px 27px !important;
+  }
+  body.postid-15 .consultation--service .consultation__content h2 {
+    margin:0 0 22px !important;
+    font-size:32px !important;
+    line-height:1.08 !important;
+  }
+  body.postid-15 .consultation--service .consultation-form__fields {gap:12px !important;}
+  body.postid-15 .consultation--service .form-field input {
+    box-sizing:border-box !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    height:46px !important;
+  }
+  body.postid-15 .consultation--service .consultation-form__submit {
+    width:185px !important;
+    min-width:0 !important;
+    height:46px !important;
+    min-height:46px !important;
+    margin-top:18px !important;
+    font-size:14px !important;
+  }
+  body.postid-15 .consultation--service .consent {margin-top:12px !important;}
+  body.postid-15 .consultation--service .consent--marketing {margin-top:8px !important;}
+  body.postid-15 .consultation--service .consent__text {
+    font-size:11px !important;
+    line-height:1.3 !important;
+    overflow-wrap:anywhere !important;
+  }
+  body.postid-15 .service-page .consultation--service .consultation__image,
+  body.postid-15 .service-page .consultation--service .consultation__image img {
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:485px !important;
+  }
+  body.postid-15 .service-page .consultation--service .consultation__image img {
+    object-fit:cover !important;
+    object-position:center !important;
+  }
+}
+/* BAGIRA-TRANSPORT-TABLET-WP-V3-MAIN:END */
