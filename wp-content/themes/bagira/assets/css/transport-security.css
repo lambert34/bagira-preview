@@ -8216,3 +8216,262 @@ body.postid-15 .bagira-transport-tablet-toggle { display: none; }
 
  }
 /* BAGIRA-TRANSPORT-TABLET-STANDARDS-ACCORDION-V4:END */
+
+/* BAGIRA-TRANSPORT-MOBILE-STANDARDS-V5:START */
+/* Only Transport Security post 15, only mobile <=767px. */
+@media (max-width: 767px) {
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready {
+    box-sizing: border-box !important;
+    width: calc(100% - 30px) !important;
+    max-width: none !important;
+    margin: 60px auto 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid #20202f !important;
+    border-radius: 24px !important;
+    background: rgba(5, 8, 22, .52) !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready > .service-standards__layout {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 20px 15px 24px !important;
+    margin: 0 !important;
+    gap: 12px !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standards__lead,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standards__stack {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 12px !important;
+    font-family: Montserrat, Arial, sans-serif !important;
+    font-size: 25px !important;
+    font-weight: 700 !important;
+    line-height: 1.12 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard--featured,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standards__stack .service-standard {
+    position: relative !important;
+    inset: auto !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    padding: 17px 14px 19px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 15px !important;
+    background: #303041 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-closed {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 64px !important;
+    padding: 14px 50px 14px 15px !important;
+    background: #242433 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard__copy,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard--featured .service-standard__copy,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standards__stack .service-standard__copy {
+    position: static !important;
+    inset: auto !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard h3 {
+    width: calc(100% - 37px) !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 0 12px !important;
+    color: #fff !important;
+    font-family: Montserrat, Arial, sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    line-height: 1.18 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-closed h3 {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard__text,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard__text p {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    color: rgba(255,255,255,.73) !important;
+    font-family: Montserrat, Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.35 !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard__text p + p {
+    margin-top: 9px !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-closed .service-standard__text,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-closed .service-standard__image {
+    display: none !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-open .service-standard__image {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 155px !important;
+    padding: 0 !important;
+    margin: 14px auto 0 !important;
+    overflow: hidden !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-open .service-standard__image img {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 155px !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    transform: none !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready button.bagira-transport-mobile-toggle {
+    position: absolute !important;
+    top: 14px !important;
+    right: 12px !important;
+    z-index: 5 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 25px !important;
+    height: 25px !important;
+    min-width: 25px !important;
+    min-height: 25px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    color: #080d16 !important;
+    cursor: pointer !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-closed button.bagira-transport-mobile-toggle {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready button.bagira-transport-mobile-toggle::before,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready button.bagira-transport-mobile-toggle::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    width: 11px !important;
+    height: 2px !important;
+    border: 0 !important;
+    border-radius: 1px !important;
+    background: #080d16 !important;
+    transition: transform 140ms ease !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .bagira-transport-mobile-toggle::after {
+    transform: rotate(90deg) !important;
+  }
+  /* In Figma the open icon is X, not minus. */
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .bagira-mobile-open .bagira-transport-mobile-toggle::before {
+    transform: rotate(45deg) !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .bagira-mobile-open .bagira-transport-mobile-toggle::after {
+    transform: rotate(-45deg) !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .bagira-transport-mobile-toggle:focus-visible {
+    outline: 2px solid #9e91ff !important;
+    outline-offset: 3px !important;
+  }
+}
+@media (min-width: 768px) {
+  body.postid-15 .service-standards--mosaic button.bagira-transport-mobile-toggle {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.postid-15 .service-standards--mosaic button.bagira-transport-mobile-toggle::before,
+  body.postid-15 .service-standards--mosaic button.bagira-transport-mobile-toggle::after { transition: none !important; }
+}
+/* BAGIRA-TRANSPORT-MOBILE-STANDARDS-V5:END */
+
+/* BAGIRA-STANDARDS-FIGMA-ICONS-V6:START */
+/* Figma: 25x25 white circle, dark #080D16 + or x. No font glyphs or minus. */
+@media (max-width: 1023px) {
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready button.bagira-transport-mobile-toggle,
+  body.postid-15 .service-standards--mosaic button.bagira-transport-tablet-toggle {
+    box-sizing: border-box !important;
+    width: 25px !important;
+    height: 25px !important;
+    min-width: 25px !important;
+    min-height: 25px !important;
+    max-width: 25px !important;
+    max-height: 25px !important;
+    flex: 0 0 25px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2225%22%20height%3D%2225%22%20viewBox%3D%220%200%2025%2025%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2212.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cpath%20d%3D%22M7.5%2012.5%20H17.5%20M12.5%207.5%20V17.5%22%20fill%3D%22none%22%20stroke%3D%22%23080D16%22%20stroke-width%3D%222.3%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E") !important;
+    background-size: 25px 25px !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    letter-spacing: 0 !important;
+    text-indent: -9999px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready button.bagira-transport-mobile-toggle::before,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready button.bagira-transport-mobile-toggle::after,
+  body.postid-15 .service-standards--mosaic button.bagira-transport-tablet-toggle::before,
+  body.postid-15 .service-standards--mosaic button.bagira-transport-tablet-toggle::after {
+    content: none !important;
+    display: none !important;
+  }
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready button.bagira-transport-mobile-toggle[aria-expanded="true"],
+  body.postid-15 .service-standards--mosaic button.bagira-transport-tablet-toggle[aria-expanded="true"] {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2225%22%20height%3D%2225%22%20viewBox%3D%220%200%2025%2025%22%3E%3Ccircle%20cx%3D%2212.5%22%20cy%3D%2212.5%22%20r%3D%2212.5%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cpath%20d%3D%22M8%208%20L17%2017%20M17%208%20L8%2017%22%20fill%3D%22none%22%20stroke%3D%22%23080D16%22%20stroke-width%3D%222.3%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E") !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body.postid-15 .service-standards--mosaic button.bagira-transport-tablet-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+/* BAGIRA-STANDARDS-FIGMA-ICONS-V6:END */

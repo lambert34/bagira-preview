@@ -316,3 +316,71 @@
 }());
 
 /* BAGIRA-TRANSPORT-TABLET-STANDARDS-ACCORDION-V4:END */
+
+// BAGIRA-TRANSPORT-MOBILE-STANDARDS-V5:START
+(function () {
+  'use strict';
+  function setupTransportMobileStandards() {
+    if (!document.body.classList.contains('postid-15')) return;
+    var root = document.querySelector('.service-standards--mosaic');
+    if (!root || root.dataset.bagiraMobileAccordionV5 === 'ready') return;
+    var cards = Array.prototype.slice.call(root.querySelectorAll('article.service-standard'));
+    if (cards.length !== 4) return;
+    root.dataset.bagiraMobileAccordionV5 = 'ready';
+    var media = window.matchMedia('(max-width: 767px)');
+    var active = 2; // The third card is open in the mobile Figma reference.
+    var controls = [];
+
+    cards.forEach(function (card, index) {
+      var title = card.querySelector('h3');
+      if (!title) return;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'bagira-transport-mobile-toggle';
+      button.setAttribute('aria-label', 'Развернуть: ' + title.textContent.trim());
+      button.setAttribute('aria-expanded', 'false');
+      card.appendChild(button); // Does not replace or modify existing content.
+      controls[index] = button;
+      button.addEventListener('click', function () {
+        if (!media.matches) return;
+        active = active === index ? -1 : index;
+        update();
+      });
+    });
+
+    function update() {
+      var mobile = media.matches;
+      root.classList.toggle('bagira-mobile-accordion-ready', mobile);
+      cards.forEach(function (card, index) {
+        var expanded = mobile && index === active;
+        card.classList.toggle('bagira-mobile-open', expanded);
+        card.classList.toggle('bagira-mobile-closed', mobile && !expanded);
+        var title = card.querySelector('h3');
+        var control = controls[index];
+        if (control) {
+          control.hidden = !mobile;
+          control.setAttribute('aria-expanded', String(expanded));
+          control.setAttribute('aria-label', (expanded ? 'Свернуть: ' : 'Развернуть: ') + (title ? title.textContent.trim() : 'карточку'));
+        }
+        // Visually hidden content is also hidden from screen readers in collapsed mode.
+        var text = card.querySelector('.service-standard__text');
+        var image = card.querySelector('.service-standard__image');
+        if (text) {
+          if (mobile && !expanded) text.setAttribute('aria-hidden', 'true');
+          else text.removeAttribute('aria-hidden');
+        }
+        if (image) {
+          // The original image wrapper is decorative on this page.
+          if (mobile && !expanded) image.setAttribute('aria-hidden', 'true');
+          else if (!image.hasAttribute('aria-hidden')) image.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+    if (typeof media.addEventListener === 'function') media.addEventListener('change', update);
+    else if (typeof media.addListener === 'function') media.addListener(update);
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupTransportMobileStandards);
+  else setupTransportMobileStandards();
+})();
+// BAGIRA-TRANSPORT-MOBILE-STANDARDS-V5:END
