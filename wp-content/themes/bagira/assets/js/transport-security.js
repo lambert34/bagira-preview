@@ -260,3 +260,59 @@
     }
 
 }() );
+
+/* BAGIRA-TRANSPORT-TABLET-STANDARDS-ACCORDION-V4:START */
+
+(function () {
+  'use strict';
+  function initialize() {
+    if (!document.body.classList.contains('postid-15')) return;
+    var root = document.querySelector('.service-standards--mosaic');
+    if (!root || root.dataset.bagiraTransportTabletAccordion === 'ready') return;
+    var cards = Array.from(root.querySelectorAll('.service-standard'));
+    if (cards.length < 2) return;
+    root.dataset.bagiraTransportTabletAccordion = 'ready';
+    var query = window.matchMedia('(min-width: 768px) and (max-width: 1023px)');
+    var activeIndex = 2; // Expanded in the reference Figma screenshot
+    var buttons = [];
+    cards.forEach(function (card, index) {
+      var copy = card.querySelector('.service-standard__copy');
+      var title = card.querySelector('h3');
+      if (!copy || !title) return;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'bagira-transport-tablet-toggle';
+      button.setAttribute('aria-label', 'Развернуть: ' + title.textContent.trim());
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('title', 'Развернуть или свернуть карточку');
+      copy.appendChild(button);
+      buttons[index] = button;
+      button.addEventListener('click', function () {
+        if (!query.matches) return;
+        activeIndex = activeIndex === index ? -1 : index;
+        update();
+      });
+    });
+    function update() {
+      cards.forEach(function (card, index) {
+        var button = buttons[index];
+        if (!button) return;
+        var enabled = query.matches;
+        var expanded = enabled && index === activeIndex;
+        card.classList.toggle('bagira-tablet-expanded', expanded);
+        card.classList.toggle('bagira-tablet-collapsed', enabled && !expanded);
+        button.hidden = !enabled;
+        button.textContent = expanded ? '\u2212' : '+';
+        button.setAttribute('aria-expanded', String(expanded));
+        var title = card.querySelector('h3');
+        button.setAttribute('aria-label', (expanded ? 'Свернуть: ' : 'Развернуть: ') + (title ? title.textContent.trim() : 'карточку'));
+      });
+    }
+    query.addEventListener('change', update);
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize);
+  else initialize();
+}());
+
+/* BAGIRA-TRANSPORT-TABLET-STANDARDS-ACCORDION-V4:END */
