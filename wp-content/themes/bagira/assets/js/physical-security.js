@@ -240,3 +240,59 @@
     }
 
 }() );
+
+/* BAGIRA-PHYSICAL-WP-TABLET-V2-MAIN:START */
+(function(){
+  'use strict';
+  var match = window.matchMedia('(min-width:768px) and (max-width:1023px)');
+  var STARTED = false;
+  var cards = [], buttons = [];
+  var activeIndex = 0;
+  var PLUS = '<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12.5" cy="12.5" r="12.5" fill="#FFFFFF"/><path d="M12.5 7V18M7 12.5H18" stroke="#080D16" stroke-width="2.6" stroke-linecap="round"/></svg>';
+  var CROSS = '<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12.5" cy="12.5" r="12.5" fill="#FFFFFF"/><path d="M8 8L17 17M17 8L8 17" stroke="#080D16" stroke-width="2.6" stroke-linecap="round"/></svg>';
+  function update(){
+    cards.forEach(function(card,index){
+      var enabled = match.matches;
+      var opened = enabled && index === activeIndex;
+      card.classList.toggle('bagira-physical-tablet-expanded',opened);
+      card.classList.toggle('bagira-physical-tablet-collapsed',enabled && !opened);
+      if(buttons[index]){
+        buttons[index].hidden = !enabled;
+        buttons[index].setAttribute('aria-expanded',String(opened));
+        buttons[index].setAttribute('aria-label',(opened?'Закрыть: ':'Открыть: ')+(card.querySelector('h3')?.textContent||'Карточка').trim());
+        buttons[index].innerHTML = opened ? CROSS : PLUS;
+      }
+    });
+  }
+  function init(){
+    if(STARTED || !document.body.classList.contains('postid-17')) return;
+    var root=document.querySelector('.service-standards--split');
+    if(!root) return;
+    cards=Array.from(root.querySelectorAll('article.service-standard'));
+    if(cards.length !== 3) return;
+    STARTED=true;
+    cards.forEach(function(card,index){
+      var host=card.querySelector('.service-standard__copy');
+      if(!host) return;
+      var btn=document.createElement('button');
+      btn.type='button';
+      btn.className='bagira-physical-tablet-toggle';
+      btn.setAttribute('title','Развернуть или свернуть карточку');
+      btn.setAttribute('aria-expanded','false');
+      host.appendChild(btn);
+      buttons[index]=btn;
+      btn.addEventListener('click',function(ev){
+        ev.preventDefault(); ev.stopPropagation();
+        if(!match.matches) return;
+        activeIndex = activeIndex === index ? -1 : index;
+        update();
+      });
+    });
+    if(match.addEventListener) match.addEventListener('change',update);
+    else if(match.addListener) match.addListener(update);
+    update();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+/* BAGIRA-PHYSICAL-WP-TABLET-V2-MAIN:END */
