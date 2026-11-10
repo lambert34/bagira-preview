@@ -5807,3 +5807,16 @@ ul {
   }
 }
 /* BAGIRA-HEADER-RECORDING-PULSE-V1:END */
+
+/* BAGIRA-HOME-GLOW-UNCLIP-V2:START */
+/* Original blurred Figma SVG and 3 companion ellipses retain their geometry.
+   Clip only at the WINDOW edge, not at the artificial 1280px design wrapper.
+   HTML + BODY both require overflow-x:clip in Chromium to avoid scrolling. */
+html:has(> body.home) { overflow-x: clip; }
+body.home { overflow-x: clip; }
+body.home .home-glows {
+    overflow: visible !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
+/* BAGIRA-HOME-GLOW-UNCLIP-V2:END */
