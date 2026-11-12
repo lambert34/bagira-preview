@@ -462,6 +462,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
 }
 </style>
+
+<style id="bagira-home-two-devices-figma-hover-v1">
+/* Home Security: match Figma's subdued infrared/magnetic hover artwork.
+   Active hover/focus/flipped states ONLY, desktop >= 1024px.
+   No changes to card layouts, front faces, mobile/tablet CSS or other devices. */
+@media (min-width: 1024px) {
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+  .service-equipment__group:nth-child(1)
+  .service-equipment__item:nth-child(6):is(:hover, :focus-within, .is-flipped),
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+  .service-equipment__group:nth-child(1)
+  .service-equipment__item:nth-child(7):is(:hover, :focus-within, .is-flipped) {
+    --bagira-full-opacity: .30;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+  .service-equipment__group:nth-child(1)
+  .service-equipment__item:nth-child(6):is(:hover, :focus-within, .is-flipped)
+  .service-equipment__face--back::before,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment
+  .service-equipment__group:nth-child(1)
+  .service-equipment__item:nth-child(7):is(:hover, :focus-within, .is-flipped)
+  .service-equipment__face--back::before {
+    filter: grayscale(1) brightness(.80) contrast(.96);
+  }
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
