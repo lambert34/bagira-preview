@@ -403,6 +403,65 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
 }
 </style>
+
+<style id="bagira-mobile-menu-cta-fix-20261113">
+/* Bagira mobile: show existing service links; fix transparent CTA. Page 19 only. */
+@media (max-width: 767px) {
+  body.postid-19 .site-navigation.is-mobile-open .site-navigation__list {
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+  }
+  body.postid-19 .site-navigation.is-mobile-open .site-navigation__list .sub-menu {
+    display: block !important;
+    position: static !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    min-width: 0;
+    width: 100%;
+    padding: 3px 0 8px 12px !important;
+    margin: 0;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    pointer-events: auto;
+  }
+  body.postid-19 .site-navigation.is-mobile-open .site-navigation__list .sub-menu li + li {
+    margin-top: 0;
+  }
+  body.postid-19 .site-navigation.is-mobile-open .site-navigation__list .sub-menu a {
+    display: block;
+    padding: 8px 0;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #fff;
+  }
+  body.postid-19 .service-equipment__more {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 16px;
+    border: 1px solid #3022af;
+    border-radius: 10px;
+    background: #3022af;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.25;
+    cursor: pointer;
+  }
+  body.postid-19 .service-equipment__more:hover {
+    border-color: #4032c6;
+    background: #4032c6;
+  }
+  body.postid-19 .service-equipment__more:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
@@ -637,7 +696,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>				</div>			</div>
 			<button class="service-equipment__flip-toggle" type="button" aria-pressed="false" aria-controls="service-equipment-description-19-7" aria-label="Показать описание" data-show-label="Показать описание" data-hide-label="Скрыть описание"></button>		</article>
 			</div>
-	<button class="service-equipment__more" type="button" aria-expanded="false" data-more-label="Показать ещё" data-less-label="Скрыть">Показать ещё</button>				</div>
+	<button class="service-equipment__more" type="button" aria-expanded="false" data-more-label="Показать больше" data-less-label="Скрыть">Показать больше</button>				</div>
 								<div class="service-equipment__group">
 				<div class="service-equipment__intro">
 					<h2>Пожар, утечка газа или воды</h2>					<div><p>Такие ситуации возникают внезапно и без видимых признаков. Система внутридомовых датчиков помогает предотвратить катастрофу до того, как она станет необратимой. Устройства фиксируют отклонения сразу. Сигнал тревоги передаётся мгновенно, запускаются защитные сценарии, предотвращая критический ущерб.</p>
