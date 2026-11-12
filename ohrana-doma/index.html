@@ -390,7 +390,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
 }
     </style>
-    </head>
+    
+<style id="bagira-mobile-hover-fix-v1">
+/* Keep front artwork visible on mobile hover/focus until the card is actually flipped. */
+@media (max-width: 767px) {
+  body.postid-19 .service-equipment__group
+  .service-equipment__item:is(:hover, :focus-within):not(.is-flipped)
+  .service-equipment__item-image {
+    visibility: visible !important;
+    opacity: .85 !important;
+    filter: none !important;
+  }
+}
+</style>
+</head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
 	
