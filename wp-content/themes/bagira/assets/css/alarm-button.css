@@ -6799,3 +6799,572 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
   }
 }
 /* BAGIRA-HEADER-RECORDING-PULSE-V1:END */
+
+/* BAGIRA-ALARM-TABLET-V1-MAIN:START */
+@media (min-width:768px) and (max-width:1023px) {
+  /* SCOPE: this service only. Do not alter mobile or desktop. */
+  body.postid-18 { overflow-x: clip; }
+  body.postid-18 .service-page > section { box-sizing: border-box; }
+  body.postid-18 .service-page > section > .container,
+  body.postid-18 .service-page > section > .container:not(.service-hero__breadcrumb) {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  body.postid-18 .service-page h2 { overflow-wrap: normal; }
+
+  /* Header: restore the existing grey city labels before white numbers. */
+  body.postid-18 .site-header__inner {
+    width: calc(100% - 48px);
+    column-gap: 14px;
+  }
+  body.postid-18 .site-navigation__list { gap: 10px; }
+  body.postid-18 .site-navigation__list > li > a { font-size: 12px; }
+  body.postid-18 .site-header__contact { margin-left: auto; }
+  body.postid-18 .header-phones { gap: 5px; font-size: 11px; }
+  body.postid-18 .header-phones a { display: block; white-space: nowrap; color: #fff; }
+  body.postid-18 .header-phones a span {
+    display: inline !important;
+    margin-right: 4px;
+    font-size: inherit;
+    font-weight: 500;
+    color: rgba(255,255,255,.56);
+  }
+
+  /* Hero: readable content to the left, alarm visual to the right. */
+  body.postid-18 .service-hero--pricing-2 {
+    position: relative;
+    height: auto;
+    min-height: 385px;
+    padding-top: 18px;
+    padding-bottom: 38px;
+    overflow: hidden;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__breadcrumb {
+    position: relative;
+    z-index: 3;
+    inset: auto;
+    left: auto;
+    top: auto;
+    width: calc(100% - 72px);
+    margin: 0 auto 24px;
+    transform: none;
+    font-size: 12px;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0,1.18fr) minmax(0,.82fr);
+    align-items: center;
+    gap: 16px;
+    width: calc(100% - 72px);
+    height: auto;
+    min-height: 290px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__content {
+    position: relative;
+    inset: auto;
+    z-index: 5;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__content h1 {
+    font-size: clamp(34px,4.4vw,44px);
+    line-height: 1.06;
+    margin: 0;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__content p {
+    width: auto;
+    max-width: 100%;
+    margin: 18px 0 0;
+    font-size: 16px;
+    line-height: 1.37;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__content .button {
+    width: auto;
+    min-width: 170px;
+    height: 48px;
+    margin-top: 24px;
+    padding: 0 22px;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__visual {
+    position: relative;
+    z-index: 1;
+    inset: auto;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: 310px;
+    max-height: none;
+    margin: 0;
+    overflow: visible;
+    opacity: .82;
+    pointer-events: none;
+  }
+  body.postid-18 .service-hero--pricing-2 .service-hero__visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  /* Pricing: 2 equal tariff cards, readable prices and aligned CTAs. */
+  body.postid-18 .service-pricing--dual-price {
+    width: calc(100% - 24px);
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 42px 0 36px;
+    margin: 0 auto;
+    overflow: visible;
+    border-radius: 22px;
+  }
+  body.postid-18 .service-pricing--dual-price > .container {
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    padding: 0;
+  }
+  body.postid-18 .service-pricing--dual-price h2 {
+    max-width: 650px;
+    margin: 0 0 24px;
+    font-size: 32px;
+    line-height: 1.12;
+  }
+  body.postid-18 .service-pricing--dual-price .service-pricing__grid {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 16px;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 0;
+    width: 100%;
+    height: 385px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #252536;
+    border-radius: 18px;
+    background: #252536;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__image {
+    position: absolute;
+    inset: 0 0 auto;
+    width: 100%;
+    height: 235px;
+    overflow: hidden;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff h3 {
+    position: absolute;
+    z-index: 2;
+    inset: 19px auto auto 18px;
+    max-width: calc(100% - 36px);
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.12;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-panel,
+  body.postid-18 .service-hero--pricing-2 + .service-pricing--dual-price .service-tariff__price-panel {
+    position: relative;
+    z-index: 3;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    min-height: 184px;
+    margin: 0;
+    padding: 19px 16px 16px;
+    border: 1px solid #303041;
+    border-radius: 17px;
+    background: #242434;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-columns,
+  body.postid-18 .service-hero--pricing-2 + .service-pricing--dual-price .service-tariff__price-columns {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-column {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-label {
+    margin: 0 0 12px;
+    min-height: 32px;
+    font-size: 12px;
+    line-height: 1.25;
+    color: rgba(255,255,255,.68);
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price,
+  body.postid-18 .service-hero--pricing-2 + .service-pricing--dual-price .service-tariff__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px;
+    height: auto;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price strong {
+    font-size: clamp(20px,2.45vw,26px);
+    font-weight: 600;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__button,
+  body.postid-18 .service-hero--pricing-2 + .service-pricing--dual-price .service-tariff__button {
+    position: relative;
+    inset: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 12px;
+    margin: 16px 0 0;
+    border-radius: 9px;
+    font-size: 14px;
+    white-space: nowrap;
+    transform: none;
+  }
+  body.postid-18 .service-pricing__mobile-pagination { display: none; }
+  body.postid-18 .service-pricing--dual-price .service-pricing__features {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px 24px;
+    width: 100%;
+    min-height: 0;
+    margin: 24px 0 0;
+    padding: 0;
+  }
+  body.postid-18 .service-pricing--dual-price .service-pricing__features li {
+    min-width: 0;
+    padding-left: 26px;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  body.postid-18 .service-pricing--dual-price .service-pricing__features li::before {
+    width: 18px;
+    height: 18px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-pricing__cta {
+    margin-top: 24px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-pricing__cta .button {
+    min-width: 225px;
+    height: 46px;
+    padding: 0 24px;
+    font-size: 15px;
+  }
+
+  /* Standards: preserve all three icon-column items; make them legible. */
+  body.postid-18 .service-standards--icon-columns {
+    width: calc(100% - 72px);
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    margin: 64px auto 0;
+    overflow: visible;
+  }
+  body.postid-18 .service-standards--icon-columns > .container {
+    width: 100%;
+    padding: 0;
+  }
+  body.postid-18 .service-standards--icon-columns h2 {
+    font-size: 32px;
+    line-height: 1.13;
+    margin: 0 0 24px;
+  }
+  body.postid-18 .service-standards--icon-columns .service-standards__items {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-auto-rows: auto;
+    gap: 14px;
+    margin: 0;
+  }
+  body.postid-18 .service-standards--icon-columns .service-standard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    min-height: 220px;
+    padding: 18px 16px;
+    margin: 0;
+    border: 1px solid #252536;
+    border-radius: 17px;
+    background: #20202f;
+  }
+  body.postid-18 .service-standards--icon-columns .service-standard__image {
+    display: block;
+    position: static;
+    width: 30px;
+    height: 30px;
+  }
+  body.postid-18 .service-standards--icon-columns .service-standard__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  body.postid-18 .service-standards--icon-columns .service-standard__copy {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  body.postid-18 .service-standards--icon-columns .service-standard h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.23;
+  }
+  body.postid-18 .service-standards--icon-columns .service-standard__text,
+  body.postid-18 .service-standards--icon-columns .service-standard__text p {
+    max-width: 100%;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.36;
+  }
+
+  /* Smartphone security service: two-column layout without floating text. */
+  body.postid-18 .service-application--smartphone-alarm {
+    width: 100%;
+    margin: 68px 0 0;
+    overflow: hidden;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr);
+    gap: 18px;
+    align-items: center;
+    width: calc(100% - 72px);
+    min-height: 450px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__content {
+    position: relative;
+    z-index: 3;
+    inset: auto;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+  body.postid-18 .service-application--smartphone-alarm h2 {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.13;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__text {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__features,
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain .service-application__features {
+    position: static;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    min-height: 0;
+    margin: 20px 0 0;
+    padding: 0;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__features li {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__media {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    min-height: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__image {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    width: 62%;
+    height: 380px;
+    z-index: 2;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image {
+    position: absolute;
+    top: 65px;
+    right: 43%;
+    bottom: auto;
+    left: auto;
+    width: 50%;
+    height: 310px;
+    opacity: .55;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__image img,
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain .service-application__image img,
+  body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image img {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Equipment: 3 readable columns, preserve flip/active behavior. */
+  body.postid-18 .service-equipment {
+    margin: 65px 0 0;
+  }
+  body.postid-18 .service-equipment > .container {
+    width: calc(100% - 72px);
+    margin: 0 auto;
+    padding: 0;
+  }
+  body.postid-18 .service-equipment__intro {
+    width: 100%;
+    max-width: 100%;
+  }
+  body.postid-18 .service-equipment h2 {
+    font-size: 32px;
+    line-height: 1.12;
+  }
+  body.postid-18 .service-equipment__intro > div:not(.service-equipment__group-image) {
+    width: 100%;
+    max-width: 630px;
+    margin-top: 17px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  body.postid-18 .service-equipment__grid,
+  body.postid-18 .service-equipment__grid--collapsible {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 16px;
+    margin-top: 25px;
+  }
+  body.postid-18 .service-equipment__item {
+    min-width: 0;
+    width: 100%;
+    height: 225px;
+    border-radius: 17px;
+  }
+  body.postid-18 .service-equipment__item h3 {
+    margin: 17px;
+    max-width: 72%;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  body.postid-18 .service-equipment__item-text {
+    max-width: 75%;
+    margin: 0 17px;
+    font-size: 12px;
+    line-height: 1.24;
+  }
+  body.postid-18 .service-equipment__item-image {
+    width: 67%;
+    height: 100%;
+  }
+  body.postid-18 .service-equipment__more {
+    min-height: 44px;
+    margin-top: 18px;
+  }
+
+  /* Form: same compact two-column layout as other tablet service pages. */
+  body.postid-18 .service-page .consultation--service {
+    margin: 0;
+    padding: 75px 0 80px;
+  }
+  body.postid-18 .service-page .consultation--service .consultation__panel {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 265px;
+    gap: 0;
+    width: calc(100% - 72px);
+    height: auto;
+    min-height: 445px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  body.postid-18 .consultation--service .consultation__content {
+    min-width: 0;
+    padding: 34px 26px;
+  }
+  body.postid-18 .consultation--service .consultation__content h2 {
+    margin-bottom: 22px;
+    font-size: 37px;
+    line-height: 1.04;
+  }
+  body.postid-18 .consultation--service .consultation-form__fields {
+    gap: 12px;
+  }
+  body.postid-18 .consultation--service .form-field input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 46px;
+    font-size: 14px;
+  }
+  body.postid-18 .consultation--service .consultation-form__submit {
+    min-width: 165px;
+    width: auto;
+    height: 46px;
+    min-height: 46px;
+    margin: 18px 0 0;
+    font-size: 14px;
+  }
+  body.postid-18 .consultation--service .consent { margin-top: 13px; }
+  body.postid-18 .consultation--service .consent__text {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+  body.postid-18 .consultation--service .consultation__image {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 445px;
+    overflow: hidden;
+  }
+  body.postid-18 .consultation--service .consultation__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 445px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+/* BAGIRA-ALARM-TABLET-V1-MAIN:END */
