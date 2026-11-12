@@ -121,6 +121,49 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
 }
 </style>
+
+<style id="bagira-form-checkbox-figma-v1">
+/* 18x18 Figma checkbox variants. Only service consultation form on pages 18 and 19. */
+body:is(.postid-18, .postid-19) #consultation .consent__box {
+  box-sizing: border-box;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, .50) !important;
+  border-radius: 3px;
+  background: transparent !important;
+  transition: border-color 140ms ease;
+}
+body:is(.postid-18, .postid-19) #consultation .consent:hover input:not(:checked) + .consent__box {
+  border-color: #fff !important;
+}
+body:is(.postid-18, .postid-19) #consultation .consent input:checked + .consent__box {
+  border-color: rgba(255, 255, 255, .65) !important;
+  background: transparent !important;
+}
+body:is(.postid-18, .postid-19) #consultation .consent input:checked + .consent__box::after {
+  content: "" !important;
+  position: absolute;
+  inset: auto !important;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 6px;
+  border: 0;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  background: none !important;
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+body:is(.postid-18, .postid-19) #consultation .consent input:focus-visible + .consent__box {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  body:is(.postid-18, .postid-19) #consultation .consent__box { transition: none; }
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-18 wp-theme-bagira">
 
@@ -466,5 +509,35 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script id="bagira-script-js" src="/bagira-preview/wp-content/themes/bagira/assets/js/alarm-button.js"></script>
 
 
-<script id="bagira-preview-form-script">document.querySelectorAll("form[data-preview-form]").forEach(function(form){form.addEventListener("submit",function(event){event.preventDefault();event.stopImmediatePropagation();if(!form.checkValidity()){form.reportValidity();return;}var note=form.querySelector(".preview-form-note");if(note){note.hidden=false;note.focus();}},true);});</script></body>
+<script id="bagira-preview-form-script">document.querySelectorAll("form[data-preview-form]").forEach(function(form){form.addEventListener("submit",function(event){event.preventDefault();event.stopImmediatePropagation();if(!form.checkValidity()){form.reportValidity();return;}var note=form.querySelector(".preview-form-note");if(note){note.hidden=false;note.focus();}},true);});</script>
+<script id="bagira-phone-digits-only-v1">
+(function () {
+  'use strict';
+  var phone = document.querySelector('#consultation .consultation-form input[name="phone"]');
+  if (!phone) { return; }
+  // type=tel alone does not prevent text input: enforce digits at the field itself.
+  phone.setAttribute('inputmode', 'numeric');
+  phone.setAttribute('pattern', '[0-9]+');
+  phone.setAttribute('title', 'Введите номер телефона только цифрами');
+
+  function sanitizePhone() {
+    var old = phone.value;
+    var digits = old.replace(/[^0-9]/g, '');
+    if (old === digits) { return; }
+    var start = phone.selectionStart == null ? old.length : phone.selectionStart;
+    var end = phone.selectionEnd == null ? old.length : phone.selectionEnd;
+    var newStart = old.slice(0, start).replace(/[^0-9]/g, '').length;
+    var newEnd = old.slice(0, end).replace(/[^0-9]/g, '').length;
+    phone.value = digits;
+    try { phone.setSelectionRange(newStart, newEnd); } catch (_) {}
+    phone.classList.toggle('has-value', phone.value.length > 0);
+  }
+  phone.addEventListener('input', sanitizePhone);
+  phone.addEventListener('change', sanitizePhone);
+  phone.addEventListener('compositionend', sanitizePhone);
+  phone.addEventListener('blur', sanitizePhone);
+  sanitizePhone();
+}());
+</script>
+</body>
 </html>
