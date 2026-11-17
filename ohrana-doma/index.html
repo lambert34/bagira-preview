@@ -577,7 +577,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 </style>
 
-<style id="bagira-home-desktop-client-20261117-v4">
+<style id="bagira-home-desktop-client-20261117-v5-typography">
 /* Bagira desktop, postid-19, verified against Figma 2325:583.
    Mobile/tablet remain unchanged. Remove old client V1 block rather than stack it. */
 @media (min-width:1280px) {
@@ -586,8 +586,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     grid-template-rows:auto auto;row-gap:12px;align-items:start;
   }
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights li {
-    font-size:16px;line-height:1.35;height:auto;min-height:22px;overflow-wrap:break-word;
+    font-size:15px;line-height:normal;height:auto;min-height:22px;overflow-wrap:break-word;
   }
+  /* Figma node 2325:583: third benefit text is Montserrat Regular 15px. */
+  body.postid-19 .service-hero--highlights-compact .service-hero__highlights li:nth-child(3) .service-hero__highlight-key {font-weight:400;}
   /* Visible, spatially anchored elliptical glows. Avoid z-index:-1 and clipped
      app pseudo-elements: these had made the former gradients effectively invisible. */
   body.postid-19 .service-hero--highlights-compact {
