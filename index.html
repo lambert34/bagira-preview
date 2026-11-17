@@ -141,6 +141,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   #consultation .consultation-form .consent__box {transition: none;}
 }
 </style>
+<style id="bagira-client-contacts-part1-v1">
+/* Client-approved contact grouping; homepage footer only. */
+.footer-contacts .office .bagira-contact-group{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:9px 0 12px;}
+.footer-contacts .office .bagira-contact-label{display:block;font-style:normal;font-weight:600;color:#fff;line-height:1.4;}
+.footer-contacts .office .bagira-contact-group a{display:block;overflow-wrap:anywhere;}
+</style>
 </head>
 <body class="home blog wp-theme-bagira">
 	
@@ -177,7 +183,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 									<p class="work-hours"><img src="/bagira-preview/wp-content/themes/bagira/assets/icons/status-indicator.svg" width="9" height="9" alt="">Пн–Пт 09:00–18:00</p>
 													<div class="header-phones">
 																												<a href="tel:83852484815"><span>Барнаул</span> 8 (3852) 48-48-15</a>
-																																			<a href="tel:89237502576"><span>Новосибирск</span> 8 (923) 750-25-76</a>
+																																			<a href="tel:89993009844"><span>Новосибирск</span> 8 (999) 300-98-44</a>
 																		</div>
 							</div>
 			<a class="button button--secondary button--header" href="#consultation">Оставить заявку</a>
@@ -231,7 +237,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 	<section id="services" class="services" aria-labelledby="services-title">
 		<div class="container">
-							<h2 id="services-title">Что мы защищаем</h2>
+							<h2 id="services-title">Чем мы занимаемся</h2>
 			
 							<div class="services__grid">
 																	<article class="service-card">
@@ -438,11 +444,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 						<h2 id="footer-contacts-title">Контакты</h2>
 						<div class="footer-contacts__grid">
 																							<address class="office">
-																			<h3><img src="/bagira-preview/wp-content/themes/bagira/assets/icons/status-indicator-footer.svg" width="9" height="9" alt="">Офис в Барнауле</h3>
-																		<a href="tel:83852484815">8 (3852) 48-48-15</a>									<span>Пн-Пт: 09-00 - 18-00</span>									<a href="mailto:bagira-barnaul@yandex.ru">bagira-barnaul@yandex.ru</a>																			<span>Алтайский край, г. Барнаул, ул. Антона Петрова, 235а / Попова, 98</span>																	</address>
+<h3><img src="/bagira-preview/wp-content/themes/bagira/assets/icons/status-indicator-footer.svg" width="9" height="9" alt="">Офис в Барнауле</h3>
+<div class="bagira-contact-group"><span class="bagira-contact-label">Офис Барнаул</span><a href="tel:83852484815">8 (3852) 48-48-15</a></div><div class="bagira-contact-group"><span class="bagira-contact-label">По вопросам трудоустройства</span><a href="tel:79237502578">+7 (923) 750-25-78</a></div><div class="bagira-contact-group"><span class="bagira-contact-label">Дежурная часть</span><a href="tel:79237502575">8 (923) 750-25-75</a></div>
+<span>Пн-Пт: 09-00 - 18-00</span>
+<a href="mailto:bagira-barnaul@yandex.ru">bagira-barnaul@yandex.ru</a>
+<span>Алтайский край, г. Барнаул, ул. Антона Петрова, 235а / Попова, 98</span>
+</address>
 																							<address class="office">
-																			<h3><img src="/bagira-preview/wp-content/themes/bagira/assets/icons/status-indicator-footer.svg" width="9" height="9" alt="">Офис в Новосибирске</h3>
-																		<a href="tel:89237502576">8 (923) 750-25-76</a>									<span>Пн-Пт: 09-00 - 18-00</span>									<a href="mailto:alfa.bagira.nsk@gmail.com">alfa.bagira.nsk@gmail.com</a>																			<span>Новосибирска область, г. Новосибирск, ул. Моторная, 55</span>																	</address>
+<h3><img src="/bagira-preview/wp-content/themes/bagira/assets/icons/status-indicator-footer.svg" width="9" height="9" alt="">Офис в Новосибирске</h3>
+<div class="bagira-contact-group"><span class="bagira-contact-label">По вопросам трудоустройства</span><a href="tel:89993009844">8 (999) 300-98-44</a><a href="tel:79231231684">+7 (923) 123-16-84</a></div><div class="bagira-contact-group"><span class="bagira-contact-label">Дежурная часть</span><a href="tel:79960738812">+7 (996) 073-88-12</a></div>
+<span>Пн-Пт: 09-00 - 18-00</span>
+<a href="mailto:alfa.bagira.nsk@gmail.com">alfa.bagira.nsk@gmail.com</a>
+<span>Новосибирская область, г. Новосибирск, ул. Моторная, 55</span>
+</address>
 													</div>
 					</section>
 							</div>
