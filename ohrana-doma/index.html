@@ -577,48 +577,127 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 </style>
 
-<style id="bagira-home-desktop-client-20261117-v1">
-/* 2026-11-17: client desktop remarks for Figma frame 2325:583 (1280px).
-   Scope: page 19 only; only >=1280px; mobile/tablet unchanged. */
+<style id="bagira-home-desktop-client-20261117-v2">
+/* Bagira desktop, postid-19, verified against Figma 2325:583.
+   Mobile/tablet remain unchanged. Remove old client V1 block rather than stack it. */
 @media (min-width:1280px) {
-  /* 1: first-screen advantage text: restore legibility, preserve grid positions. */
+  /* First-screen text: preserve the prior requested legibility correction. */
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights {
-    grid-template-rows:auto auto; row-gap:12px; align-items:start;
+    grid-template-rows:auto auto;row-gap:12px;align-items:start;
   }
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights li {
-    font-size:16px; line-height:1.35; height:auto; min-height:22px;
-    overflow-wrap:break-word;
+    font-size:16px;line-height:1.35;height:auto;min-height:22px;overflow-wrap:break-word;
   }
-  /* 2: original Figma dark-blue ellipse glows around the hero, app, and form.
-     Gradients paint behind content; no changes to assets or geometry. */
-  body.postid-19 .service-page {
-    background-color:#080d16;
-    background-image:
-      radial-gradient(ellipse 300px 205px at calc(50% + 360px) 190px, rgba(33,51,142,.24) 0%,rgba(18,29,84,.12) 42%,rgba(8,13,22,0) 82%),
-      radial-gradient(ellipse 350px 220px at -85px 635px, rgba(33,51,142,.30) 0%,rgba(16,27,77,.13) 49%,rgba(8,13,22,0) 85%),
-      radial-gradient(ellipse 350px 270px at -105px 3740px, rgba(33,51,142,.27) 0%,rgba(16,27,77,.10) 50%,rgba(8,13,22,0) 84%);
-    background-repeat:no-repeat;
+  /* Visible, spatially anchored elliptical glows. Avoid z-index:-1 and clipped
+     app pseudo-elements: these had made the former gradients effectively invisible. */
+  body.postid-19 .service-hero--highlights-compact {
+    background:
+      radial-gradient(ellipse 430px 260px at 79% 33%,rgba(42,66,164,.35) 0%,rgba(26,44,112,.18) 49%,transparent 83%),
+      radial-gradient(ellipse 360px 235px at 0% 96%,rgba(40,61,155,.32) 0%,rgba(21,37,106,.13) 51%,transparent 84%),
+      #080d16 !important;
   }
   body.postid-19 .service-application--framed {
-    background:
-      radial-gradient(ellipse 56% 65% at 0% 24%,rgba(33,51,142,.19),transparent 77%),
-      radial-gradient(ellipse 50% 78% at 96% 53%,rgba(33,51,142,.22),transparent 79%),
-      rgba(5,8,22,.5);
+    position:relative;isolation:isolate;overflow:visible !important;
+    background:rgba(5,8,22,.5) !important;
   }
-  /* 3: all three tariff tiles keep their positions and 519px height on hover.
-     The original flip/description effects stay enabled. */
+  body.postid-19 .service-application--framed::before,
+  body.postid-19 .service-application--framed::after,
+  body.postid-19 .consultation--service::before {
+    content:"";display:block;position:absolute;z-index:0;pointer-events:none;
+    border-radius:50%;filter:blur(50px);opacity:1;
+  }
+  body.postid-19 .service-application--framed::before {
+    width:530px;height:390px;left:-210px;top:-160px;
+    background:radial-gradient(ellipse at center,rgba(45,70,180,.50) 0%,rgba(28,45,130,.26) 43%,transparent 82%);
+  }
+  body.postid-19 .service-application--framed::after {
+    width:490px;height:380px;right:-240px;top:65px;
+    background:radial-gradient(ellipse at center,rgba(45,70,180,.40) 0%,rgba(25,42,123,.22) 43%,transparent 83%);
+  }
+  body.postid-19 .service-application--framed .service-application__inner {
+    position:relative;z-index:1;overflow:hidden;border-radius:29px;background:transparent !important;
+  }
+  body.postid-19 .consultation--service {position:relative;isolation:isolate;}
+  body.postid-19 .consultation--service::before {
+    width:630px;height:420px;left:-355px;top:-155px;
+    background:radial-gradient(ellipse at center,rgba(47,74,189,.48) 0%,rgba(28,48,135,.22) 47%,transparent 84%);
+  }
+  /* Hover: keep the entire card AND price-panel anchored at identical pixel
+     geometry. Animate only opacity/translateY of independent overlay layers. */
   body.postid-19 .service-pricing--tariffs-3 .service-pricing__grid {
-    align-items:start; grid-auto-rows:519px;
+    align-items:start;grid-auto-rows:519px;
   }
   body.postid-19 .service-pricing--tariffs-3 .service-tariff--dual-price {
-    box-sizing:border-box; align-self:stretch;
-    height:519px; min-height:519px; max-height:519px;
-    transform:none;
+    box-sizing:border-box;height:519px !important;min-height:519px !important;
+    max-height:519px !important;align-self:start;transform:none !important;
+    transition:border-color .35s ease,box-shadow .35s ease;
   }
-  /* 4: separate submit button and mandatory checkbox, keep bottom padding. */
-  body.postid-19 .consultation--service .consultation-form > .consent:not(.consent--marketing) {margin-top:30px;}
-  body.postid-19 .consultation--service .consultation-form > .consent--marketing {margin-top:12px;}
-  body.postid-19 .consultation--service .consultation__content {padding-bottom:60px;}
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__price-panel,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:hover .service-tariff__price-panel,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:focus-within .service-tariff__price-panel {
+    position:absolute !important;inset:0 !important;width:100% !important;
+    height:100% !important;min-height:0 !important;padding:0 !important;
+    border:0 !important;border-radius:0 !important;background:transparent !important;
+    transition:none !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__price-columns {
+    position:absolute;z-index:2;inset:auto 0 0;height:308px;min-height:308px;
+    box-sizing:border-box;padding:34px 29px;
+    border-radius:20px 20px 0 0;background:#20202f;
+    opacity:1;transition:opacity .44s cubic-bezier(.22,1,.36,1) !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__details {
+    position:absolute;inset:0;z-index:3;
+    box-sizing:border-box;width:100%;height:100%;background:#20202f;
+    opacity:0;transform:translateY(12px);pointer-events:none;
+    transition:opacity .44s cubic-bezier(.22,1,.36,1),transform .44s cubic-bezier(.22,1,.36,1) !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details > h3,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__image {
+    opacity:1;transition:opacity .44s cubic-bezier(.22,1,.36,1) !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__button,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:hover .service-tariff__button,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:focus-within .service-tariff__button {
+    position:absolute !important;z-index:6;left:29px !important;right:29px !important;
+    bottom:26px !important;top:auto !important;width:calc(100% - 58px) !important;
+    margin:0 !important;transform:none !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:is(:hover,:focus-within) .service-tariff__price-columns,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:is(:hover,:focus-within) > h3,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:is(:hover,:focus-within) .service-tariff__image {opacity:0;}
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details:is(:hover,:focus-within) .service-tariff__details {
+    opacity:1;transform:translateY(0);
+  }
+  /* Consultation: the prior fix increased padding INSIDE a fixed-height panel.
+     Let content determine track height; keep the photo stretched to match it. */
+  body.postid-19 .service-page .consultation--service .consultation__panel {
+    position:relative;z-index:1;height:auto !important;min-height:542px !important;
+    grid-template-columns:714px minmax(0,1fr);align-items:stretch;
+    overflow:hidden;
+  }
+  body.postid-19 .service-page .consultation--service .consultation__content {
+    box-sizing:border-box;height:auto !important;min-height:542px;
+    padding:50px 50px 64px !important;
+  }
+  body.postid-19 .service-page .consultation--service .consultation__image {
+    min-height:542px;height:auto;align-self:stretch;overflow:hidden;
+  }
+  body.postid-19 .service-page .consultation--service .consultation__image img {
+    width:100%;height:100%;min-height:100%;object-fit:cover;
+  }
+  body.postid-19 .service-page .consultation--service .consultation-form > .consent:not(.consent--marketing) {
+    margin-top:30px !important;
+  }
+  body.postid-19 .service-page .consultation--service .consultation-form > .consent--marketing {
+    margin-top:12px !important;
+  }
+}
+@media (min-width:1280px) and (prefers-reduced-motion:reduce) {
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__details,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__price-columns,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details > h3,
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--has-details .service-tariff__image {transition:none !important;}
 }
 </style>
 </head>
