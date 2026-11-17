@@ -576,6 +576,51 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   #consultation .consultation-form .consent__box {transition: none;}
 }
 </style>
+
+<style id="bagira-home-desktop-client-20261117-v1">
+/* 2026-11-17: client desktop remarks for Figma frame 2325:583 (1280px).
+   Scope: page 19 only; only >=1280px; mobile/tablet unchanged. */
+@media (min-width:1280px) {
+  /* 1: first-screen advantage text: restore legibility, preserve grid positions. */
+  body.postid-19 .service-hero--highlights-compact .service-hero__highlights {
+    grid-template-rows:auto auto; row-gap:12px; align-items:start;
+  }
+  body.postid-19 .service-hero--highlights-compact .service-hero__highlights li {
+    font-size:16px; line-height:1.35; height:auto; min-height:22px;
+    overflow-wrap:break-word;
+  }
+  /* 2: original Figma dark-blue ellipse glows around the hero, app, and form.
+     Gradients paint behind content; no changes to assets or geometry. */
+  body.postid-19 .service-page {
+    background-color:#080d16;
+    background-image:
+      radial-gradient(ellipse 300px 205px at calc(50% + 360px) 190px, rgba(33,51,142,.24) 0%,rgba(18,29,84,.12) 42%,rgba(8,13,22,0) 82%),
+      radial-gradient(ellipse 350px 220px at -85px 635px, rgba(33,51,142,.30) 0%,rgba(16,27,77,.13) 49%,rgba(8,13,22,0) 85%),
+      radial-gradient(ellipse 350px 270px at -105px 3740px, rgba(33,51,142,.27) 0%,rgba(16,27,77,.10) 50%,rgba(8,13,22,0) 84%);
+    background-repeat:no-repeat;
+  }
+  body.postid-19 .service-application--framed {
+    background:
+      radial-gradient(ellipse 56% 65% at 0% 24%,rgba(33,51,142,.19),transparent 77%),
+      radial-gradient(ellipse 50% 78% at 96% 53%,rgba(33,51,142,.22),transparent 79%),
+      rgba(5,8,22,.5);
+  }
+  /* 3: all three tariff tiles keep their positions and 519px height on hover.
+     The original flip/description effects stay enabled. */
+  body.postid-19 .service-pricing--tariffs-3 .service-pricing__grid {
+    align-items:start; grid-auto-rows:519px;
+  }
+  body.postid-19 .service-pricing--tariffs-3 .service-tariff--dual-price {
+    box-sizing:border-box; align-self:stretch;
+    height:519px; min-height:519px; max-height:519px;
+    transform:none;
+  }
+  /* 4: separate submit button and mandatory checkbox, keep bottom padding. */
+  body.postid-19 .consultation--service .consultation-form > .consent:not(.consent--marketing) {margin-top:30px;}
+  body.postid-19 .consultation--service .consultation-form > .consent--marketing {margin-top:12px;}
+  body.postid-19 .consultation--service .consultation__content {padding-bottom:60px;}
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
