@@ -132,6 +132,111 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   #consultation .consultation-form .consent__box {transition: none;}
 }
 </style>
+<style id="bagira-physical-desktop-client-20261117-v1">
+/* Source: client DOCX, "Физическая охрана", 15.11.2026, remarks 1-4.
+   Do not alter the existing page layout below 1280px. */
+@media (min-width:1280px) {
+  /* 1. Two visible elliptical glows on the continuous page canvas.
+     Fully faded within their own ellipse: no section-edge seam. */
+  body.postid-17 .service-page {
+    background-color:#080d16;
+    background-image:
+      radial-gradient(ellipse 460px 295px at calc(50% + 465px) 445px,
+        rgba(36,56,155,.38) 0%,rgba(30,48,130,.23) 38%,rgba(20,32,84,.11) 64%,transparent 96%),
+      radial-gradient(ellipse 430px 265px at calc(50% - 530px) 735px,
+        rgba(39,60,166,.34) 0%,rgba(28,44,122,.19) 43%,rgba(17,29,76,.09) 65%,transparent 96%);
+    background-repeat:no-repeat;
+  }
+  /* 2. All three hero cards retain equal height. The first contains five
+     hard-broken lines: reserve actual vertical room for text and padding. */
+  body.postid-17 .service-hero--highlights-cards .service-hero__highlights {
+    height:150px;
+    align-items:stretch;
+  }
+  body.postid-17 .service-hero--highlights-cards .service-hero__highlights > li {
+    box-sizing:border-box;
+    height:150px;
+    min-height:150px;
+    padding:18px 25px 18px 57px;
+    font-size:15px;
+    font-weight:400;
+    line-height:20px;
+  }
+  body.postid-17 .service-hero--highlights-cards .service-hero__highlights > li::before {
+    top:18px;left:25px;
+  }
+  /* 3. The source stylesheet overrides the standards paragraph line-height
+     with 'normal'. Restore readable line rhythm and allow cards to grow. */
+  body.postid-17 .service-standards--split {
+    box-sizing:border-box;
+    height:auto;
+    min-height:620px;
+    overflow:hidden;
+  }
+  body.postid-17 .service-standards--split .service-standards__layout {
+    box-sizing:border-box;
+    height:auto;
+    min-height:420px;
+    margin-top:99px;
+    margin-bottom:80px;
+    align-items:stretch;
+  }
+  body.postid-17 .service-standards--split .service-standards__lead {
+    min-height:420px;
+    justify-content:space-between;
+  }
+  body.postid-17 .service-standards--split .service-standard--featured {
+    box-sizing:border-box;
+    height:auto;
+    min-height:300px;
+  }
+  body.postid-17 .service-standards--split .service-standards__stack {
+    height:auto;
+    grid-template-rows:minmax(150px,auto) minmax(260px,auto);
+    align-content:stretch;
+  }
+  body.postid-17 .service-standards--split .service-standards__stack > .service-standard {
+    box-sizing:border-box;
+    height:auto;
+    padding:25px 25px;
+    overflow:hidden;
+  }
+  body.postid-17 .service-standards--split .service-standard__text,
+  body.postid-17 .service-standards--split .service-standard__text p {
+    font-size:16px;
+    font-weight:400;
+    line-height:1.4;
+  }
+  body.postid-17 .service-standards--split .service-standard__text p + p {
+    margin-top:12px;
+  }
+  /* 4. Smooth hover/focus effects only on physical-security tariffs.
+     Transform/paint do not change card heights or surrounding layout. */
+  body.postid-17 .service-pricing .service-pricing__grid > .service-tariff {
+    position:relative;
+    transform:translateY(0);
+    transition:transform .46s cubic-bezier(.22,1,.36,1),
+      border-color .46s ease,box-shadow .46s ease;
+  }
+  body.postid-17 .service-pricing .service-pricing__grid > .service-tariff .service-tariff__image img {
+    transform:scale(1);
+    transform-origin:right bottom;
+    transition:transform .46s cubic-bezier(.22,1,.36,1);
+  }
+  body.postid-17 .service-pricing .service-pricing__grid > .service-tariff:is(:hover,:focus-within) {
+    transform:translateY(-6px);
+    border-color:rgba(93,94,203,.78);
+    box-shadow:0 16px 34px rgba(36,30,134,.24);
+  }
+  body.postid-17 .service-pricing .service-pricing__grid > .service-tariff:is(:hover,:focus-within) .service-tariff__image img {
+    transform:scale(1.045);
+  }
+}
+@media (min-width:1280px) and (prefers-reduced-motion:reduce) {
+  body.postid-17 .service-pricing .service-pricing__grid > .service-tariff,
+  body.postid-17 .service-pricing .service-pricing__grid > .service-tariff .service-tariff__image img {transition:none;}
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-17 wp-theme-bagira"><div class="LP-tools"></div>
 
