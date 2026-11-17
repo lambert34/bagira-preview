@@ -147,6 +147,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .footer-contacts .office .bagira-contact-label{display:block;font-style:normal;font-weight:600;color:#fff;line-height:1.4;}
 .footer-contacts .office .bagira-contact-group a{display:block;overflow-wrap:anywhere;}
 </style>
+<style id="bagira-footer-dynamic-height-home-v1">
+/* Footer on homepage must grow with newly expanded contact lists. */
+@media (min-width: 768px) {
+  body.home .site-footer { height: auto; min-height: 492px; overflow: hidden; }
+  body.home .site-footer__inner { height: auto; padding-bottom: 40px; }
+  body.home .site-footer__bottom { position: static; grid-column: 1 / -1; margin-top: 32px; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body.home .site-footer { min-height: 620px; }
+}
+</style>
 </head>
 <body class="home blog wp-theme-bagira">
 	
