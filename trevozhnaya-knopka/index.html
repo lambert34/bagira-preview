@@ -208,6 +208,59 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   #consultation .consultation-form .consent__box {transition: none;}
 }
 </style>
+<style id="bagira-alarm-client-desktop-20261117-v1">
+/* Client desktop remarks: ellipse, app text/spacing, consent padding. Page 18 ONLY. */
+@media (min-width:1280px) {
+  /* The existing hero ::before has content:none; the old 104%-centered radial
+     background was cut at the section boundary. Paint on the continuous main
+     canvas instead: soft light can naturally fade into the next section. */
+  body.postid-18 .service-page {
+    background-color:#080d16;
+    background-image:radial-gradient(ellipse 440px 310px at calc(50% - 50px) 525px,
+      rgba(39,61,160,.29) 0%,rgba(28,46,120,.17) 44%,rgba(8,13,22,0) 91%);
+    background-repeat:no-repeat;
+  }
+  body.postid-18 .service-hero--pricing-2 {background:transparent !important;}
+  /* Normalize app typography, eliminate absolute placement of bullet list. */
+  body.postid-18 .service-application--plain .service-application__content {
+    box-sizing:border-box;padding-top:75px;
+  }
+  body.postid-18 .service-application--plain h2 {
+    font-size:50px;font-weight:700;line-height:1.1;
+  }
+  body.postid-18 .service-application--plain .service-application__text {
+    margin-top:28px;font-size:18px;font-weight:400;line-height:1.43;
+  }
+  body.postid-18 .service-application--plain .service-application__text p + p {margin-top:20px;}
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain .service-application__features {
+    position:static !important;inset:auto !important;width:556px;max-width:100%;
+    min-height:0 !important;margin:25px 0 0 !important;padding:0;gap:16px;
+  }
+  body.postid-18 .service-application--plain .service-application__features li {
+    font-size:16px;line-height:1.38;gap:12px;align-items:flex-start;
+  }
+  body.postid-18 .service-application--plain .service-application__features strong {font-weight:400;}
+  /* Grow the consultation panel to contain BOTH consents, with real bottom gap. */
+  body.postid-18 .service-page .consultation--service .consultation__panel {
+    height:auto !important;min-height:542px !important;align-items:stretch;overflow:hidden;
+  }
+  body.postid-18 .service-page .consultation--service .consultation__content {
+    box-sizing:border-box;min-height:542px;padding:50px 50px 64px !important;
+  }
+  body.postid-18 .service-page .consultation--service .consultation__image {
+    min-height:542px;height:auto;align-self:stretch;overflow:hidden;
+  }
+  body.postid-18 .service-page .consultation--service .consultation__image img {
+    display:block;width:100%;height:100%;min-height:100%;object-fit:cover;
+  }
+  body.postid-18 .service-page .consultation--service .consultation-form > .consent:not(.consent--marketing) {
+    margin-top:30px !important;
+  }
+  body.postid-18 .service-page .consultation--service .consultation-form > .consent--marketing {
+    margin-top:12px !important;
+  }
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-18 wp-theme-bagira">
 
