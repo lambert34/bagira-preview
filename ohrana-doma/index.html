@@ -875,6 +875,129 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   body.postid-19 .service-application__features {scroll-behavior:auto !important;}
 }
 </style>
+
+<style id="BAGIRA_HOME_SECURITY_REVIEW_20261118_V4-css">
+/* Page 19 only, smartphone only. Follow-up to mobile V2; no shared asset changes. */
+@media (max-width:767px) {
+  /* The base home-security.js writes list.style.height from ACTIVE card;
+     override the inline height with natural max-item height. The next section
+     must not jump when the rail scrolls between long/short texts. */
+  body.postid-19 .service-hero--highlights-compact .service-hero__highlights {
+    height:auto !important; max-height:none !important; min-height:0 !important;
+    align-items:stretch !important; overflow-y:hidden !important;
+  }
+  body.postid-19 .service-hero--highlights-compact .service-hero__highlights > li {
+    height:auto !important; align-self:stretch !important;
+  }
+  body.postid-19 .service-application--smartphone-alarm .service-application__features {
+    height:auto !important; max-height:none !important;
+    align-items:stretch !important;
+  }
+  body.postid-19 .service-application--smartphone-alarm .service-application__features > li {
+    height:auto !important; align-self:stretch !important;
+  }
+  /* Actual before-gap: 117px. V3 accidentally ADDED 32px to application
+     padding while removing only 41px from pricing padding, saving just 9px.
+     Leave the application's bottom padding at zero (no duplicated whitespace)
+     and reduce the pricing padding from the original 82px to 25px. Together
+     with the inner card's existing bottom padding (~34px), target ~59px gap.
+     Do not use negative margins, transforms or page-level offsets. */
+  body.postid-19 .service-page .service-application--smartphone-alarm {
+    padding-bottom:0 !important;
+  }
+  body.postid-19 .service-page .service-pricing--tariffs-3 {
+    padding-top:25px !important;
+  }
+  /* Figma mobile heading: Montserrat Bold 23 / 110%, two natural lines at ~350px. */
+  body.postid-19 .service-page .service-pricing--tariffs-3 h2 {
+    width:100% !important; max-width:350px !important;
+    margin:0 0 28px !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:clamp(21px,5.85vw,23px) !important;
+    font-weight:700 !important; line-height:1.1 !important;
+    letter-spacing:0 !important; hyphens:none !important;
+    overflow-wrap:normal !important; word-break:normal !important;
+  }
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-pricing__grid {
+    height:auto !important; max-height:none !important; min-height:0 !important;
+  }
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff--dual-price > h3 {
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:clamp(21px,6vw,24px) !important; font-weight:700 !important;
+    line-height:1.12 !important; overflow-wrap:normal !important;
+    word-break:normal !important; hyphens:none !important;
+  }
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__price-label {
+    font-size:clamp(15px,4.2vw,18px) !important;
+    line-height:1.25 !important;
+  }
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__price strong {
+    font-size:clamp(29px,8vw,34px) !important;
+    line-height:1.05 !important;
+  }
+  /* The Figma equipment board has two equal cards per row, not a long stack. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__intro h2 {
+    font-size:clamp(23px,6.2vw,27px) !important;
+    line-height:1.12 !important;
+    overflow-wrap:normal !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child > .service-equipment__grid {
+    display:grid !important; grid-auto-flow:row !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:auto !important; gap:10px !important;
+    align-items:stretch !important; justify-content:stretch !important;
+    width:100% !important; max-width:100% !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped {
+    box-sizing:border-box !important; grid-column:auto !important;
+    width:100% !important; min-width:0 !important;
+    height:clamp(177px,47vw,207px) !important;
+    min-height:0 !important; max-height:207px !important;
+    margin:0 !important; overflow:hidden !important;
+    border-radius:15px !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__flip-inner,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__flip-inner,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__face {
+    box-sizing:border-box !important; height:100% !important;
+    min-height:0 !important; max-height:none !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face {
+    padding:12px !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--front h3 {
+    max-width:100% !important;
+    font-size:clamp(12px,3.36vw,14px) !important;
+    line-height:1.19 !important; font-weight:600 !important;
+    overflow-wrap:break-word !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item-image {
+    inset:auto 7px 7px auto !important; top:auto !important;left:auto !important;
+    width:clamp(60px,22vw,94px) !important;
+    height:clamp(76px,23vw,105px) !important;
+    opacity:1 !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back h3 {
+    max-width:100% !important; font-size:12px !important;
+    line-height:1.2 !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text {
+    max-width:100% !important; font-size:11px !important;
+    line-height:1.25 !important; overflow-wrap:anywhere !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back {
+    overflow-y:auto !important; overscroll-behavior:contain !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__more {
+    min-height:46px !important; border:0 !important;
+    border-radius:9px !important; background:#3022af !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:14px !important; font-weight:600 !important;
+  }
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
@@ -1295,6 +1418,50 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   setup('.service-hero--highlights-compact .service-hero__highlights',2700);
   setup('.service-application--smartphone-alarm .service-application__features',3500);
+})();
+</script>
+
+<script id="BAGIRA_HOME_SECURITY_REVIEW_20261118_V4-js">
+(function(){
+  'use strict';
+  if(!document.body.classList.contains('postid-19'))return;
+  var rail=document.querySelector('.service-pricing--tariffs-3 .service-pricing__grid');
+  if(!rail||rail.dataset.bagiraTariffAutoReview==='ready')return;
+  var cards=Array.from(rail.querySelectorAll(':scope > .service-tariff'));
+  if(cards.length<2)return;
+  rail.dataset.bagiraTariffAutoReview='ready';
+  var mobile=matchMedia('(max-width:767px)');
+  var reduced=matchMedia('(prefers-reduced-motion:reduce)');
+  var visible=false,timer=0,pausedUntil=0;
+  function getIndex(){
+    var rect=rail.getBoundingClientRect(),mid=rect.left+rect.width/2;
+    var best=0,dist=Infinity;
+    cards.forEach(function(c,i){var r=c.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-mid);if(d<dist){dist=d;best=i;}});
+    return best;
+  }
+  function active(){return visible&&mobile.matches&&!reduced.matches&&!document.hidden;}
+  function schedule(ms){
+    clearTimeout(timer);timer=0;
+    if(!active())return;
+    timer=setTimeout(function(){timer=0;
+      if(Date.now()<pausedUntil){schedule(3500);return;}
+      var next=cards[(getIndex()+1)%cards.length];
+      var rb=rail.getBoundingClientRect(),cb=next.getBoundingClientRect();
+      var left=rail.scrollLeft+(cb.left-rb.left)-(rail.clientWidth-cb.width)/2;
+      rail.scrollTo({left:left,behavior:'smooth'});
+      schedule(3500);
+    },ms);
+  }
+  var io=new IntersectionObserver(function(es){
+    visible=es.some(function(e){return e.isIntersecting&&e.intersectionRatio>=0.28;});
+    if(visible)schedule(3500);else {clearTimeout(timer);timer=0;}
+  },{threshold:[0,0.28,0.5,0.75]});
+  io.observe(rail);
+  ['pointerdown','touchstart','wheel','keydown'].forEach(function(ev){rail.addEventListener(ev,function(){pausedUntil=Date.now()+8000;schedule(8000);},{passive:ev!=='keydown'});});
+  document.querySelectorAll('.service-pricing--tariffs-3 [data-tariff-index]').forEach(function(dot){dot.addEventListener('click',function(){pausedUntil=Date.now()+8000;schedule(8000);});});
+  document.addEventListener('visibilitychange',function(){schedule(3500);});
+  if(mobile.addEventListener)mobile.addEventListener('change',function(){schedule(3500);});
+  if(reduced.addEventListener)reduced.addEventListener('change',function(){schedule(3500);});
 })();
 </script>
 </body></html>
