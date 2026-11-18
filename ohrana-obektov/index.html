@@ -148,6 +148,82 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   #consultation .consultation-form .consent__box {transition: none;}
 }
 </style>
+<style id="bagira-object-client-20261118-v1">
+/* Desktop-only corrections for object-security page, Figma frame 2203:471.
+   Preserve existing Figma-specific image cropping at rest. */
+@media(min-width:1280px){
+  /* Hero: avoid hard crop at the section boundary. Keep subject foreground. */
+  body.postid-16 .service-hero {
+    background:
+      radial-gradient(ellipse 410px 255px at 52% 82%,rgba(36,55,150,.27) 0%,rgba(21,35,100,.12) 50%,transparent 94%),
+      #080d16;
+  }
+  body.postid-16 .service-hero__visual {
+    height:562px;
+    top:0;
+    overflow:visible;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 86%,rgba(0,0,0,.78) 93%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,#000 86%,rgba(0,0,0,.78) 93%,transparent 100%);
+  }
+  body.postid-16 .service-hero__visual img {
+    height:100%;
+    object-fit:contain;
+    object-position:center bottom;
+  }
+  /* Tariffs: smooth lift, with constant layout height. */
+  body.postid-16 .service-pricing__grid>.service-tariff {
+    transform:translateY(0);
+    transition:transform .46s cubic-bezier(.22,1,.36,1),box-shadow .46s ease,border-color .46s ease;
+  }
+  body.postid-16 .service-pricing__grid>.service-tariff:is(:hover,:focus-within) {
+    transform:translateY(-6px);
+    box-shadow:0 16px 34px rgba(36,30,134,.24);
+    border-color:rgba(93,94,203,.78);
+  }
+  /* Protected cards: existing individual translations must NOT be replaced. */
+  body.postid-16 .service-protected--items-5 .service-protected-card__image img {
+    transition:transform .46s cubic-bezier(.22,1,.36,1);
+    transform-origin:center center;
+  }
+  body.postid-16 .service-protected--items-5 .service-protected-card:nth-child(2) .service-protected-card__image img {
+    transform:translate(-27.11%,-34.87%) scale(1);
+  }
+  body.postid-16 .service-protected--items-5 .service-protected-card:nth-child(5) .service-protected-card__image img {
+    transform:translate(-45.17%,-53.53%) scale(1);
+  }
+  body.postid-16 .service-protected--items-5 .service-protected-card:nth-child(2):is(:hover,:focus-within) .service-protected-card__image img {
+    transform:translate(-27.11%,-34.87%) scale(1.04);
+  }
+  body.postid-16 .service-protected--items-5 .service-protected-card:nth-child(5):is(:hover,:focus-within) .service-protected-card__image img {
+    transform:translate(-45.17%,-53.53%) scale(1.04);
+  }
+  /* Consent: let both labels fit without clipping; keep image filling panel. */
+  body.postid-16 .consultation--service .consultation__panel {
+    height:auto;
+    min-height:487px;
+    overflow:hidden;
+    align-items:stretch;
+  }
+  body.postid-16 .consultation--service .consultation__content {
+    box-sizing:border-box;
+    padding-bottom:65px;
+  }
+  body.postid-16 .consultation--service .consultation-form>.consent:not(.consent--marketing){margin-top:30px;}
+  body.postid-16 .consultation--service .consultation-form>.consent--marketing{margin-top:12px;}
+  body.postid-16 .consultation--service .consultation__image,
+  body.postid-16 .consultation--service .consultation__image img {
+    height:auto;
+    min-height:487px;
+  }
+  body.postid-16 .consultation--service .consultation__image img {
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  }
+}
+@media(min-width:1280px) and (prefers-reduced-motion:reduce){
+  body.postid-16 .service-pricing__grid>.service-tariff,
+  body.postid-16 .service-protected--items-5 .service-protected-card__image img{transition:none}
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-16 wp-theme-bagira">
 
