@@ -5957,6 +5957,7 @@ body.home .home-glows {
   }
   body.home .site-header__brand { grid-column: 1; grid-row: 1; }
   body.home .site-header__contact { display: none; }
+  /* BAGIRA_HOME_BURGER_FIGMA_V4_20261118: three plain white bars per composite Figma mobile prototype. */
   body.home .mobile-menu-toggle {
     display: inline-flex;
     grid-column: 2;
@@ -5970,12 +5971,13 @@ body.home .home-glows {
     height: 44px;
     padding: 0;
     color: #fff;
-    border: 1px solid #242636;
-    border-radius: 50%;
-    background: #111421;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
     cursor: pointer;
   }
-  body.home .mobile-menu-toggle span { display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+  body.home .mobile-menu-toggle span { display: block; width: 28px; height: 2.5px; background: #fff; border-radius: 0; flex: 0 0 auto; }
   body.home .mobile-menu-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
   body.home .site-navigation {
     display: none;
