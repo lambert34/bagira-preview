@@ -8475,3 +8475,55 @@ body.postid-15 .bagira-transport-tablet-toggle { display: none; }
   }
 }
 /* BAGIRA-STANDARDS-FIGMA-ICONS-V6:END */
+
+/* BAGIRA_TRANSPORT_DESKTOP_FIGMA_V1:BEGIN — confirmed Figma PNG + consent bottom spacing; scoped desktop 1024+ */
+body.postid-15 .service-hero--standards-mosaic .service-hero__visual picture { display: contents; }
+@media (min-width: 1024px) {
+  body.postid-15 .service-hero--standards-mosaic .service-hero__visual {
+    position: absolute;
+    top: -16px;
+    right: -40px;
+    bottom: auto;
+    left: auto;
+    width: min(859px, 67.11vw);
+    height: auto;
+    aspect-ratio: 859 / 579;
+    z-index: 4;
+    opacity: 1;
+    pointer-events: none;
+  }
+  body.postid-15 .service-hero--standards-mosaic .service-hero__visual picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  body.postid-15 .service-hero--standards-mosaic .service-hero__visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    max-width: none;
+  }
+  body.postid-15 .service-page .consultation--service .consultation__panel {
+    height: auto;
+    min-height: 542px;
+    grid-template-columns: minmax(0, 59.5%) minmax(0, 40.5%);
+  }
+  body.postid-15 .service-page .consultation--service .consultation__content {
+    min-width: 0;
+  }
+  body.postid-15 .service-page .consultation--service .form-field input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+  }
+  body.postid-15 .service-page .consultation--service .consultation__image,
+  body.postid-15 .service-page .consultation--service .consultation__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 542px;
+    object-fit: cover;
+  }
+}
+/* BAGIRA_TRANSPORT_DESKTOP_FIGMA_V1:END */
