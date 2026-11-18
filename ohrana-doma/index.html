@@ -935,13 +935,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     font-size:clamp(29px,8vw,34px) !important;
     line-height:1.05 !important;
   }
-  /* BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V6 — composite mobile Figma target.
-     One full-width horizontal card per row. Five visible initially. */
+  /* BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V7 — composite mobile Figma target.
+     Target proportions from user-supplied mobile Figma screenshot: 320px frame / ~294x110px cards. Five visible initially. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__intro h2 {
     width:100% !important; max-width:none !important;
-    margin:0 0 20px !important;
+    margin:0 0 25px !important;
     font-family:Montserrat,Arial,sans-serif !important;
-    font-size:clamp(22px,5.9vw,26px) !important;
+    font-size:clamp(21px,6vw,25px) !important;
     font-weight:700 !important; line-height:1.16 !important;
     overflow-wrap:normal !important;
   }
@@ -949,9 +949,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     display:grid !important;
     grid-template-columns:minmax(0,1fr) !important;
     grid-auto-flow:row !important; grid-template-rows:auto !important;
-    gap:13px !important;
-    width:100% !important; max-width:100% !important;
-    margin:0 !important; padding:0 !important;
+    gap:clamp(14px,4vw,17px) !important;
+    width:calc(100% + 8px) !important; max-width:none !important;
+    margin:0 0 0 -4px !important; padding:0 !important;
     align-items:stretch !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item,
@@ -960,7 +960,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     box-sizing:border-box !important;
     grid-column:auto !important; grid-row:auto !important;
     width:100% !important; min-width:0 !important;
-    height:clamp(105px,29vw,120px) !important; min-height:0 !important; max-height:none !important;
+    height:clamp(118px,34vw,146px) !important; min-height:0 !important; max-height:none !important;
     margin:0 !important; overflow:hidden !important;
     border:1px solid #272839 !important; border-radius:18px !important;
     background:#20202f !important; transform:none !important; box-shadow:none !important;
@@ -976,7 +976,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     min-height:0 !important; max-height:none !important; transform:none !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face {
-    padding:13px 15px !important;
+    padding:13px 14px !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--front {
     display:flex !important; flex-direction:column !important;
@@ -984,18 +984,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--front h3 {
     position:relative !important; z-index:2 !important;
-    width:calc(100% - 118px) !important; max-width:calc(100% - 118px) !important;
+    width:calc(100% - 130px) !important; max-width:calc(100% - 130px) !important;
     margin:0 !important;
     font-family:Montserrat,Arial,sans-serif !important;
-    font-size:clamp(13px,3.55vw,15px) !important;
+    font-size:clamp(14px,4vw,17px) !important;
     line-height:1.2 !important; font-weight:600 !important;
     letter-spacing:0 !important; overflow-wrap:normal !important; word-break:normal !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item-image {
     display:flex !important;
     position:absolute !important;
-    top:7px !important; right:9px !important; bottom:7px !important; left:auto !important;
-    width:min(32%,112px) !important; height:calc(100% - 14px) !important;
+    top:4px !important; right:6px !important; bottom:4px !important; left:auto !important;
+    width:40% !important; height:calc(100% - 8px) !important;
     align-items:center !important; justify-content:center !important;
     opacity:1 !important; visibility:visible !important;
     filter:none !important; transform:none !important;
@@ -1008,7 +1008,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back {
     display:flex !important; flex-direction:column !important;
     justify-content:center !important; align-items:flex-start !important;
-    padding:12px 42px 12px 14px !important;
+    padding:13px 47px 13px 14px !important;
     overflow:hidden !important; background:rgba(6,10,22,.87) !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back h3 {
@@ -1019,8 +1019,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     position:relative !important; z-index:2 !important;
     width:100% !important; max-width:100% !important;
     margin:0 !important; color:#fff !important;
-    font-size:clamp(11px,3.05vw,13px) !important;
-    font-weight:400 !important; line-height:1.25 !important;
+    font-size:clamp(13px,3.85vw,16px) !important;
+    font-weight:400 !important; line-height:1.24 !important;
     overflow-wrap:normal !important; word-break:normal !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__flip-toggle {
@@ -1044,10 +1044,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__more {
     display:block !important; box-sizing:border-box !important;
     width:100% !important; min-height:44px !important;
-    margin:22px 0 0 !important; padding:11px 14px !important;
+    margin:28px 0 0 !important; padding:11px 14px !important;
     border:0 !important; border-radius:9px !important;
     background:#3022af !important; color:#fff !important;
     font:600 14px/1.35 Montserrat,Arial,sans-serif !important;
+  }
+  /* Figma placement: siren and sensor stay inset, wide camera/laser artwork clips naturally at the right edge. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(1) .service-equipment__item-image {
+    right:12px !important; width:35% !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(2) .service-equipment__item-image {
+    right:11px !important; width:36% !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(3) .service-equipment__item-image {
+    right:-10px !important; width:44% !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(4) .service-equipment__item-image {
+    right:12px !important; width:32% !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(5) .service-equipment__item-image {
+    right:-7px !important; width:48% !important;
+  }
+  /* Revealed description: subdued background product, no bright overlap with text. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__item-image {
+    opacity:.18 !important; filter:blur(2px) brightness(.72) !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__face--back {
+    background:rgba(6,10,22,.75) !important;
   }
 
 }
@@ -1516,6 +1539,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   document.addEventListener('visibilitychange',function(){schedule(3500);});
   if(mobile.addEventListener)mobile.addEventListener('change',function(){schedule(3500);});
   if(reduced.addEventListener)reduced.addEventListener('change',function(){schedule(3500);});
+})();
+</script>
+<script id="BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V7-init">
+(function(){
+  'use strict';
+  if(!document.body.classList.contains('postid-19') || !window.matchMedia('(max-width:767px)').matches)return;
+  var card=document.querySelector('.service-equipment__group:first-child .service-equipment__item:first-child');
+  if(!card)return;
+  var button=card.querySelector('.service-equipment__flip-toggle');
+  var description=card.querySelector('.service-equipment__face--back');
+  card.classList.add('is-flipped');
+  if(button){button.setAttribute('aria-pressed','true');button.setAttribute('aria-label',button.dataset.hideLabel||'Скрыть описание');}
+  if(description)description.setAttribute('aria-hidden','false');
 })();
 </script>
 </body></html>
