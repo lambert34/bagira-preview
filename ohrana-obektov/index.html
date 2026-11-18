@@ -311,6 +311,47 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   body.postid-16 .service-hero::after {content:none;}
 }
 </style>
+<style id="bagira-object-hero-figma-fix-20261118-v6">
+@media(min-width:1280px){
+  /* No more cropping at the hero boundary; preserve the original full-size image. */
+  body.postid-16 .service-hero {
+    position:relative !important;
+    height:685px !important;
+    min-height:685px !important;
+    overflow:visible !important;
+    isolation:auto !important;
+    background:#080d16 !important;
+  }
+  body.postid-16 .service-hero::before {
+    content:"";
+    position:absolute;
+    inset:-25px 0 -35px;
+    z-index:0;
+    pointer-events:none;
+    background:radial-gradient(ellipse 43% 41% at 39% 71%,rgba(39,54,155,.34),rgba(22,34,99,.17) 45%,transparent 90%);
+  }
+  body.postid-16 .service-hero__inner {position:relative;z-index:2;}
+  body.postid-16 .service-hero__visual {
+    top:31px !important;
+    left:561px !important;
+    width:681px !important;
+    height:609px !important;
+    z-index:4 !important;
+    overflow:visible !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+    opacity:1 !important;
+  }
+  body.postid-16 .service-hero__visual img {
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    max-width:none !important;
+    object-fit:contain !important;
+    object-position:center bottom !important;
+  }
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-16 wp-theme-bagira">
 
