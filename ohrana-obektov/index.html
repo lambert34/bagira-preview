@@ -224,6 +224,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   body.postid-16 .service-protected--items-5 .service-protected-card__image img{transition:none}
 }
 </style>
+<style id="bagira-object-hero-figma-fix-20261118-v2">
+@media (min-width:1280px){
+  /* Figma 2203:471: entire guardhouse/guard/barrier inside 562px hero. */
+  body.postid-16 .service-hero {
+    background-color:#080d16;
+    background-image:radial-gradient(ellipse 44% 39% at 39% 75%,rgba(33,51,142,.25) 0%,rgba(19,30,85,.13) 43%,rgba(8,13,22,0) 93%);
+    background-repeat:no-repeat;
+  }
+  body.postid-16 .service-hero__visual {
+    top:0;left:561px;width:681px;height:562px;
+    overflow:visible;
+    -webkit-mask-image:none;mask-image:none;
+  }
+  body.postid-16 .service-hero__visual img {
+    display:block;width:100%;height:100%;max-width:none;
+    object-fit:contain;object-position:center bottom;
+  }
+}
+</style>
 </head>
 <body class="wp-singular service-template-default single single-service postid-16 wp-theme-bagira">
 
