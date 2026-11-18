@@ -292,6 +292,40 @@
         }, { passive: true } );
         window.addEventListener( 'resize', update );
         update();
+
+        // BAGIRA_HOME_MOBILE_CLIENT_20261118_V2: services auto-advance only after the section enters view.
+        // Respects reduced motion, offscreen state, hidden tab and manual gestures.
+        var autoInterval = null;
+        var inView = false;
+        var userPauseUntil = 0;
+        var reducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' );
+        function pauseForUser() { userPauseUntil = Date.now() + 7000; }
+        function stopAuto() { if (autoInterval) { window.clearInterval(autoInterval); autoInterval = null; } }
+        function syncAuto() {
+            stopAuto();
+            if (!inView || !mobile.matches || reducedMotion.matches || document.visibilityState !== 'visible') { return; }
+            autoInterval = window.setInterval(function () {
+                if (!inView || !mobile.matches || reducedMotion.matches || document.visibilityState !== 'visible' || Date.now() < userPauseUntil) { return; }
+                var index = currentIndex();
+                go(index === cards.length - 1 ? -(cards.length - 1) : 1);
+            }, 3500);
+        }
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries) {
+                var nextInView = entries.some(function (entry) { return entry.isIntersecting && entry.intersectionRatio >= .20; });
+                if (nextInView !== inView) { inView = nextInView; syncAuto(); }
+            }, {threshold:[0, .20, .40]});
+            observer.observe(grid);
+        }
+        [ 'pointerdown', 'touchstart', 'wheel', 'keydown' ].forEach(function (eventName) {
+            grid.addEventListener(eventName, pauseForUser, {passive:true});
+        });
+        previous.addEventListener('click', pauseForUser);
+        next.addEventListener('click', pauseForUser);
+        document.addEventListener('visibilitychange', syncAuto);
+        mobile.addEventListener('change', syncAuto);
+        if (reducedMotion.addEventListener) { reducedMotion.addEventListener('change', syncAuto); }
+        // BAGIRA_HOME_MOBILE_CLIENT_20261118_V2:END AUTO
     } )();
     // BAGIRA-HOME-SERVICES-MOBILE-CAROUSEL-20261109:END
 
