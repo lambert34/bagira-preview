@@ -935,67 +935,121 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     font-size:clamp(29px,8vw,34px) !important;
     line-height:1.05 !important;
   }
-  /* The Figma equipment board has two equal cards per row, not a long stack. */
+  /* BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V6 — composite mobile Figma target.
+     One full-width horizontal card per row. Five visible initially. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__intro h2 {
-    font-size:clamp(23px,6.2vw,27px) !important;
-    line-height:1.12 !important;
+    width:100% !important; max-width:none !important;
+    margin:0 0 20px !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:clamp(22px,5.9vw,26px) !important;
+    font-weight:700 !important; line-height:1.16 !important;
     overflow-wrap:normal !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child > .service-equipment__grid {
-    display:grid !important; grid-auto-flow:row !important;
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    grid-template-rows:auto !important; gap:10px !important;
-    align-items:stretch !important; justify-content:stretch !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-auto-flow:row !important; grid-template-rows:auto !important;
+    gap:13px !important;
     width:100% !important; max-width:100% !important;
+    margin:0 !important; padding:0 !important;
+    align-items:stretch !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item,
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped {
-    box-sizing:border-box !important; grid-column:auto !important;
+    position:relative !important;
+    box-sizing:border-box !important;
+    grid-column:auto !important; grid-row:auto !important;
     width:100% !important; min-width:0 !important;
-    height:clamp(177px,47vw,207px) !important;
-    min-height:0 !important; max-height:207px !important;
+    height:clamp(105px,29vw,120px) !important; min-height:0 !important; max-height:none !important;
     margin:0 !important; overflow:hidden !important;
-    border-radius:15px !important;
+    border:1px solid #272839 !important; border-radius:18px !important;
+    background:#20202f !important; transform:none !important; box-shadow:none !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped {
+    background:#0b0e19 !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__flip-inner,
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face,
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__flip-inner,
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__face {
-    box-sizing:border-box !important; height:100% !important;
-    min-height:0 !important; max-height:none !important;
+    box-sizing:border-box !important; width:100% !important; height:100% !important;
+    min-height:0 !important; max-height:none !important; transform:none !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face {
-    padding:12px !important;
+    padding:13px 15px !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--front {
+    display:flex !important; flex-direction:column !important;
+    align-items:flex-start !important; justify-content:center !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--front h3 {
-    max-width:100% !important;
-    font-size:clamp(12px,3.36vw,14px) !important;
-    line-height:1.19 !important; font-weight:600 !important;
-    overflow-wrap:break-word !important;
+    position:relative !important; z-index:2 !important;
+    width:calc(100% - 118px) !important; max-width:calc(100% - 118px) !important;
+    margin:0 !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:clamp(13px,3.55vw,15px) !important;
+    line-height:1.2 !important; font-weight:600 !important;
+    letter-spacing:0 !important; overflow-wrap:normal !important; word-break:normal !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item-image {
-    inset:auto 7px 7px auto !important; top:auto !important;left:auto !important;
-    width:clamp(60px,22vw,94px) !important;
-    height:clamp(76px,23vw,105px) !important;
-    opacity:1 !important;
+    display:flex !important;
+    position:absolute !important;
+    top:7px !important; right:9px !important; bottom:7px !important; left:auto !important;
+    width:min(32%,112px) !important; height:calc(100% - 14px) !important;
+    align-items:center !important; justify-content:center !important;
+    opacity:1 !important; visibility:visible !important;
+    filter:none !important; transform:none !important;
   }
-  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back h3 {
-    max-width:100% !important; font-size:12px !important;
-    line-height:1.2 !important;
-  }
-  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text {
-    max-width:100% !important; font-size:11px !important;
-    line-height:1.25 !important; overflow-wrap:anywhere !important;
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item-image img {
+    display:block !important; width:100% !important; height:100% !important;
+    max-width:100% !important; object-fit:contain !important;
+    object-position:right center !important; transform:none !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back {
-    overflow-y:auto !important; overscroll-behavior:contain !important;
+    display:flex !important; flex-direction:column !important;
+    justify-content:center !important; align-items:flex-start !important;
+    padding:12px 42px 12px 14px !important;
+    overflow:hidden !important; background:rgba(6,10,22,.87) !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back h3 {
+    display:none !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--back .service-equipment__item-text p {
+    position:relative !important; z-index:2 !important;
+    width:100% !important; max-width:100% !important;
+    margin:0 !important; color:#fff !important;
+    font-size:clamp(11px,3.05vw,13px) !important;
+    font-weight:400 !important; line-height:1.25 !important;
+    overflow-wrap:normal !important; word-break:normal !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__flip-toggle {
+    display:block !important; position:absolute !important; z-index:8 !important;
+    inset:0 !important; width:100% !important; height:100% !important;
+    border:0 !important; border-radius:inherit !important;
+    background:transparent !important; cursor:pointer !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__flip-toggle::after {
+    content:"" !important; position:absolute !important;
+    top:9px !important; right:9px !important;
+    width:25px !important; height:25px !important;
+    border-radius:50% !important;
+    background:#3022af url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M20%2011a8%208%200%201%200-2.3%205.6%22%2F%3E%3Cpath%20d%3D%22m16%2016%202%202%203-2%22%2F%3E%3C%2Fsvg%3E") center/20px 20px no-repeat !important;
+    pointer-events:none !important; box-shadow:none !important;
+  }
+  /* Initially show FIVE instead of the six cards shown by the old mobile CSS. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child > .service-equipment__grid.is-collapsed > .service-equipment__item:nth-child(n + 6) {
+    display:none !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__more {
-    min-height:46px !important; border:0 !important;
-    border-radius:9px !important; background:#3022af !important;
-    font-family:Montserrat,Arial,sans-serif !important;
-    font-size:14px !important; font-weight:600 !important;
+    display:block !important; box-sizing:border-box !important;
+    width:100% !important; min-height:44px !important;
+    margin:22px 0 0 !important; padding:11px 14px !important;
+    border:0 !important; border-radius:9px !important;
+    background:#3022af !important; color:#fff !important;
+    font:600 14px/1.35 Montserrat,Arial,sans-serif !important;
   }
+
 }
 </style>
 </head>
