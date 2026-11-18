@@ -267,7 +267,41 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
 }
 </style>
-</head>
+<style id="bagira-object-form-visible-v9">
+/* Fix confirmed source bug: V1 made the consultation image position:absolute
+   but the image wrapper was not positioned, so the image covered the entire panel
+   and hid the form. Constrain the image to its own grid cell. */
+body.postid-16 #consultation .consultation__panel{
+  position:relative !important;
+  display:grid !important;
+  grid-template-columns:minmax(0, 714fr) minmax(0, 486fr) !important;
+  overflow:hidden !important;
+}
+body.postid-16 #consultation .consultation__content{
+  position:relative !important;
+  z-index:2 !important;
+  min-width:0 !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+body.postid-16 #consultation .consultation__image{
+  position:relative !important;
+  z-index:1 !important;
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+body.postid-16 #consultation .consultation__image img{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+@media(max-width:767px){
+  body.postid-16 #consultation .consultation__panel{display:block !important;}
+  body.postid-16 #consultation .consultation__image{display:none !important;}
+}
+</style>\n</head>
 <body class="wp-singular service-template-default single single-service postid-16 wp-theme-bagira">
 
 
