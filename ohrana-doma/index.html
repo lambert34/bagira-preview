@@ -935,13 +935,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     font-size:clamp(29px,8vw,34px) !important;
     line-height:1.05 !important;
   }
-  /* BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V8 — composite mobile Figma target.
-     Reference: user screenshot at a 320px Figma canvas. Published cards at 393px keep equivalent 361x135px geometry. Five visible initially. */
+  /* BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V10 — composite mobile Figma target.
+     Reference: supplied Figma PNG (320 CSS-px equivalent). Preserve card aspect; fix headline line wrap, typography, and product artwork alignment. Five visible initially. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__intro h2 {
     width:100% !important; max-width:none !important;
-    margin:0 0 25px !important;
+    margin:0 0 27px !important;
     font-family:Montserrat,Arial,sans-serif !important;
-    font-size:clamp(21px,6vw,25px) !important;
+    font-size:clamp(18px,5.2vw,22px) !important; letter-spacing:-.015em !important; white-space:nowrap !important;
     font-weight:700 !important; line-height:1.16 !important;
     overflow-wrap:normal !important;
   }
@@ -976,7 +976,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     min-height:0 !important; max-height:none !important; transform:none !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face {
-    padding:13px 14px !important;
+    padding:13px 17px !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--front {
     display:flex !important; flex-direction:column !important;
@@ -984,10 +984,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__face--front h3 {
     position:relative !important; z-index:2 !important;
-    width:calc(100% - 130px) !important; max-width:calc(100% - 130px) !important;
+    width:calc(100% - 120px) !important; max-width:calc(100% - 120px) !important;
     margin:0 !important;
     font-family:Montserrat,Arial,sans-serif !important;
-    font-size:clamp(14px,4vw,17px) !important;
+    font-size:clamp(13px,3.55vw,15px) !important;
     line-height:1.2 !important; font-weight:600 !important;
     letter-spacing:0 !important; overflow-wrap:normal !important; word-break:normal !important;
   }
@@ -1093,12 +1093,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   /* Figma: the siren is fully inside the card; no cropping behind toggle. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(2) .service-equipment__item-image {
-    right:clamp(17px,5vw,23px) !important;
-    top:8px !important; bottom:8px !important; height:calc(100% - 16px) !important;
+    right:clamp(20px,6vw,26px) !important; width:42% !important;
+    top:5px !important; bottom:5px !important; height:calc(100% - 10px) !important;
   }
   /* Keep the camera and laser products visually edge-anchored, like Figma. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(3) .service-equipment__item-image {
-    right:-13px !important;
+    right:11px !important; width:49% !important;
+  }
+
+  /* V10 target: the camera and laser must not disappear at the right edge. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(5) .service-equipment__item-image {
+    right:4px !important; width:54% !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(2) .service-equipment__item-image img,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(3) .service-equipment__item-image img {
+    object-position:center center !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text p {
+    font-family:Montserrat,Arial,sans-serif !important; font-size:clamp(13px,3.5vw,15px) !important;
+    line-height:1.33 !important; font-weight:400 !important;
   }
 
 }
@@ -1569,7 +1583,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   if(reduced.addEventListener)reduced.addEventListener('change',function(){schedule(3500);});
 })();
 </script>
-<script id="BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V8-init">
+<script id="BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V10-init">
 (function(){
   'use strict';
   if(!document.body.classList.contains('postid-19')) return;
@@ -1596,6 +1610,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',showReferenceState,{once:true});
 })();
 </script>
+
 
 </body></html>
 <!-- BAGIRA_HOME_PUBLISH_20261112_205051403 -->
