@@ -935,8 +935,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     font-size:clamp(29px,8vw,34px) !important;
     line-height:1.05 !important;
   }
-  /* BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V7 — composite mobile Figma target.
-     Target proportions from user-supplied mobile Figma screenshot: 320px frame / ~294x110px cards. Five visible initially. */
+  /* BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V8 — composite mobile Figma target.
+     Reference: user screenshot at a 320px Figma canvas. Published cards at 393px keep equivalent 361x135px geometry. Five visible initially. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__intro h2 {
     width:100% !important; max-width:none !important;
     margin:0 0 25px !important;
@@ -1071,6 +1071,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item.is-flipped .service-equipment__face--back {
     background:rgba(6,10,22,.75) !important;
+  }
+  /* V8 verified default-open first item: visible description and subdued artwork.
+     Shared desktop CSS cannot override the first-card visual state. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--front {
+    z-index:1 !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--front h3 {
+    opacity:0 !important; visibility:hidden !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back {
+    z-index:5 !important; display:flex !important; visibility:visible !important;
+    opacity:1 !important; background:rgba(6,10,22,.78) !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text p {
+    opacity:1 !important; visibility:visible !important;
+  }
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__item-image {
+    opacity:.15 !important; filter:blur(2.5px) brightness(.70) !important;
+  }
+  /* Figma: the siren is fully inside the card; no cropping behind toggle. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(2) .service-equipment__item-image {
+    right:clamp(17px,5vw,23px) !important;
+    top:8px !important; bottom:8px !important; height:calc(100% - 16px) !important;
+  }
+  /* Keep the camera and laser products visually edge-anchored, like Figma. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(3) .service-equipment__item-image {
+    right:-13px !important;
   }
 
 }
@@ -1541,18 +1569,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   if(reduced.addEventListener)reduced.addEventListener('change',function(){schedule(3500);});
 })();
 </script>
-<script id="BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V7-init">
+<script id="BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_20261119_V8-init">
 (function(){
   'use strict';
-  if(!document.body.classList.contains('postid-19') || !window.matchMedia('(max-width:767px)').matches)return;
+  if(!document.body.classList.contains('postid-19')) return;
+  var media=window.matchMedia('(max-width:767px)');
   var card=document.querySelector('.service-equipment__group:first-child .service-equipment__item:first-child');
-  if(!card)return;
+  if(!card) return;
   var button=card.querySelector('.service-equipment__flip-toggle');
-  var description=card.querySelector('.service-equipment__face--back');
-  card.classList.add('is-flipped');
-  if(button){button.setAttribute('aria-pressed','true');button.setAttribute('aria-label',button.dataset.hideLabel||'Скрыть описание');}
-  if(description)description.setAttribute('aria-hidden','false');
+  var back=card.querySelector('.service-equipment__face--back');
+  var userChanged=false;
+  // Do not override any later voluntary user click on the card.
+  if(button) button.addEventListener('click',function(){userChanged=true;},true);
+  function showReferenceState(){
+    if(!media.matches || userChanged) return;
+    card.classList.add('is-flipped');
+    if(button){
+      button.setAttribute('aria-pressed','true');
+      button.setAttribute('aria-label',button.dataset.hideLabel||'Скрыть описание');
+    }
+    if(back)back.setAttribute('aria-hidden','false');
+  }
+  showReferenceState();
+  if(media.addEventListener)media.addEventListener('change',showReferenceState);
+  // In case a previous script updated the component before DOMContentLoaded.
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',showReferenceState,{once:true});
 })();
 </script>
+
 </body></html>
 <!-- BAGIRA_HOME_PUBLISH_20261112_205051403 -->
