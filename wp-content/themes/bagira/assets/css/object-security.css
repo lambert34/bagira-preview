@@ -6462,3 +6462,38 @@ ul {
   body.postid-16 .service-standards--split .service-standard__image,
   body.postid-16 .service-standards--split .service-standard:not(.is-collapsed) .service-standard__image { display: none; }
 }
+
+/* BAGIRA V31: winning mobile standards rule and O02/O04 protected-card values. */
+@media (max-width: 767px) {
+  body.postid-16 .service-standards--split .service-standard__image,
+  body.postid-16 .service-standards--split .service-standard:not(.is-collapsed) .service-standard__image {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+  }
+  body.postid-16 .service-protected > .container {
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+    max-width: none;
+    margin-inline: auto;
+    padding: 0;
+  }
+  body.postid-16 .service-protected-card,
+  body.postid-16 .service-protected-card:nth-child(n) {
+    width: 100% !important;
+    max-width: none !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    padding: 15px !important;
+  }
+  body.postid-16 .service-protected-card__copy { width: 100% !important; }
+  body.postid-16 .service-protected-card__copy p {
+    font-family: Montserrat, Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 15.4px !important;
+    letter-spacing: 0 !important;
+    color: rgba(255, 255, 255, .8) !important;
+  }
+}

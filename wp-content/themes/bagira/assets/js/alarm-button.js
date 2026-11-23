@@ -222,6 +222,9 @@
                 tariffDots.forEach( function ( dot, index ) {
                     dot.setAttribute( 'aria-pressed', String( index === bestIndex ) );
                 } );
+                tariffCards.forEach( function ( card, index ) {
+                    card.classList.toggle( 'is-active', index === bestIndex );
+                } );
             }
             tariffDots.forEach( function ( dot, index ) {
                 dot.addEventListener( 'click', function () {

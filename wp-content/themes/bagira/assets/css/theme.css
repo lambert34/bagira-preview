@@ -6089,3 +6089,26 @@ body.home .home-glows {
     line-height: 1.35;
   }
 }
+
+/* BAGIRA V31: verified homepage mobile selectors and H04 card geometry. */
+.services-title__mobile { display: none; }
+@media (max-width: 767px) {
+  body.home #hero-title { font-size: 32px; line-height: 1.08; }
+  body.home .services-title__desktop { display: none; }
+  body.home .services-title__mobile { display: inline; }
+  body.home .services__grid { gap: 10px; scroll-padding-inline: 0; }
+  body.home .services__grid .service-card {
+    box-sizing: border-box;
+    flex: 0 0 300px;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    height: 418px;
+    min-height: 418px;
+    max-height: 418px;
+    padding: 15px;
+    border-radius: 20px;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+}
