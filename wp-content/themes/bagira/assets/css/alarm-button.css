@@ -7572,3 +7572,12 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
     width: 58% !important; height: 300px !important;
   }
 }
+
+/* BAGIRA V32: extend only the verified mobile feature rail to the screen edge. */
+@media (max-width: 767px) {
+  body.postid-18 .service-application--smartphone-alarm .service-application__features {
+    box-sizing: border-box;
+    width: calc(100% + 40px) !important;
+    padding-right: 20px !important;
+  }
+}
