@@ -296,3 +296,73 @@
   else init();
 })();
 /* BAGIRA-PHYSICAL-WP-TABLET-V2-MAIN:END */
+
+/* BAGIRA GITHUB FINAL MOBILE AUTOPLAY V28:START */
+(function () {
+  'use strict';
+  if (!document.body.classList.contains('postid-17')) return;
+  var mobile = window.matchMedia('(max-width: 767px)');
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function setup(container, itemSelector, delay) {
+    if (!container) return;
+    var items = Array.prototype.slice.call(container.querySelectorAll(itemSelector));
+    if (items.length < 2) return;
+    var visible = false;
+    var timer = 0;
+    var resumeTimer = 0;
+
+    function stop() {
+      window.clearTimeout(timer);
+      timer = 0;
+    }
+    function nearestIndex() {
+      var box = container.getBoundingClientRect();
+      var target = box.left;
+      var bestIndex = 0;
+      var bestDistance = Infinity;
+      items.forEach(function (item, index) {
+        var distance = Math.abs(item.getBoundingClientRect().left - target);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = index;
+        }
+      });
+      return bestIndex;
+    }
+    function schedule() {
+      stop();
+      if (!visible || !mobile.matches || reducedMotion.matches || document.hidden) return;
+      timer = window.setTimeout(function () {
+        var next = (nearestIndex() + 1) % items.length;
+        container.scrollTo({ left: items[next].offsetLeft, behavior: 'smooth' });
+        schedule();
+      }, delay);
+    }
+    function pauseForInteraction() {
+      stop();
+      window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(schedule, 8000);
+    }
+
+    container.addEventListener('pointerdown', pauseForInteraction, { passive: true });
+    container.addEventListener('touchstart', pauseForInteraction, { passive: true });
+    document.addEventListener('visibilitychange', schedule);
+    if (mobile.addEventListener) mobile.addEventListener('change', schedule);
+    if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', schedule);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        schedule();
+      }, { threshold: 0.35 }).observe(container);
+    } else {
+      visible = true;
+      schedule();
+    }
+  }
+
+  setup(document.querySelector('.service-hero__highlights'), ':scope > li', 2500);
+  setup(document.querySelector('.service-pricing__grid'), '.service-tariff', 3500);
+}());
+/* BAGIRA GITHUB FINAL MOBILE AUTOPLAY V28:END */

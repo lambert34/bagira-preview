@@ -8527,3 +8527,12 @@ body.postid-15 .service-hero--standards-mosaic .service-hero__visual picture { d
   }
 }
 /* BAGIRA_TRANSPORT_DESKTOP_FIGMA_V1:END */
+
+/* BAGIRA GITHUB FINAL TRANSPORT MOBILE STANDARDS V28:START */
+@media (max-width: 767px) {
+  body.postid-15 .service-standards--mosaic .service-standard__image,
+  body.postid-15 .service-standards--mosaic.bagira-mobile-accordion-ready .service-standard.bagira-mobile-open .service-standard__image {
+    display: none !important;
+  }
+}
+/* BAGIRA GITHUB FINAL TRANSPORT MOBILE STANDARDS V28:END */

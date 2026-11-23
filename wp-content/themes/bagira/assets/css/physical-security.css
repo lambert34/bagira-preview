@@ -6744,3 +6744,41 @@ ul {
 }
 /* BAGIRA PHYSICAL TABLET ICON ALIGN V2:END */
 /* BAGIRA-PHYSICAL-WP-TABLET-V2-MAIN:END */
+
+/* BAGIRA GITHUB FINAL MOBILE CLIENT REVISION V28:START */
+@media (max-width: 767px) {
+  /* Figma 2575:571: keep the breadcrumb on the same 15-16px content inset. */
+  body.postid-17 .service-hero__breadcrumb {
+    margin: 0 auto 27px !important;
+  }
+  /* Client revision PHYSICAL-04: horizontal cards, then autoplay after entry. */
+  body.postid-17 .service-hero--highlights-cards .service-hero__highlights {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  body.postid-17 .service-hero--highlights-cards .service-hero__highlights::-webkit-scrollbar {
+    display: none;
+  }
+  body.postid-17 .service-hero--highlights-cards .service-hero__highlights > li {
+    flex: 0 0 calc(100% - 22px) !important;
+    width: calc(100% - 22px) !important;
+    scroll-snap-align: start;
+  }
+  /* Client revision PHYSICAL-05: remove the marked decorative shield on mobile. */
+  body.postid-17 .service-standards--split .service-standard__image {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  body.postid-17 .service-hero__highlights,
+  body.postid-17 .service-pricing__grid { scroll-behavior: auto !important; }
+}
+/* BAGIRA GITHUB FINAL MOBILE CLIENT REVISION V28:END */

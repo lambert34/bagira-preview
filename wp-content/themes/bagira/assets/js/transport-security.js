@@ -328,7 +328,7 @@
     if (cards.length !== 4) return;
     root.dataset.bagiraMobileAccordionV5 = 'ready';
     var media = window.matchMedia('(max-width: 767px)');
-    var active = 2; // The third card is open in the mobile Figma reference.
+    var active = 0; // Client 15.11.2026: first mobile card opens by default.
     var controls = [];
 
     cards.forEach(function (card, index) {
