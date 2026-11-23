@@ -264,9 +264,11 @@
         var framePending = false;
         function currentIndex() {
             var bounds = grid.getBoundingClientRect();
+            var center = bounds.left + bounds.width / 2;
             var best = 0, distance = Infinity;
             cards.forEach( function ( card, index ) {
-                var d = Math.abs( card.getBoundingClientRect().left - bounds.left );
+                var cardBounds = card.getBoundingClientRect();
+                var d = Math.abs( cardBounds.left + cardBounds.width / 2 - center );
                 if ( d < distance ) { distance = d; best = index; }
             } );
             return best;
@@ -274,13 +276,18 @@
         function update() {
             if ( !mobile.matches ) { return; }
             var index = currentIndex();
+            cards.forEach( function ( card, cardIndex ) {
+                card.classList.toggle( 'is-active', cardIndex === index );
+            } );
             previous.disabled = index === 0;
             next.disabled = index === cards.length - 1;
         }
         function go( delta ) {
             if ( !mobile.matches ) { return; }
             var index = Math.max( 0, Math.min( cards.length - 1, currentIndex() + delta ) );
-            var x = grid.scrollLeft + cards[index].getBoundingClientRect().left - grid.getBoundingClientRect().left;
+            var gridBounds = grid.getBoundingClientRect();
+            var cardBounds = cards[index].getBoundingClientRect();
+            var x = grid.scrollLeft + cardBounds.left - gridBounds.left - ( grid.clientWidth - cardBounds.width ) / 2;
             grid.scrollTo( { left: x, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' } );
         }
         previous.addEventListener( 'click', function () { go( -1 ); } );

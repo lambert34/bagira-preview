@@ -7581,3 +7581,119 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
     padding-right: 20px !important;
   }
 }
+
+/* BAGIRA V33: exact mobile pricing geometry and a clean full-card app rail. */
+@media (max-width: 767px) {
+  body.postid-18 .service-pricing--dual-price .service-pricing__grid {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 calc((100vw - 300px) / 2) 12px;
+    gap: 15px;
+    scroll-padding-inline: calc((100vw - 300px) / 2);
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price {
+    flex: 0 0 274px;
+    width: 274px;
+    min-width: 274px;
+    max-width: 274px;
+    height: 337px;
+    min-height: 337px;
+    max-height: 337px;
+    padding-top: 135px;
+    scroll-snap-align: center;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price.is-active {
+    flex-basis: 300px;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    height: 358px;
+    min-height: 358px;
+    max-height: 358px;
+    padding-top: 156px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__image { height: 203px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price.is-active .service-tariff__image { height: 222px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price h3 {
+    top: 20px;
+    left: 15px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price:not(.is-active) h3 { left: 30px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price:not(.is-active) .service-tariff__price-panel > * { opacity: 0; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-panel {
+    height: 202px;
+    min-height: 202px;
+    padding: 15px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-columns { gap: 15px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-column:first-child,
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-column:last-child { width: 100%; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-label {
+    min-height: 20px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price strong {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__button {
+    height: 40px;
+    min-height: 40px;
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__content h2 {
+    margin-bottom: 16px;
+    font-size: 30px;
+    line-height: 33px;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__content p {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__text p + p {
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__features {
+    width: calc(100% + 20px) !important;
+    margin-top: 0 !important;
+    padding: 0 0 8px !important;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__features > li {
+    flex: 0 0 calc(100vw - 60px) !important;
+    width: calc(100vw - 60px) !important;
+    min-width: calc(100vw - 60px) !important;
+    min-height: 126px;
+    padding: 16px 16px 16px 42px;
+    background: rgba(16, 19, 34, .84);
+    font-size: 14px !important;
+    line-height: 19px !important;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__media {
+    height: 340px !important;
+    opacity: .34 !important;
+    filter: blur(2px) brightness(.85) !important;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__image,
+  body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image {
+    width: 60% !important;
+    height: 320px !important;
+  }
+  body.postid-18 .service-application--smartphone-alarm .service-application__image { right: -4% !important; }
+  body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image { left: -4% !important; }
+  body.postid-18 .service-hero__mobile-cta { margin-top: -6px; }
+}

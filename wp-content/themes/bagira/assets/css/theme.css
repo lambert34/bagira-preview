@@ -6159,3 +6159,21 @@ body.home .hero__mobile-cta { display: none; }
     font-size: 16px; line-height: 20px;
   }
 }
+
+/* BAGIRA V33: intentional centred mobile rail; H04 card geometry stays unchanged. */
+@media (max-width: 767px) {
+  body.home .services__grid {
+    box-sizing: border-box;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-inline: calc((100vw - 300px) / 2);
+    gap: 10px;
+    scroll-padding-inline: calc((100vw - 300px) / 2);
+  }
+  body.home .services__grid .service-card {
+    opacity: .4;
+    scroll-snap-align: center;
+    transition: opacity 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+  body.home .services__grid .service-card.is-active { opacity: 1; }
+}
