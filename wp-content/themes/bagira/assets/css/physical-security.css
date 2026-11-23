@@ -6782,3 +6782,12 @@ ul {
   body.postid-17 .service-pricing__grid { scroll-behavior: auto !important; }
 }
 /* BAGIRA GITHUB FINAL MOBILE CLIENT REVISION V28:END */
+/* BAGIRA V29: make the client-requested mobile rail visually legible.
+   Keep the V28 autoplay and the approved image-free standards card. */
+@media (max-width: 767px) {
+  body.postid-17 .service-hero--highlights-cards .service-hero__highlights > li {
+    flex-basis: min(80vw, 300px) !important;
+    width: min(80vw, 300px) !important;
+    min-width: min(80vw, 300px) !important;
+  }
+}

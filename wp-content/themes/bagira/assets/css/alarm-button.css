@@ -7368,3 +7368,93 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
   }
 }
 /* BAGIRA-ALARM-TABLET-V1-MAIN:END */
+/* BAGIRA V29: mobile composition fidelity for the Alarm Button hero and app block. */
+@media (max-width: 767px) {
+  body.postid-18 .service-hero--pricing-2 .service-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+  }
+
+  body.postid-18 .service-hero--pricing-2 .service-hero__content {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+  }
+
+  body.postid-18 .service-hero--pricing-2 .service-hero__visual {
+    position: relative !important;
+    inset: auto !important;
+    align-self: center !important;
+    width: calc(100% + 40px) !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    margin: -48px -20px -36px !important;
+    opacity: .9 !important;
+  }
+
+  body.postid-18 .service-hero--pricing-2 .service-hero__visual img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    -webkit-mask-image: radial-gradient(circle at 58% 52%, #000 0 54%, rgba(0,0,0,.65) 69%, transparent 88%) !important;
+    mask-image: radial-gradient(circle at 58% 52%, #000 0 54%, rgba(0,0,0,.65) 69%, transparent 88%) !important;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__content {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__media {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 310px !important;
+    margin: 18px 0 -26px !important;
+    opacity: 1 !important;
+    overflow: hidden !important;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__image,
+  body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image {
+    display: block !important;
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    width: 58% !important;
+    height: 300px !important;
+    opacity: 1 !important;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__image {
+    right: -1% !important;
+    left: auto !important;
+    z-index: 2 !important;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image {
+    right: auto !important;
+    left: -1% !important;
+    z-index: 1 !important;
+  }
+
+  body.postid-18 .service-application--smartphone-alarm .service-application__media img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+}
