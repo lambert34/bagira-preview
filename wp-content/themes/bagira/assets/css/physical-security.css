@@ -6791,3 +6791,16 @@ ul {
     min-width: min(80vw, 300px) !important;
   }
 }
+
+/* BAGIRA V30: exact 375px Figma typography and readable expanded standard. */
+@media (max-width: 767px) {
+  body.postid-17 .service-hero__breadcrumb { font-size: 12px; line-height: normal; }
+  body.postid-17 .service-hero__content h1 { font-size: 30px; line-height: 1; }
+  body.postid-17 .service-hero__content p { margin-top: 20px; font-size: 16px; line-height: normal; }
+  body.postid-17 .service-standards--split .service-standard--featured,
+  body.postid-17 .service-standards--split .service-standards__lead > .service-standard { padding: 15px; }
+  body.postid-17 .service-standards--split .service-standard--featured h3,
+  body.postid-17 .service-standards--split .service-standards__lead > .service-standard h3 { margin-bottom: 12px; }
+  body.postid-17 .service-standards--split .service-standard--featured .service-standard__text p,
+  body.postid-17 .service-standards--split .service-standards__lead > .service-standard .service-standard__text p { font-size: 14px; line-height: 1.4; }
+}

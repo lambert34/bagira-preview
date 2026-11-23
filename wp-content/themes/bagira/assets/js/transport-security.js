@@ -328,7 +328,7 @@
     if (cards.length !== 4) return;
     root.dataset.bagiraMobileAccordionV5 = 'ready';
     var media = window.matchMedia('(max-width: 767px)');
-    var active = 0; // Client 15.11.2026: first mobile card opens by default.
+    var openCards = { 0: true }; // First opens by default; mobile cards toggle independently.
     var controls = [];
 
     cards.forEach(function (card, index) {
@@ -343,7 +343,11 @@
       controls[index] = button;
       button.addEventListener('click', function () {
         if (!media.matches) return;
-        active = active === index ? -1 : index;
+        if ( openCards[index] ) {
+          delete openCards[index];
+        } else {
+          openCards[index] = true;
+        }
         update();
       });
     });
@@ -352,7 +356,7 @@
       var mobile = media.matches;
       root.classList.toggle('bagira-mobile-accordion-ready', mobile);
       cards.forEach(function (card, index) {
-        var expanded = mobile && index === active;
+        var expanded = mobile && Boolean( openCards[index] );
         card.classList.toggle('bagira-mobile-open', expanded);
         card.classList.toggle('bagira-mobile-closed', mobile && !expanded);
         var title = card.querySelector('h3');

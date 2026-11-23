@@ -12,7 +12,6 @@
 	--bagira-radius: 20px;
 	--bagira-control-radius: 10px;
 }
-
 /* Alarm Button: approved Figma hero blend, tariff hierarchy and equipment active states. */
 body.postid-18 .service-hero--pricing-2 {
 	isolation: isolate;
@@ -7457,4 +7456,54 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
     object-fit: contain !important;
     object-position: center bottom !important;
   }
+}
+
+/* BAGIRA V30: client-approved mobile alarm pricing, app rhythm and large equipment cards. */
+@media (max-width: 767px) {
+  body.postid-18 .service-hero__content h1 { font-size: 30px; line-height: 1; }
+  body.postid-18 .service-hero__content p { font-size: 16px; line-height: 1.4; }
+  body.postid-18 .service-pricing--dual-price { padding-top: 60px; }
+  body.postid-18 .service-pricing--dual-price h2 {
+    width: calc(100% - 30px);
+    margin: 0 auto 25px;
+    font-size: 23px;
+    line-height: 1.1;
+    text-align: center;
+  }
+  body.postid-18 .service-pricing--dual-price .service-pricing__grid {
+    grid-auto-columns: 300px;
+    gap: 10px;
+    padding-inline: calc((100vw - 300px) / 2);
+    scroll-padding-inline: calc((100vw - 300px) / 2);
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price { width: 300px; padding-top: 155px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__image { height: 180px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price h3 { top: 20px; left: 15px; font-size: 20px; line-height: 1.15; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-panel { padding: 15px; border-radius: 20px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-columns { display: flex; flex-direction: column; gap: 15px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-label { min-height: 0; margin-bottom: 8px; font-size: 16px; line-height: normal; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price { font-size: 15px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price strong { font-size: 25px; font-weight: 500; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__button { min-height: 40px; height: 40px; margin-top: 20px; font-size: 16px; }
+  body.postid-18 .service-application--smartphone-alarm { padding-bottom: 32px; }
+  body.postid-18 .service-application--smartphone-alarm .service-application__content h2 { font-size: 30px; line-height: 1.1; }
+  body.postid-18 .service-application--smartphone-alarm .service-application__content p,
+  body.postid-18 .service-application--smartphone-alarm .service-application__features li { font-size: 16px; line-height: 1.4; }
+  body.postid-18 .service-application--smartphone-alarm .service-application__media { height: 280px; margin: 12px 0 -20px; }
+  body.postid-18 .service-application--smartphone-alarm .service-application__image,
+  body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image { height: 275px; }
+  body.postid-18 .service-equipment > .container { width: calc(100% - 32px); margin-inline: auto; padding: 0; }
+  body.postid-18 .service-equipment__grid,
+  body.postid-18 .service-equipment__grid--collapsible { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 25px; }
+  body.postid-18 .service-equipment__item { width: 100%; height: 134px; min-height: 134px; border-radius: 16px; }
+  body.postid-18 .service-equipment__flip-inner,
+  body.postid-18 .service-equipment__face { min-height: 132px; }
+  body.postid-18 .service-equipment__face { padding: 14px 16px; }
+  body.postid-18 .service-equipment__item h3,
+  body.postid-18 .service-equipment__face--front h3 { max-width: 60%; margin: 0; font-size: 16px; line-height: 1.2; }
+  body.postid-18 .service-equipment__item-image { right: 0; width: 45%; height: 100%; }
+  body.postid-18 .service-equipment__item-image img { object-fit: contain; object-position: right center; }
+  body.postid-18 .service-equipment__item.is-flipped,
+  body.postid-18 .service-equipment__item.is-flipped .service-equipment__flip-inner,
+  body.postid-18 .service-equipment__item.is-flipped .service-equipment__face { min-height: 210px; height: 210px; }
 }

@@ -6442,3 +6442,23 @@ ul {
   body.postid-16 .consultation--service .consultation__image img { object-fit:cover !important; object-position:center bottom !important; }
 }
 /* BAGIRA-OBJECT-RESPONSIVE-WP-V2-MAIN:END */
+
+/* BAGIRA V30: only the explicit round-two object-security mobile defects. */
+@media (max-width: 767px) {
+  body.postid-16 .service-hero__content h1 { font-size: 30px; line-height: 1; }
+  body.postid-16 .service-hero__content p { font-size: 16px; line-height: 1.4; }
+  body.postid-16 .service-hero__original-cta { display: none; }
+  body.postid-16 .service-hero__mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  body.postid-16 .service-standards--split .service-standard__image,
+  body.postid-16 .service-standards--split .service-standard:not(.is-collapsed) .service-standard__image { display: none; }
+}

@@ -8731,3 +8731,24 @@ body.home .home-glows {
     min-width: min(68vw, 260px) !important;
   }
 }
+
+/* BAGIRA V30: page-specific home-security mobile hero composition. */
+@media (max-width: 767px) {
+  body.postid-19 .service-hero__content { order: 1; }
+  body.postid-19 .service-hero__visual { order: 2; }
+  body.postid-19 .service-hero__content h1 { font-size: 30px; line-height: 1; }
+  body.postid-19 .service-hero__content p { margin-top: 20px; font-size: 16px; line-height: 1.4; }
+  body.postid-19 .service-hero__original-cta { display: none; }
+  body.postid-19 .service-hero__mobile-cta {
+    order: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+}

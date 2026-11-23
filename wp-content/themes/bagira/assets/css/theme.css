@@ -6057,3 +6057,35 @@ body.home .home-glows {
   }
 }
 /* BAGIRA_HOME_MOBILE_CLIENT_20261118_V2:END */
+/* BAGIRA V30: verified mobile typography against the client homepage references. */
+@media (max-width: 767px) {
+  body.home .hero__title {
+    font-size: 32px;
+    line-height: 1.08;
+  }
+  body.home .hero__subtitle {
+    font-size: 16px;
+    line-height: 1.38;
+  }
+  body.home .hero__content > .button {
+    min-height: 50px;
+    height: 50px;
+    font-size: 15px;
+  }
+  body.home .response__copy h2 {
+    font-size: 32px;
+    line-height: 1.08;
+  }
+  body.home .response__copy p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  body.home .promo h2 {
+    font-size: 34px;
+    line-height: 1.08;
+  }
+  body.home .promo p {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+}
