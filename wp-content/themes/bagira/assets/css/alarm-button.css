@@ -7783,3 +7783,19 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
     visibility: hidden !important;
   }
 }
+
+/* BAGIRA V35: reuse the accepted Home Security mobile equipment containment. */
+@media (max-width: 767px) {
+  body.postid-18 .service-equipment__item-image,
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain + .service-equipment .service-equipment__item-image {
+    inset: auto 8px 8px auto !important;
+    width: 46% !important;
+    height: 100px !important;
+    overflow: visible;
+  }
+
+  body.postid-18 .service-equipment__item-image img,
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain + .service-equipment .service-equipment__item-image img {
+    object-position: right bottom !important;
+  }
+}
