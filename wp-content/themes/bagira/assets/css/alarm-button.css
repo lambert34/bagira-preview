@@ -7804,7 +7804,7 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
 @media (max-width: 767px) {
   body.postid-18 .service-equipment__group:first-child .service-equipment__item:nth-child(6) .service-equipment__item-image,
   body.postid-18 .service-hero--pricing-2 ~ .service-application--plain + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(6) .service-equipment__item-image {
-    inset: auto -75.1px 4px auto !important;
+    inset: auto -67.1px 4px auto !important;
     width: 110px !important;
     height: 126px !important;
   }
