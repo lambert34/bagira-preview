@@ -6177,3 +6177,43 @@ body.home .hero__mobile-cta { display: none; }
   }
   body.home .services__grid .service-card.is-active { opacity: 1; }
 }
+
+/* BAGIRA V34: homepage ALFA10 card follows the accepted Transport mobile pattern. */
+@media (max-width: 767px) {
+  body.home .promo {
+    box-sizing: border-box;
+    width: calc(100% + 28px);
+    min-height: 0;
+    margin-left: -14px;
+    padding: 15px;
+    border-radius: 20px;
+  }
+  body.home .promo h2 {
+    max-width: 100%;
+    margin: 0 0 24px;
+    font-size: 23px;
+    line-height: 1.1;
+  }
+  body.home .promo p {
+    max-width: 100%;
+    margin: 0 0 15px;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  body.home .promo__copy > .button {
+    width: 100%;
+    min-width: 0;
+    height: 50px;
+    min-height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  body.home .promo__puma {
+    right: -125px;
+    bottom: -24px;
+    width: 310px;
+    opacity: .22;
+  }
+}

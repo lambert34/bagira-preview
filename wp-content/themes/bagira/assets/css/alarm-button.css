@@ -7697,3 +7697,89 @@ body.postid-18 .service-equipment__group:first-child .service-equipment__item:nt
   body.postid-18 .service-application--smartphone-alarm .service-application__secondary-image { left: -4% !important; }
   body.postid-18 .service-hero__mobile-cta { margin-top: -6px; }
 }
+
+/* BAGIRA V34: Figma mobile tariff tone/type and contained equipment artwork. */
+@media (max-width: 767px) {
+  body.postid-18 .service-pricing--dual-price h2 {
+    width: calc(100% - 30px);
+    margin: 0 auto 25px;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-panel,
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price:hover .service-tariff__price-panel,
+  body.postid-18 .service-pricing--dual-price .service-tariff--dual-price:focus-within .service-tariff__price-panel {
+    border: 1px solid #303041;
+    background: #20202f;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-columns { gap: 15px; }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price-label {
+    min-height: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__price strong {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+  body.postid-18 .service-pricing--dual-price .service-tariff__button {
+    width: calc(100% + 2px);
+    max-width: calc(100% + 2px);
+    height: 40px;
+    min-height: 40px;
+    margin: 7px 0 0 -1px;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  body.postid-18 .service-equipment__item h3,
+  body.postid-18 .service-equipment__face--front h3 {
+    max-width: 50%;
+  }
+  body.postid-18 .service-equipment__item-image,
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain + .service-equipment .service-equipment__item-image {
+    position: absolute !important;
+    inset: 0 8px 0 auto !important;
+    width: 42% !important;
+    height: 100% !important;
+    transform: none !important;
+    opacity: .92 !important;
+    overflow: hidden;
+  }
+  body.postid-18 .service-equipment__face--front { z-index: 2; }
+  body.postid-18 .service-equipment__face--back { z-index: 1; }
+  body.postid-18 .service-equipment__face--front .service-equipment__item-image { z-index: 3; }
+  body.postid-18 .service-equipment__item:not(.is-flipped) .service-equipment__face--back {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  body.postid-18 .service-equipment__item.is-flipped .service-equipment__face--back {
+    z-index: 4;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  body.postid-18 .service-equipment__item-image img,
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain + .service-equipment .service-equipment__item-image img {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+  body.postid-18 .service-equipment__item.is-flipped .service-equipment__item-image {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
