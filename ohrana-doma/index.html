@@ -1294,6 +1294,41 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .service-equipment__group > .service-equipment__grid > .service-equipment__item .service-equipment__face--back .service-equipment__item-text p,body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .service-equipment__group > .service-equipment__grid > .service-equipment__item:is(:hover,:focus-within,.is-flipped) .service-equipment__face--back .service-equipment__item-text p{font-family:inherit!important;font-weight:inherit!important;color:inherit!important;letter-spacing:inherit!important;}
 }
 </style>
+<style id="bagira-equipment-v44e-lines">
+@media (min-width: 1280px) {
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .service-equipment__group > .service-equipment__grid > .service-equipment__item:has(#service-equipment-description-19-2) .service-equipment__face > h3,
+body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .service-equipment__group > .service-equipment__grid > .service-equipment__item:has(#service-equipment-description-19-2):is(:hover,:focus-within,.is-flipped) .service-equipment__face--back > h3 { white-space: pre-line !important; }
+}
+</style>
+<script id="bagira-equipment-v44e">
+(function(){
+  'use strict';
+  const plans=[{"i":0,"oldh":"Тревожная кнопка","oldd":"После нажатия сигнал передаётся на пульт, группа реагирования прибывает в течение 7 минут.","h":"Тревожная кнопка","d":"После нажатия сигнал передаётся на пульт, группа реагирования прибывает в течение 7 минут."},{"i":1,"oldh":"Уличная сирена","oldd":"Срабатывает при тревоге или попытке вскрыть устройство. Издаёт громкий сигнал, отпугивает злоумышленников и привлекает внимание.","h":"Уличная сирена","d":"Срабатывает при тревоге или попытке вскрыть устройство. Издаёт громкий сигнал, отпугивает злоумышленников и привлекает внимание."},{"i":2,"oldh":"Видеокамеры с ночным видением","oldd":"Обеспечивают круглосуточное видеонаблюдение, включая съёмку в темноте. Записывают видео и звук.","h":"Видеокамеры\nс ночным\nвидением","d":"Обеспечивают круглосуточное видеонаблюдение, включая съёмку в темноте. Записывают видео и звук."},{"i":3,"oldh":"Звуковые датчики движения с фотофиксацией","oldd":"Реагируют на звук и автоматически делают снимок при срабатывании.","h":"Звуковые датчики движения с фотофиксацией","d":"Реагируют на звук и автоматически делают снимок при срабатывании."},{"i":4,"oldh":"Лазерные датчики движения","oldd":"Реагируют на прерывание луча. При появлении объекта в зоне между датчиками система фиксирует проникновение.","h":"Лазерные датчики движения","d":"Реагируют на прерывание луча. При появлении объекта в зоне между датчиками система фиксирует проникновение."},{"i":6,"oldh":"Магнитные датчики на двери и окна","oldd":"Срабатывают при открытии. При размыкании контакта система фиксирует попытку проникновения.","h":"Магнитные датчики на двери и окна","d":"Срабатывают при открытии. При размыкании контакта система фиксирует попытку проникновения."},{"i":7,"oldh":"Датчики разбития стекла","oldd":"Используем два типа: пьезоэлектрические — реагируют на вибрации и удары, акустические — на характерный звук разрушения стекла.","h":"Датчики разбития стекла","d":"Используем два типа: пьезоэлектрические — реагируют на вибрации и удары, акустические — на характерный звук разрушения стекла."}];
+  function init(){
+    const mq=window.matchMedia('(min-width: 1280px)');
+    const nodes=[];
+    for(const p of plans){
+      const back=document.getElementById('service-equipment-description-19-'+p.i);
+      if(!back)return;
+      const front=back.parentElement.querySelector('.service-equipment__face--front > h3');
+      const heading=back.querySelector('h3');
+      const desc=back.querySelector('.service-equipment__item-text > p');
+      if(!front||!heading||!desc||front.textContent!==p.oldh||heading.textContent!==p.oldh||desc.textContent!==p.oldd)return;
+      if(p.oldh!==p.h)nodes.push([front,p.oldh,p.h],[heading,p.oldh,p.h]);
+      if(p.oldd!==p.d)nodes.push([desc,p.oldd,p.d]);
+    }
+    function sync(){
+      for(const [el,original,desktop] of nodes){
+        const expected=mq.matches?desktop:original;
+        if(el.textContent!==expected)el.textContent=expected;
+      }
+    }
+    sync();
+    mq.addEventListener('change',sync);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
