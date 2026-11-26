@@ -7914,23 +7914,23 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipme
 /* Page 19 only: active back-face images for the five remaining technology cards. */
 /* Default/front images and their right-edge cropping are NOT changed. */
 body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(2) {
-  --bagira-other-device: url('../../../../uploads/2026/09/1027453522-1.png');
+  --bagira-other-device: url('../../../../uploads/2026/09/1027453522-1-full-v42.webp');
   --bagira-other-width: 175px; --bagira-other-height: 204px;
 }
 body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(3) {
-  --bagira-other-device: url('../../../../uploads/2026/09/Камера-в-белом-цвете-1.png');
+  --bagira-other-device: url('../../../../uploads/2026/09/Камера-в-белом-цвете-1-full-v42.webp');
   --bagira-other-width: 215px; --bagira-other-height: 204px;
 }
 body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(4) {
-  --bagira-other-device: url('../../../../uploads/2026/09/1875-1.png');
+  --bagira-other-device: url('../../../../uploads/2026/09/1875-1-full-v42.webp');
   --bagira-other-width: 175px; --bagira-other-height: 208px;
 }
 body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(5) {
-  --bagira-other-device: url('../../../../uploads/2026/09/Group-2131329138.png');
+  --bagira-other-device: url('../../../../uploads/2026/09/Group-2131329138-full-v42.webp');
   --bagira-other-width: 242px; --bagira-other-height: 190px;
 }
 body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(1) .service-equipment__item:nth-child(8) {
-  --bagira-other-device: url('../../../../uploads/2026/09/images-2-1.png');
+  --bagira-other-device: url('../../../../uploads/2026/09/images-2-1-full-v42.webp');
   --bagira-other-width: 170px; --bagira-other-height: 209px;
 }
 /* The asset layer is INSIDE the active face: no right-side wrapper cropping. */
