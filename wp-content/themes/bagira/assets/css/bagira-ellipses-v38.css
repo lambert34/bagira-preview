@@ -1,0 +1,32 @@
+/* V38: only desktop >=1280. Figma 2325:583, 584/585/586/812. */
+.bagira-v38-form-glow {display:none!important;}
+@media (min-width:1280px) {
+  /* Continuous background at the hero/application boundary; no hard section crop. */
+  body.postid-19 .service-hero--highlights-compact {position:relative;isolation:isolate;overflow:visible!important;background:transparent!important;}
+  body.postid-19 .service-hero--highlights-compact::before,
+  body.postid-19 .service-hero--highlights-compact::after,
+  body.postid-19 .service-application--framed::before,
+  #consultation > .bagira-v38-form-glow::before {
+    content:"";display:block;position:absolute;pointer-events:none;
+    left:50%;right:auto;bottom:auto;width:2480px;height:1800px;
+    transform:translateX(-50%);background-repeat:no-repeat;background-size:100% 100%;
+    border:0;border-radius:0;filter:none;opacity:1;
+  }
+  body.postid-19 .service-hero--highlights-compact::before {top:-650px;z-index:-1;background-image:url('../images/ellipses-v38/hero.svg');}
+  body.postid-19 .service-hero--highlights-compact::after {top:calc(100% + -650px);z-index:-1;background-image:url('../images/ellipses-v38/app-left.svg');}
+  body.postid-19 .service-application--framed {position:relative;isolation:isolate;overflow:visible!important;background:rgba(5,8,22,.5)!important;}
+  body.postid-19 .service-application--framed::before {top:-650px;z-index:0;background-image:url('../images/ellipses-v38/app-right.svg');}
+  body.postid-19 .service-application--framed::after {content:none!important;display:none!important;}
+  body.postid-19 .service-application--framed .service-application__inner {position:relative;z-index:1;overflow:hidden;border-radius:29px;background:transparent!important;}
+  /* Shared consultation glow. A zero-height anchor is placed before the actual panel.
+     Its Y follows the panel (not the document); X follows the centered 1280px design canvas. */
+  /* Replace the two existing lower ellipses which are anchored to the last
+     section instead of the form. Both selectors were verified in current GitHub
+     HTML/CSS; :has limits the removal to the section immediately before the form. */
+  body.postid-18 .service-hero--pricing-2 ~ .service-application--plain + .service-equipment:has(+ #consultation) > .container::before,
+  body.postid-15 .service-hero--standards-mosaic ~ .service-geography:has(+ #consultation) .service-geography__inner::before {content:none!important;display:none!important;}
+  #consultation {position:relative;isolation:isolate;}
+  #consultation > .bagira-v38-form-glow {display:block!important;position:relative;width:0;height:0;min-height:0;margin:0 auto;padding:0;border:0;pointer-events:none;}
+  #consultation > .bagira-v38-form-glow::before {top:-650px;z-index:-1;background-image:url('../images/ellipses-v38/form.svg');}
+  #consultation > .consultation__panel {position:relative;z-index:1;}
+}

@@ -590,40 +590,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   /* Figma node 2325:583: third benefit text is Montserrat Regular 15px. */
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights li:nth-child(3) .service-hero__highlight-key {font-weight:400;}
-  /* Visible, spatially anchored elliptical glows. Avoid z-index:-1 and clipped
-     app pseudo-elements: these had made the former gradients effectively invisible. */
-  body.postid-19 .service-hero--highlights-compact {
-    background:
-      radial-gradient(ellipse 430px 260px at 79% 33%,rgba(42,66,164,.35) 0%,rgba(26,44,112,.18) 49%,transparent 83%),
-      radial-gradient(ellipse 360px 235px at 0% 57%,rgba(40,61,155,.32) 0%,rgba(21,37,106,.13) 51%,transparent 84%),
-      #080d16 !important;
-  }
-  body.postid-19 .service-application--framed {
-    position:relative;isolation:isolate;overflow:visible !important;
-    background:rgba(5,8,22,.5) !important;
-  }
-  body.postid-19 .service-application--framed::before,
-  body.postid-19 .service-application--framed::after,
-  body.postid-19 .consultation--service::before {
-    content:"";display:block;position:absolute;z-index:0;pointer-events:none;
-    border-radius:50%;filter:blur(50px);opacity:1;
-  }
-  body.postid-19 .service-application--framed::before {
-    width:530px;height:390px;left:-210px;top:-160px;
-    background:radial-gradient(ellipse at center,rgba(45,70,180,.50) 0%,rgba(28,45,130,.26) 43%,transparent 82%);
-  }
-  body.postid-19 .service-application--framed::after {
-    width:490px;height:380px;right:-240px;top:65px;
-    background:radial-gradient(ellipse at center,rgba(45,70,180,.40) 0%,rgba(25,42,123,.22) 43%,transparent 83%);
-  }
-  body.postid-19 .service-application--framed .service-application__inner {
-    position:relative;z-index:1;overflow:hidden;border-radius:29px;background:transparent !important;
-  }
-  body.postid-19 .consultation--service {position:relative;isolation:isolate;}
-  body.postid-19 .consultation--service::before {
-    width:630px;height:420px;left:-355px;top:-155px;
-    background:radial-gradient(ellipse at center,rgba(47,74,189,.48) 0%,rgba(28,48,135,.22) 47%,transparent 84%);
-  }
   /* Hover: keep the entire card AND price-panel anchored at identical pixel
      geometry. Animate only opacity/translateY of independent overlay layers. */
   body.postid-19 .service-pricing--tariffs-3 .service-pricing__grid {
@@ -1223,6 +1189,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
 }
 </style>
+<link rel="stylesheet" id="bagira-ellipses-v38" href="/bagira-preview/wp-content/themes/bagira/assets/css/bagira-ellipses-v38.css?v=38" media="all">
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
@@ -1504,7 +1471,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 							</div>
 </section>
 																																																							<section id="consultation" class="consultation consultation--service" aria-labelledby="consultation-title">
-	<div class="container consultation__panel">
+	<div class="bagira-v38-form-glow" aria-hidden="true"></div>
+<div class="container consultation__panel">
 		<div class="consultation__content">
 			<h2 id="consultation-title">Оставить заявку</h2>						<form class="consultation-form" action="#preview-form" method="post" data-preview-form="true" onsubmit="return false">
 				
