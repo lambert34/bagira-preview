@@ -287,9 +287,13 @@ async function main() {
             await verifyInteractions(b);
           }
         } else {
-          const result = await snapshot(a, b, width + '-home-security');
-          report.wider[width] = result;
-          assert.ok(sameRendering(result), width + ': tablet and desktop must match baseline');
+          const stableSections = { header: '.site-header', ...sections, footer: '.site-footer' };
+          report.wider[width] = {};
+          for (const [name, selector] of Object.entries(stableSections)) {
+            const result = await snapshot(a, b, width + '-' + name, selector);
+            report.wider[width][name] = result;
+            assert.ok(sameRendering(result), width + ' ' + name + ': tablet and desktop must match baseline');
+          }
         }
       } finally {
         await a.close();
