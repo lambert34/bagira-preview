@@ -845,15 +845,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <style id="BAGIRA_HOME_SECURITY_REVIEW_20261118_V4-css">
 /* Page 19 only, smartphone only. Follow-up to mobile V2; no shared asset changes. */
 @media (max-width:767px) {
-  /* The base home-security.js writes list.style.height from ACTIVE card;
-     override the inline height with natural max-item height. The next section
-     must not jump when the rail scrolls between long/short texts. */
+  /* Keep the rail at the tallest natural card height so autoplay never moves
+     the following section. Each individual card sizes to its own content. */
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights {
     height:auto !important; max-height:none !important; min-height:0 !important;
-    align-items:stretch !important; overflow-y:hidden !important;
+    align-items:flex-start !important; overflow-y:hidden !important;
   }
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights > li {
-    height:auto !important; align-self:stretch !important;
+    height:auto !important; min-height:0 !important; align-self:flex-start !important;
   }
   body.postid-19 .service-application--smartphone-alarm .service-application__features {
     height:auto !important; max-height:none !important;
@@ -1051,7 +1050,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     opacity:1 !important; visibility:visible !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__item-image {
-    opacity:.28 !important; filter:blur(2.5px) brightness(.70) !important;
+    opacity:.43 !important; filter:blur(1px) brightness(.82) !important;
   }
   /* Figma: the siren is fully inside the card; no cropping behind toggle. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(2) .service-equipment__item-image {
@@ -1074,7 +1073,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text,
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text p {
-    font-family:Montserrat,Arial,sans-serif !important; font-size:clamp(14px,4.05vw,16px) !important;
+    font-family:Montserrat,Arial,sans-serif !important; font-size:14px !important;
     line-height:1.33 !important; font-weight:400 !important;
   }
   /* User-approved override: no circular arrows anywhere in the equipment cards.
@@ -1330,6 +1329,16 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 })();
 </script>
 <link rel="stylesheet" id="bagira-mobile-header-v46g" href="/bagira-preview/wp-content/themes/bagira/assets/css/bagira-mobile-header-v46g.css?v=46g">
+<style id="bagira-hero-glow-v47">
+/* Mobile only. Relative house geometry from Figma 2325:585 / 2325:818. */
+@media (max-width:767px) {
+ body.postid-19 .service-hero--highlights-compact {overflow-x:clip!important;overflow-y:visible!important;}
+ body.postid-19 .service-hero--highlights-compact .service-hero__background {isolation:isolate;}
+ body.postid-19 .service-hero--highlights-compact .service-hero__background::before {content:"";display:block;position:absolute;z-index:0;pointer-events:none;left:-35.460993%;top:-46.035806%;width:170.921986%;height:192.071611%;background:url('/bagira-preview/wp-content/themes/bagira/assets/images/ellipses-v38/hero-mobile-v47.svg') center/100% 100% no-repeat;opacity:1;filter:none;}
+ body.postid-19 .service-hero--highlights-compact .service-hero__background img {position:relative;z-index:1;}
+}
+</style>
+<link rel="stylesheet" href="/bagira-preview/wp-content/themes/bagira/assets/css/bagira-home-mobile-review.css?v=2" media="(max-width: 767px)">
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
@@ -1383,7 +1392,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 			<h1 id="service-title">Охрана дома</h1>
 			<p>Установим охранную сигнализацию и видеонаблюдение в доме за 1 день. Интегрируем оборудование в единую систему с доступом через приложение.</p>			<a class="button button--primary service-hero__original-cta" href="#consultation">Оставить заявку</a>		</div>
 		<div class="service-hero__visual" aria-hidden="true"><img width="266" height="228" src="/bagira-preview/wp-content/uploads/2026/09/Frame-2131330085.webp" class="attachment-full size-full" alt="Охрана дома — ЧОП «Багира»" loading="eager"></div>		<a class="button button--primary service-hero__mobile-cta" href="#consultation">Оставить заявку</a>	</div>
-			<ul class="container service-hero__highlights">
+			<ul class="container service-hero__highlights" aria-label="Преимущества охраны дома">
 											<li><span class="service-hero__highlight-key">До 80% злоумышленников</span><span class="service-hero__highlight-secondary"> отказываются от проникновения при наличии сигнализации и видеокамер</span></li>
 											<li><span class="service-hero__highlight-secondary">Время прибытия ЧОП — </span><span class="service-hero__highlight-key">до 7 минут</span></li>
 											<li><span class="service-hero__highlight-key">Уведомление о чрезвычайной ситуации.</span><span class="service-hero__highlight-secondary"> Датчики дыма, протечек и газа мгновенно обнаруживают угрозу, отправляют уведомления на телефон и автоматически вызывают экстренные службы</span></li>
@@ -1394,7 +1403,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 		<div class="service-application__content">
 			<h2>Тревожная кнопка в вашем смартфоне</h2>			<div class="service-application__text"><p>Объединяем охрану дома и территории в единую экосистему с управлением через мобильное приложение.</p>
 <p>Вы сможете:</p>
-</div>						<ul class="service-application__features">
+</div>						<ul class="service-application__features" aria-label="Возможности приложения">
 								<li>
 										<div><strong>Ставить и снимать дом с охраны в один клик</strong></div>
 				</li>
@@ -1485,7 +1494,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 					<button type="button" aria-label="Показать тариф 3" aria-pressed="false" data-tariff-index="2"></button>
 			</div>
 			</div></section>
-												<section class="service-equipment">
+												<section class="service-equipment" id="home-security-equipment">
 	<div class="container">
 								<div class="service-equipment__group">
 				<div class="service-equipment__intro">
@@ -1512,7 +1521,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Видеокамеры с ночным видением</h3>																	<div class="service-equipment__item-image"><img width="102" height="157" src="/bagira-preview/wp-content/uploads/2026/09/%D0%9A%D0%B0%D0%BC%D0%B5%D1%80%D0%B0-%D0%B2-%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D1%86%D0%B2%D0%B5%D1%82%D0%B5-1.webp" class="attachment-medium size-medium" alt="Видеокамеры с ночным видением — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Видеокамеры с ночным видением</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-v39/2325-730.webp"><img width="102" height="157" src="/bagira-preview/wp-content/uploads/2026/09/%D0%9A%D0%B0%D0%BC%D0%B5%D1%80%D0%B0-%D0%B2-%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D1%86%D0%B2%D0%B5%D1%82%D0%B5-1.webp" class="attachment-medium size-medium" alt="Видеокамеры с ночным видением — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-2" aria-hidden="true">
 					<h3>Видеокамеры с ночным видением</h3>					<div class="service-equipment__item-text"><p>Обеспечивают круглосуточное видеонаблюдение, включая съёмку в темноте. Записывают видео и звук.</p>
@@ -1530,7 +1539,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Лазерные датчики движения</h3>																	<div class="service-equipment__item-image"><img width="231" height="218" src="/bagira-preview/wp-content/uploads/2026/09/Group-2131329138.webp" class="attachment-medium size-medium" alt="Лазерные датчики движения — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Лазерные датчики движения</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-v39/2325-736.webp"><img width="231" height="218" src="/bagira-preview/wp-content/uploads/2026/09/Group-2131329138.webp" class="attachment-medium size-medium" alt="Лазерные датчики движения — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-4" aria-hidden="true">
 					<h3>Лазерные датчики движения</h3>					<div class="service-equipment__item-text"><p>Реагируют на прерывание луча. При появлении объекта в зоне между датчиками система фиксирует проникновение.</p>
@@ -1539,7 +1548,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Инфракрасные датчики движения</h3>																	<div class="service-equipment__item-image"><img width="110" height="141" src="/bagira-preview/wp-content/uploads/2026/09/%D0%94%D0%B0%D1%82%D1%87%D0%B8%D0%BA-%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D1%86%D0%B2%D0%B5%D1%82%D0%B5-1.webp" class="attachment-medium size-medium" alt="Инфракрасные датчики движения — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Инфракрасные датчики движения</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-full/infrared-full.webp"><img width="110" height="141" src="/bagira-preview/wp-content/uploads/2026/09/%D0%94%D0%B0%D1%82%D1%87%D0%B8%D0%BA-%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D1%86%D0%B2%D0%B5%D1%82%D0%B5-1.webp" class="attachment-medium size-medium" alt="Инфракрасные датчики движения — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-5" aria-hidden="true">
 					<h3>Инфракрасные датчики движения</h3>					<div class="service-equipment__item-text"><p>Отслеживают изменения теплового излучения. Срабатывают при перемещении человека или животного в зоне контроля.</p>
@@ -1548,7 +1557,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Магнитные датчики на двери и окна</h3>																	<div class="service-equipment__item-image"><img width="70" height="168" src="/bagira-preview/wp-content/uploads/2026/09/D09CD0B0D0B3D0BDD0B8D182D0BDD18BD0B920D0B4D0B0D182D187D0B8D0BA20D183D0BBD183D187D188D0B5D0BDD0BDD18BD0B9-1.webp" class="attachment-medium size-medium" alt="Магнитные датчики на двери и окна — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Магнитные датчики на двери и окна</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-full/magnetic-full.webp"><img width="70" height="168" src="/bagira-preview/wp-content/uploads/2026/09/D09CD0B0D0B3D0BDD0B8D182D0BDD18BD0B920D0B4D0B0D182D187D0B8D0BA20D183D0BBD183D187D188D0B5D0BDD0BDD18BD0B9-1.webp" class="attachment-medium size-medium" alt="Магнитные датчики на двери и окна — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-6" aria-hidden="true">
 					<h3>Магнитные датчики на двери и окна</h3>					<div class="service-equipment__item-text"><p>Срабатывают при открытии. При размыкании контакта система фиксирует попытку проникновения.</p>
@@ -1557,7 +1566,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Датчики разбития стекла</h3>																	<div class="service-equipment__item-image"><img width="67" height="160" src="/bagira-preview/wp-content/uploads/2026/09/images-2-1.webp" class="attachment-medium size-medium" alt="Датчики разбития стекла — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Датчики разбития стекла</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/uploads/2026/11/hover-5.webp"><img width="67" height="160" src="/bagira-preview/wp-content/uploads/2026/09/images-2-1.webp" class="attachment-medium size-medium" alt="Датчики разбития стекла — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-7" aria-hidden="true">
 					<h3>Датчики разбития стекла</h3>					<div class="service-equipment__item-text"><p>Используем два типа: пьезоэлектрические — реагируют на вибрации и удары, акустические — на характерный звук разрушения стекла.</p>
@@ -1573,7 +1582,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Датчики дыма</h3>																	<div class="service-equipment__item-image"><img width="99" height="154" src="/bagira-preview/wp-content/uploads/2026/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2026-07-01-%D0%B2-23.36.38-1.webp" class="attachment-medium size-medium" alt="Датчики дыма — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Датчики дыма</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-full/smoke-full.webp"><img width="99" height="154" src="/bagira-preview/wp-content/uploads/2026/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2026-07-01-%D0%B2-23.36.38-1.webp" class="attachment-medium size-medium" alt="Датчики дыма — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-8" aria-hidden="true">
 					<h3>Датчики дыма</h3>					<div class="service-equipment__item-text"><p>Регистрируют превышение концентрации угарного газа в воздухе. Передают сигнал тревоги с вызовом экстренных служб.</p>
@@ -1582,7 +1591,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Датчик температуры</h3>																	<div class="service-equipment__item-image"><img width="67" height="149" src="/bagira-preview/wp-content/uploads/2026/09/84750744_01-1.webp" class="attachment-medium size-medium" alt="Датчик температуры — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Датчик температуры</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-full/temperature-full.webp"><img width="67" height="149" src="/bagira-preview/wp-content/uploads/2026/09/84750744_01-1.webp" class="attachment-medium size-medium" alt="Датчик температуры — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-9" aria-hidden="true">
 					<h3>Датчик температуры</h3>					<div class="service-equipment__item-text"><p>Контролирует климат в помещении и срабатывает при критическом перегреве или резких перепадах.</p>
@@ -1591,7 +1600,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Датчики утечки воды</h3>																	<div class="service-equipment__item-image"><img width="153" height="243" src="/bagira-preview/wp-content/uploads/2026/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2026-06-30-%D0%B2-21.46.47-1.webp" class="attachment-medium size-medium" alt="Датчики утечки воды — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Датчики утечки воды</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-v39/2325-765.webp"><img width="153" height="243" src="/bagira-preview/wp-content/uploads/2026/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2026-06-30-%D0%B2-21.46.47-1.webp" class="attachment-medium size-medium" alt="Датчики утечки воды — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-10" aria-hidden="true">
 					<h3>Датчики утечки воды</h3>					<div class="service-equipment__item-text"><p>Реагируют на контакт с жидкостью и могут автоматически перекрывать подачу воды.</p>
@@ -1600,7 +1609,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 						<article class="service-equipment__item">
 			<div class="service-equipment__flip-inner">
 				<div class="service-equipment__face service-equipment__face--front">
-					<h3>Датчики газа</h3>																	<div class="service-equipment__item-image"><img width="71" height="162" src="/bagira-preview/wp-content/uploads/2026/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2026-07-01-%D0%B2-23.46.21-1.webp" class="attachment-medium size-medium" alt="Датчики газа — ЧОП «Багира»" loading="lazy"></div>
+					<h3>Датчики газа</h3>																	<div class="service-equipment__item-image"><picture style="display:contents"><source media="(max-width: 767px)" srcset="/bagira-preview/wp-content/themes/bagira/assets/images/equipment-full/gas-full.webp"><img width="71" height="162" src="/bagira-preview/wp-content/uploads/2026/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2026-07-01-%D0%B2-23.46.21-1.webp" class="attachment-medium size-medium" alt="Датчики газа — ЧОП «Багира»" loading="lazy"></picture></div>
 									</div>
 				<div class="service-equipment__face service-equipment__face--back" id="service-equipment-description-19-11" aria-hidden="true">
 					<h3>Датчики газа</h3>					<div class="service-equipment__item-text"><p>Следят за уровнем природного газа, подают тревогу и при возможности автоматически перекрывают подачу газа и вызывают экстренные службы.</p>
@@ -1739,6 +1748,18 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
     if(items.length<2)return;
     rail.dataset.bagiraHomeAutoplayV1='ready';
     var visible=false,timer=null,pausedUntil=0;
+    function updateKeyboardAccess(){
+      if(mobile.matches) rail.tabIndex=0;
+      else rail.removeAttribute('tabindex');
+    }
+    updateKeyboardAccess();
+    mobile.addEventListener('change',updateKeyboardAccess);
+    rail.addEventListener('keydown',function(event){
+      if(!mobile.matches||!['ArrowLeft','ArrowRight'].includes(event.key))return;
+      event.preventDefault();
+      var next=Math.max(0,Math.min(items.length-1,index()+(event.key==='ArrowRight'?1:-1)));
+      rail.scrollTo({left:items[next].offsetLeft-items[0].offsetLeft,behavior:reduced.matches?'instant':'smooth'});
+    });
     function index(){var a=rail.getBoundingClientRect(),best=0,min=Infinity;items.forEach(function(el,i){var d=Math.abs(el.getBoundingClientRect().left-a.left);if(d<min){min=d;best=i;}});return best;}
     function canRun(){return visible&&mobile.matches&&!reduced.matches&&!document.hidden;}
     function schedule(ms){if(timer!==null)clearTimeout(timer);timer=null;if(!canRun())return;timer=setTimeout(function(){timer=null;if(Date.now()<pausedUntil){schedule(intervalMs);return;}var next=(index()+1)%items.length;rail.scrollTo({left:items[next].offsetLeft-items[0].offsetLeft,behavior:'smooth'});schedule(intervalMs);},ms);}
@@ -1797,97 +1818,20 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
   if(reduced.addEventListener)reduced.addEventListener('change',function(){schedule(3500);});
 })();
 </script>
-<script id="BAGIRA_HOME_SECURITY_EQUIPMENT_FIGMA_GEOMETRY_20261119_V19-init">
-(function(){
+<script>
+(function () {
   'use strict';
-  if(!document.body.classList.contains('postid-19')) return;
-  const mobile=matchMedia('(max-width:767px)');
-  const cards=Array.from(document.querySelectorAll('.service-equipment__group:first-child .service-equipment__item'));
-  if(cards.length<5)return;
-  const first=cards[0],button=first.querySelector('.service-equipment__flip-toggle'),back=first.querySelector('.service-equipment__face--back');
-  let resizeObserver=null, fitting=false;
-  function firstFront(){
-    if(!mobile.matches)return;
-    // No forced expanded state. The FIRST card shows its actual product, just like all others.
-    // Never reset an explicit user flip after initialization.
-    if(first.dataset.bagiraInitialFront==='1')return;
-    first.dataset.bagiraInitialFront='1';
-    first.classList.remove('is-flipped');
-    if(button){button.setAttribute('aria-pressed','false');button.setAttribute('aria-label',button.dataset.showLabel||'Показать описание');}
-    if(back)back.setAttribute('aria-hidden','true');
-  }
-  /* Target slots measured from the user's 393x948 Figma reference.
-     x/y/w/h are fractions of each individual card, not viewport dimensions.
-     They preserve the whole source image without any transform crop. */
-  // Exact visible alpha bounds measured against the 393px Figma screenshot.
-  // These are card-local CSS pixel boxes at a 361x133px card.
-  // Preserve full source pixels; Figma itself has cropped artwork at the right edge.
-  // No round blue badges. The first card starts with its original image.
-  const TARGET_BOXES=[
-    {x:264,y:9,w:78,h:116},    // Alarm button
-    {x:272,y:10,w:70,h:113},   // Siren
-    {x:259,y:12,w:100,h:106},  // Night camera
-    {x:278,y:12,w:62,h:110},   // Motion sensor
-    {x:150,y:20,w:210,h:93}    // Laser and beam
-  ];
-  function alphaBounds(img){
-    const nw=img.naturalWidth,nh=img.naturalHeight;
-    if(!nw||!nh)return null;
-    let bbox={x:0,y:0,w:nw,h:nh},edgeCount=0,method='canvas-alpha';
-    try{
-      const c=document.createElement('canvas');c.width=nw;c.height=nh;
-      const ct=c.getContext('2d',{willReadFrequently:true});ct.drawImage(img,0,0);
-      const data=ct.getImageData(0,0,nw,nh).data;
-      let l=nw,t=nh,r=-1,b=-1;
-      for(let y=0;y<nh;y++)for(let x=0;x<nw;x++){
-        const alpha=data[(y*nw+x)*4+3];
-        if(alpha<24)continue;
-        if(x===nw-1)edgeCount++;
-        if(x<l)l=x;if(x>r)r=x;if(y<t)t=y;if(y>b)b=y;
-      }
-      if(r>=l){bbox={x:l,y:t,w:r-l+1,h:b-t+1};}
-    }catch(err){method='full-source-canvas-unavailable';}
-    return {bbox,natural:[nw,nh],edgeCount,method};
-  }
-  function fit(){
-    if(fitting||!mobile.matches)return;
-    fitting=true;
-    const result=[];
-    for(let i=0;i<5;i++){
-      const card=cards[i],wrapper=card.querySelector('.service-equipment__item-image'),img=wrapper&&wrapper.querySelector('img');
-      if(!img||!img.complete||!img.naturalWidth){result.push({i:i+1,ready:false});continue;}
-      const source=alphaBounds(img),b=source.bbox;
-      const cw=card.clientWidth,ch=card.clientHeight;
-      const slot=TARGET_BOXES[i];
-      const target={x:cw*slot.x/361,y:ch*slot.y/133,w:cw*slot.w/361,h:ch*slot.h/133};
-      // The original screenshot uses a horizontally stretched product layer.
-      // Use independent scaling from SOURCE alpha bounds, not CSS transform scale,
-      // and never extend the visible source artwork past the card edge.
-      const scaleX=target.w/b.w,scaleY=target.h/b.h;
-      const usedW=target.w,usedH=target.h;
-      const bx=target.x,by=target.y;
-      const x=bx-b.x*scaleX,y=by-b.y*scaleY;
-      const sw=source.natural[0]*scaleX,sh=source.natural[1]*scaleY;
-      const ws=wrapper.style,is=img.style;
-      for(const [k,v] of Object.entries({position:'absolute',left:'0px',top:'0px',right:'auto',bottom:'auto',width:'100%',height:'100%',overflow:'visible',transform:'none'}))ws.setProperty(k,v,'important');
-      for(const [k,v] of Object.entries({position:'absolute',left:x+'px',top:y+'px',right:'auto',bottom:'auto',width:sw+'px',height:sh+'px',maxWidth:'none',maxHeight:'none',transform:'none',objectFit:'fill',objectPosition:'center',margin:'0px',padding:'0px'})){
-        const prop=k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase());is.setProperty(prop,v,'important');
-      }
-      result.push({i:i+1,ready:true,source,card:[cw,ch],visible:{x:+bx.toFixed(1),y:+by.toFixed(1),w:+usedW.toFixed(1),h:+usedH.toFixed(1)},target,overflow:bx<-1||by<-1||bx+usedW>cw+1||by+usedH>ch+1,sourceRightEdgeTouches:source.edgeCount>Math.max(10,source.natural[1]*.18),sourceBoundsTouchFrame:{left:b.x<=1,top:b.y<=1,right:b.x+b.w>=source.natural[0]-1,bottom:b.y+b.h>=source.natural[1]-1}});
+  const mobile = matchMedia('(max-width: 767px)');
+  const firstToggle = document.querySelector('#home-security-equipment .service-equipment__flip-toggle');
+
+  function setInitialMobileState() {
+    if ((firstToggle.getAttribute('aria-pressed') === 'true') !== mobile.matches) {
+      firstToggle.click();
     }
-    window.__bagiraEquipmentFitV18Data=result;
-    fitting=false;
   }
-  function run(){firstFront();fit();}
-  window.__bagiraFitEquipmentV15=run;
-  cards.slice(0,5).forEach(c=>{const img=c.querySelector('.service-equipment__item-image img');if(img)img.addEventListener('load',run);});
-  if(mobile.addEventListener)mobile.addEventListener('change',run);
-  window.addEventListener('resize',run,{passive:true});
-  // Card width changes due to layout/zoom; use ResizeObserver without observing the images themselves.
-  if('ResizeObserver' in window){resizeObserver=new ResizeObserver(run);cards.slice(0,5).forEach(c=>resizeObserver.observe(c));}
-  run();
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});
-  window.addEventListener('load',run,{once:true});
+
+  setInitialMobileState();
+  mobile.addEventListener('change', setInitialMobileState);
 })();
 </script>
 

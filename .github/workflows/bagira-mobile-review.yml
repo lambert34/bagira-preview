@@ -1,0 +1,40 @@
+name: Bagira mobile review
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  qa:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright and Sharp
+        run: |
+          npm install --prefix "$RUNNER_TEMP/bagira-tools" --no-audit --no-fund --no-save playwright@1.51.1 sharp@0.34.5
+          "$RUNNER_TEMP/bagira-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Compare published baseline with candidate
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          NODE_PATH: ${{ runner.temp }}/bagira-tools/node_modules
+          QA_OUTPUT: ${{ runner.temp }}/bagira-mobile-review
+        run: |
+          git worktree add --detach "$RUNNER_TEMP/bagira-before" "$BASE_SHA"
+          node .github/qa/mobile-review.cjs "$RUNNER_TEMP/bagira-before"
+      - name: Upload before and after screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bagira-mobile-review
+          path: ${{ runner.temp }}/bagira-mobile-review/
+          retention-days: 14

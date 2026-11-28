@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 230" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="glow">
+      <stop offset=".35" stop-color="#21338e"/>
+      <stop offset="1" stop-color="#080c25"/>
+    </linearGradient>
+    <filter id="blur" x="-60%" y="-150%" width="220%" height="400%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="32"/>
+    </filter>
+  </defs>
+  <ellipse cx="36" cy="40" rx="144" ry="47" transform="rotate(27 36 40)" fill="url(#glow)" opacity=".32" filter="url(#blur)"/>
+</svg>
