@@ -26,11 +26,16 @@ jobs:
       - name: Compare published baseline with candidate
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
           NODE_PATH: ${{ runner.temp }}/bagira-tools/node_modules
           QA_OUTPUT: ${{ runner.temp }}/bagira-mobile-review
         run: |
           git worktree add --detach "$RUNNER_TEMP/bagira-before" "$BASE_SHA"
-          node .github/qa/mobile-review.cjs "$RUNNER_TEMP/bagira-before"
+          if [[ "$HEAD_BRANCH" == "lambert-mobile-tariffs-figma-v48" ]]; then
+            node .github/qa/tariffs-v48.cjs "$RUNNER_TEMP/bagira-before"
+          else
+            node .github/qa/mobile-review.cjs "$RUNNER_TEMP/bagira-before"
+          fi
       - name: Upload before and after screenshots
         if: always()
         uses: actions/upload-artifact@v4
