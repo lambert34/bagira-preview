@@ -97,6 +97,8 @@ function sameRendering(comparison) {
 async function snapshot(before, after, name, selector) {
   const capture = async (page, phase) => {
     const target = page.locator(selector);
+    await target.scrollIntoViewIfNeeded();
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     return target.screenshot({
       animations: 'disabled',
       path: path.join(output, phase, name + '.png'),
@@ -283,6 +285,10 @@ async function main() {
       try {
         if (width <= 767) {
           await verifyMobile(b, width);
+          if (width === 393) {
+            const header = await snapshot(a, b, '393-header', '.site-header');
+            assert.ok(sameRendering(header), 'Approved mobile header');
+          }
           const hero = await snapshot(a, b, width + '-hero', '.service-hero__inner');
           report.mobile[width].hero = hero;
           assert.ok(hero.sameSize && hero.brighterBluePixels > 100, 'Visible V47B glow: ' + width);
@@ -290,8 +296,6 @@ async function main() {
             for (const [name, selector] of Object.entries(sections).filter(([name]) => !['hero', 'form'].includes(name))) {
               await snapshot(a, b, width + '-' + name, selector);
             }
-            const header = await snapshot(a, b, '393-header', '.site-header');
-            assert.ok(sameRendering(header), 'Approved mobile header');
             await verifyInteractions(b);
           }
         } else {
