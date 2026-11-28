@@ -169,10 +169,31 @@ async function main(){
      }
      test(m.cards[1].image.h<m.cards[0].image.h,w+' longer basic list uses shorter photo');
      for(let i=0;i<3;i++){await slide(p,i);await slide(n,i);await capture(p,'BEFORE',w+'-tariffs-'+(i+1),sections.tariffs);await capture(n,'AFTER',w+'-tariffs-'+(i+1),sections.tariffs);}
+     // A taller/shorter tariff section moves every following section. Normalize ONLY
+     // the vertical flow in the QA browser before comparing those sections.
+     // Preserve the actual production layout and report the original displacement.
+     const y=page=>page.locator(sections.technologies).evaluate(el=>el.getBoundingClientRect().top+scrollY);
+     const ya=await y(p),yb=await y(n),delta=yb-ya;
+     const pad=async(page,amount)=>page.locator(sections.tariffs).evaluate((el,px)=>{
+       const st=getComputedStyle(el);el.style.setProperty('padding-bottom',(parseFloat(st.paddingBottom)+px)+'px','important');
+     },amount);
+     if(delta>0)await pad(p,delta);else if(delta<0)await pad(n,-delta);
+     const residual=(await y(n))-(await y(p));
+     report.mobile[w].downstreamOffset={original:delta,afterNormalization:residual};
+     test(Math.abs(residual)<.1,w+' downstream QA alignment');
+     // Record actual fonts and the exact Figma line-width measurements, not just CSS declarations.
+     report.mobile[w].fontDiagnostics=await n.locator(sections.tariffs).evaluate(section=>{
+       const e=section.querySelector('.service-tariff__details-description'),cs=getComputedStyle(e),ctx=document.createElement('canvas').getContext('2d');
+       ctx.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+       const lines=['Оптимальное решение для квартир,','коттеджей или загородного дома'];
+       return {font:ctx.font,availableWidth:e.clientWidth,lineWidths:lines.map(t=>ctx.measureText(t).width),height:e.getBoundingClientRect().height,lineHeight:parseFloat(cs.lineHeight)};
+     });
+     const session=await n.context().newCDPSession(n);
+     try{await session.send('DOM.enable');await session.send('CSS.enable');const {root}=await session.send('DOM.getDocument');const {nodeId}=await session.send('DOM.querySelector',{nodeId:root.nodeId,selector:sections.tariffs+' .service-tariff__details-description'});report.mobile[w].fontDiagnostics.actualFonts=(await session.send('CSS.getPlatformFontsForNode',{nodeId})).fonts;}finally{await session.detach();}
      for(const sel of ['.site-header',sections.hero,sections.smartphone,sections.technologies,sections.sensors,sections.form]){
       const key=sel.replace(/[^a-z0-9]+/gi,'-');
       const d=await pixels(await capture(p,'BEFORE',w+'-stable-'+key,sel),await capture(n,'AFTER',w+'-stable-'+key,sel));
-      test(d.sameSize&&d.maxChannelDelta<=2,w+' untouched '+sel);
+      report.mobile[w].stable??={};report.mobile[w].stable[sel]=d;test(d.sameSize&&d.maxChannelDelta<=2,w+' untouched '+sel);
      }
     } else {
      report.wider[w]={};
