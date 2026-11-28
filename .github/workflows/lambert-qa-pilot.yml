@@ -1,0 +1,37 @@
+name: Lambert QA pilot V47
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  qa:
+    if: github.event.pull_request.head.ref == 'lambert-qa-pipeline' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install QA tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/lambert-tools" --no-audit --no-fund --no-save playwright@1.51.1 sharp@0.34.5
+          "$RUNNER_TEMP/lambert-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Run exact V47 candidate QA
+        env:
+          NODE_PATH: ${{ runner.temp }}/lambert-tools/node_modules
+        run: node .github/qa/v47.cjs
+      - name: Save QA report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bagira-v47-cloud-qa
+          path: ${{ runner.temp }}/bagira-v47-qa/QA/
+          if-no-files-found: warn
+          retention-days: 7
