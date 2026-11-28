@@ -27,7 +27,7 @@ const types = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript',
   '.woff': 'font/woff', '.woff2': 'font/woff2', '.webp': 'image/webp', '.svg': 'image/svg+xml',
 };
-const report = { baseline: process.env.BASE_SHA || 'local', candidate: process.env.GITHUB_SHA || 'local', mobile: {}, wider: {}, forms: {}, errors: [] };
+const report = { baseline: process.env.BASE_SHA || 'local', candidate: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), mobile: {}, wider: {}, forms: {}, errors: [] };
 
 async function serve(directory) {
   const server = http.createServer(async (request, response) => {
@@ -223,8 +223,8 @@ async function verifyForms(browser, before, after) {
       assert.ok(comparison.sameSize && comparison.brighterBluePixels > 100, 'Visible form glow: ' + name);
       const phone = form.locator('[name="phone"]');
       const email = form.locator('[name="email"]');
-      await phone.fill('8 (900) 123-45-67');
-      assert.equal(await phone.inputValue(), '89001234567');
+      await phone.pressSequentially('8 (900) 123-45-67');
+      assert.equal(await phone.inputValue(), '89001234567', name + ': phone field accepts digits');
       await email.fill('preview@example.test');
       assert.equal(await form.evaluate(el => el.checkValidity()), false);
       await form.locator('[name="consent"]').check();
@@ -264,8 +264,9 @@ async function main() {
       try {
         if (width <= 767) {
           await verifyMobile(b, width);
-          const hero = await snapshot(a, b, width + '-hero', sections.hero);
-          assert.ok(hero.changedPixels > 100 || !hero.sameSize);
+          const hero = await snapshot(a, b, width + '-hero', '.service-hero__inner');
+          report.mobile[width].hero = hero;
+          assert.ok(hero.sameSize && hero.brighterBluePixels > 100, 'Visible V47B glow: ' + width);
           if (width === 393) {
             for (const [name, selector] of Object.entries(sections).filter(([name]) => !['hero', 'form'].includes(name))) {
               await snapshot(a, b, width + '-' + name, selector);
@@ -305,5 +306,15 @@ main().catch(error => {
   process.exitCode = 1;
 }).finally(async () => {
   await fs.writeFile(path.join(output, 'REPORT.json'), JSON.stringify(report, null, 2));
+  const pairs = (await fs.readdir(path.join(output, 'AFTER')).catch(() => []))
+    .filter(name => /^[a-z0-9-]+\.png$/.test(name))
+    .sort((a, b) => Number(!a.startsWith('393')) - Number(!b.startsWith('393')) || a.localeCompare(b));
+  await fs.writeFile(path.join(output, '00_OPEN_COMPARE.html'), `<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Багира — мобильные правки</title>
+<style>body{font:16px system-ui;background:#141620;color:#fff;max-width:1250px;margin:auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}article{min-width:0}img{max-width:100%;height:auto}h2{font-size:18px}section{margin-bottom:30px}</style>
+<h1>Багира — мобильные правки</h1><p>Chromium QA: ${report.status ?? 'FAIL'}</p>
+${pairs.map(name => `<section><h2>${name.replace('.png', '')}</h2><main><article><p>До</p><a href="BEFORE/${name}"><img loading="lazy" src="BEFORE/${name}" alt="До"></a></article><article><p>После</p><a href="AFTER/${name}"><img loading="lazy" src="AFTER/${name}" alt="После"></a></article></main></section>`).join('')}
+</html>`);
   console.log(JSON.stringify({ status: report.status, errors: report.errors }));
 });
