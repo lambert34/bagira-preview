@@ -89,22 +89,26 @@ async function pixels(before, after) {
   return { sameSize, changedPixels, brighterBluePixels, maxChannelDelta, totalPixels: a.info.width * a.info.height };
 }
 
-// Chromium can round a handful of antialiased pixels by one or two levels.
+// Chromium can round antialiased edges and translucent layers by one or two levels.
 function sameRendering(comparison) {
-  return comparison.sameSize && comparison.maxChannelDelta <= 2
-    && comparison.changedPixels <= Math.ceil(comparison.totalPixels * .00001);
+  return comparison.sameSize && comparison.sameGeometry && comparison.maxChannelDelta <= 2;
 }
 
 async function snapshot(before, after, name, selector) {
   const capture = async (page, phase) => {
-    const target = selector ? page.locator(selector) : page;
+    const target = page.locator(selector);
     return target.screenshot({
       animations: 'disabled',
-      ...(selector ? {} : { fullPage: true }),
       path: path.join(output, phase, name + '.png'),
     });
   };
-  return pixels(await capture(before, 'BEFORE'), await capture(after, 'AFTER'));
+  const geometry = page => page.locator(selector).evaluate(el => {
+    const { x, y, width, height } = el.getBoundingClientRect();
+    return [x + window.scrollX, y + window.scrollY, width, height];
+  });
+  const [a, b] = await Promise.all([geometry(before), geometry(after)]);
+  const diff = await pixels(await capture(before, 'BEFORE'), await capture(after, 'AFTER'));
+  return { ...diff, sameGeometry: a.every((value, index) => Math.abs(value - b[index]) < .1) };
 }
 
 async function waitFor(page, test) {
@@ -227,9 +231,10 @@ async function verifyForms(browser, before, after) {
     try {
       const name = route.replace('/', '') || 'home';
       const form = b.locator('#consultation form');
-      const glow = await b.locator('.bagira-v38-form-glow').evaluate(el => ({
-        width: el.clientWidth, image: getComputedStyle(el).backgroundImage, events: getComputedStyle(el).pointerEvents,
-      }));
+      const glow = await b.locator('#consultation > .consultation__panel').evaluate(el => {
+        const layer = getComputedStyle(el, '::after');
+        return { width: parseFloat(layer.width), image: layer.backgroundImage, events: layer.pointerEvents };
+      });
       assert.match(glow.image, /form-mobile\.svg/);
       assert.ok(glow.width > 100 && glow.events === 'none');
       const comparison = await snapshot(a, b, '393-form-' + name, sections.form);
@@ -240,7 +245,8 @@ async function verifyForms(browser, before, after) {
       assert.equal(await phone.inputValue(), '89001234567', name + ': phone field accepts digits');
       await email.fill('preview@example.test');
       assert.equal(await form.evaluate(el => el.checkValidity()), false);
-      await form.locator('[name="consent"]').check();
+      await form.locator('label.consent:has([name="consent"]) .consent__box').click();
+      assert.equal(await form.locator('[name="consent"]').isChecked(), true);
       assert.equal(await form.evaluate(el => el.checkValidity()), true);
       const submissions = [];
       b.on('request', request => { if (request.method() === 'POST') submissions.push(request.url()); });
@@ -284,6 +290,8 @@ async function main() {
             for (const [name, selector] of Object.entries(sections).filter(([name]) => !['hero', 'form'].includes(name))) {
               await snapshot(a, b, width + '-' + name, selector);
             }
+            const header = await snapshot(a, b, '393-header', '.site-header');
+            assert.ok(sameRendering(header), 'Approved mobile header');
             await verifyInteractions(b);
           }
         } else {
