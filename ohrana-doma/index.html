@@ -845,15 +845,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <style id="BAGIRA_HOME_SECURITY_REVIEW_20261118_V4-css">
 /* Page 19 only, smartphone only. Follow-up to mobile V2; no shared asset changes. */
 @media (max-width:767px) {
-  /* The base home-security.js writes list.style.height from ACTIVE card;
-     override the inline height with natural max-item height. The next section
-     must not jump when the rail scrolls between long/short texts. */
+  /* Keep the rail at the tallest natural card height so autoplay never moves
+     the following section. Each individual card sizes to its own content. */
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights {
     height:auto !important; max-height:none !important; min-height:0 !important;
-    align-items:stretch !important; overflow-y:hidden !important;
+    align-items:flex-start !important; overflow-y:hidden !important;
   }
   body.postid-19 .service-hero--highlights-compact .service-hero__highlights > li {
-    height:auto !important; align-self:stretch !important;
+    height:auto !important; min-height:0 !important; align-self:flex-start !important;
   }
   body.postid-19 .service-application--smartphone-alarm .service-application__features {
     height:auto !important; max-height:none !important;
@@ -1051,7 +1050,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     opacity:1 !important; visibility:visible !important;
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__item-image {
-    opacity:.28 !important; filter:blur(2.5px) brightness(.70) !important;
+    opacity:.43 !important; filter:blur(1px) brightness(.82) !important;
   }
   /* Figma: the siren is fully inside the card; no cropping behind toggle. */
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:nth-child(2) .service-equipment__item-image {
@@ -1074,7 +1073,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text,
   body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:first-child .service-equipment__item:first-child.is-flipped .service-equipment__face--back .service-equipment__item-text p {
-    font-family:Montserrat,Arial,sans-serif !important; font-size:clamp(14px,4.05vw,16px) !important;
+    font-family:Montserrat,Arial,sans-serif !important; font-size:14px !important;
     line-height:1.33 !important; font-weight:400 !important;
   }
   /* User-approved override: no circular arrows anywhere in the equipment cards.
@@ -1330,6 +1329,16 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 })();
 </script>
 <link rel="stylesheet" id="bagira-mobile-header-v46g" href="/bagira-preview/wp-content/themes/bagira/assets/css/bagira-mobile-header-v46g.css?v=46g">
+<style id="bagira-hero-glow-v47">
+/* Mobile only. Relative house geometry from Figma 2325:585 / 2325:818. */
+@media (max-width:767px) {
+ body.postid-19 .service-hero--highlights-compact {overflow-x:clip!important;overflow-y:visible!important;}
+ body.postid-19 .service-hero--highlights-compact .service-hero__background {isolation:isolate;}
+ body.postid-19 .service-hero--highlights-compact .service-hero__background::before {content:"";display:block;position:absolute;z-index:0;pointer-events:none;left:-35.460993%;top:-46.035806%;width:170.921986%;height:192.071611%;background:url('/bagira-preview/wp-content/themes/bagira/assets/images/ellipses-v38/hero-mobile-v47.svg') center/100% 100% no-repeat;opacity:1;filter:none;}
+ body.postid-19 .service-hero--highlights-compact .service-hero__background img {position:relative;z-index:1;}
+}
+</style>
+<link rel="stylesheet" href="/bagira-preview/wp-content/themes/bagira/assets/css/bagira-home-mobile-review.css" media="(max-width: 767px)">
 </head>
 <body class="wp-singular service-template-default single single-service postid-19 wp-theme-bagira">
 	
@@ -1383,7 +1392,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 			<h1 id="service-title">Охрана дома</h1>
 			<p>Установим охранную сигнализацию и видеонаблюдение в доме за 1 день. Интегрируем оборудование в единую систему с доступом через приложение.</p>			<a class="button button--primary service-hero__original-cta" href="#consultation">Оставить заявку</a>		</div>
 		<div class="service-hero__visual" aria-hidden="true"><img width="266" height="228" src="/bagira-preview/wp-content/uploads/2026/09/Frame-2131330085.webp" class="attachment-full size-full" alt="Охрана дома — ЧОП «Багира»" loading="eager"></div>		<a class="button button--primary service-hero__mobile-cta" href="#consultation">Оставить заявку</a>	</div>
-			<ul class="container service-hero__highlights">
+			<ul class="container service-hero__highlights" aria-label="Преимущества охраны дома">
 											<li><span class="service-hero__highlight-key">До 80% злоумышленников</span><span class="service-hero__highlight-secondary"> отказываются от проникновения при наличии сигнализации и видеокамер</span></li>
 											<li><span class="service-hero__highlight-secondary">Время прибытия ЧОП — </span><span class="service-hero__highlight-key">до 7 минут</span></li>
 											<li><span class="service-hero__highlight-key">Уведомление о чрезвычайной ситуации.</span><span class="service-hero__highlight-secondary"> Датчики дыма, протечек и газа мгновенно обнаруживают угрозу, отправляют уведомления на телефон и автоматически вызывают экстренные службы</span></li>
@@ -1394,7 +1403,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
 		<div class="service-application__content">
 			<h2>Тревожная кнопка в вашем смартфоне</h2>			<div class="service-application__text"><p>Объединяем охрану дома и территории в единую экосистему с управлением через мобильное приложение.</p>
 <p>Вы сможете:</p>
-</div>						<ul class="service-application__features">
+</div>						<ul class="service-application__features" aria-label="Возможности приложения">
 								<li>
 										<div><strong>Ставить и снимать дом с охраны в один клик</strong></div>
 				</li>
@@ -1739,6 +1748,18 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
     if(items.length<2)return;
     rail.dataset.bagiraHomeAutoplayV1='ready';
     var visible=false,timer=null,pausedUntil=0;
+    function updateKeyboardAccess(){
+      if(mobile.matches) rail.tabIndex=0;
+      else rail.removeAttribute('tabindex');
+    }
+    updateKeyboardAccess();
+    mobile.addEventListener('change',updateKeyboardAccess);
+    rail.addEventListener('keydown',function(event){
+      if(!mobile.matches||!['ArrowLeft','ArrowRight'].includes(event.key))return;
+      event.preventDefault();
+      var next=Math.max(0,Math.min(items.length-1,index()+(event.key==='ArrowRight'?1:-1)));
+      rail.scrollTo({left:items[next].offsetLeft-items[0].offsetLeft,behavior:reduced.matches?'instant':'smooth'});
+    });
     function index(){var a=rail.getBoundingClientRect(),best=0,min=Infinity;items.forEach(function(el,i){var d=Math.abs(el.getBoundingClientRect().left-a.left);if(d<min){min=d;best=i;}});return best;}
     function canRun(){return visible&&mobile.matches&&!reduced.matches&&!document.hidden;}
     function schedule(ms){if(timer!==null)clearTimeout(timer);timer=null;if(!canRun())return;timer=setTimeout(function(){timer=null;if(Date.now()<pausedUntil){schedule(intervalMs);return;}var next=(index()+1)%items.length;rail.scrollTo({left:items[next].offsetLeft-items[0].offsetLeft,behavior:'smooth'});schedule(intervalMs);},ms);}
@@ -1804,17 +1825,21 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
   const mobile=matchMedia('(max-width:767px)');
   const cards=Array.from(document.querySelectorAll('.service-equipment__group:first-child .service-equipment__item'));
   if(cards.length<5)return;
-  const first=cards[0],button=first.querySelector('.service-equipment__flip-toggle'),back=first.querySelector('.service-equipment__face--back');
+  const firstToggle=cards[0].querySelector('.service-equipment__flip-toggle');
   let resizeObserver=null, fitting=false;
-  function firstFront(){
-    if(!mobile.matches)return;
-    // No forced expanded state. The FIRST card shows its actual product, just like all others.
-    // Never reset an explicit user flip after initialization.
-    if(first.dataset.bagiraInitialFront==='1')return;
-    first.dataset.bagiraInitialFront='1';
-    first.classList.remove('is-flipped');
-    if(button){button.setAttribute('aria-pressed','false');button.setAttribute('aria-label',button.dataset.showLabel||'Показать описание');}
-    if(back)back.setAttribute('aria-hidden','true');
+  let defaultOpened=false;
+  function openFirstOnMobile(){
+    if(!mobile.matches||defaultOpened)return;
+    defaultOpened=true;
+    if(firstToggle.getAttribute('aria-pressed')!=='true')firstToggle.click();
+    // Preserve desktop initial state when crossing the breakpoint.
+    const restoreDesktop=()=>{
+      if(mobile.matches)return;
+      if(firstToggle.getAttribute('aria-pressed')==='true')firstToggle.click();
+      defaultOpened=false;
+      mobile.removeEventListener('change',restoreDesktop);
+    };
+    mobile.addEventListener('change',restoreDesktop);
   }
   /* Target slots measured from the user's 393x948 Figma reference.
      x/y/w/h are fractions of each individual card, not viewport dimensions.
@@ -1822,7 +1847,6 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
   // Exact visible alpha bounds measured against the 393px Figma screenshot.
   // These are card-local CSS pixel boxes at a 361x133px card.
   // Preserve full source pixels; Figma itself has cropped artwork at the right edge.
-  // No round blue badges. The first card starts with its original image.
   const TARGET_BOXES=[
     {x:264,y:9,w:78,h:116},    // Alarm button
     {x:272,y:10,w:70,h:113},   // Siren
@@ -1878,7 +1902,7 @@ body.postid-19 .service-pricing--tariffs-3 + .service-equipment > .container > .
     window.__bagiraEquipmentFitV18Data=result;
     fitting=false;
   }
-  function run(){firstFront();fit();}
+  function run(){openFirstOnMobile();fit();}
   window.__bagiraFitEquipmentV15=run;
   cards.slice(0,5).forEach(c=>{const img=c.querySelector('.service-equipment__item-image img');if(img)img.addEventListener('load',run);});
   if(mobile.addEventListener)mobile.addEventListener('change',run);

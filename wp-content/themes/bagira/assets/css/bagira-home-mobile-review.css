@@ -1,0 +1,264 @@
+@media (max-width: 767px) {
+  body.postid-19 .service-application--smartphone-alarm h2 {
+    font-size: 23px !important;
+    line-height: 1.1 !important;
+  }
+
+  body.postid-19 .service-application--smartphone-alarm .service-application__text {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  body.postid-19 .service-application--smartphone-alarm :is(.service-application__image, .service-application__secondary-image) {
+    width: 60% !important;
+  }
+
+  body.postid-19 .service-application--smartphone-alarm .service-application__secondary-image {
+    right: 27% !important;
+  }
+
+  body.postid-19 .service-application--smartphone-alarm .service-application__features > li {
+    font-size: 13px !important;
+  }
+
+  body.postid-19 :is(.service-application__features, .service-hero__highlights):focus-visible {
+    outline: 2px solid #aaa2ff;
+    outline-offset: 2px;
+  }
+
+  /* Figma 2325:1047: the price panel starts inside the photo. Keep a shared
+     flex height and give each photo the space its card's prices leave above. */
+  body.postid-19 .service-page .service-pricing--tariffs-3 h2 {
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-pricing__grid {
+    align-items: stretch !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff--dual-price {
+    --tariff-overlap: 34px;
+    display: flex !important;
+    flex-direction: column;
+    align-self: stretch !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff--dual-price .service-tariff__image {
+    position: relative !important;
+    inset: auto !important;
+    flex: 1 0 auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: clamp(154px, 44vw, 225px) !important;
+    opacity: 1 !important;
+    overflow: hidden;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__image img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 45% !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff--dual-price > h3 {
+    position: absolute !important;
+    inset: 18px 12px auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    font-size: clamp(18px, 5.4vw, 23px) !important;
+    z-index: 2;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff--dual-price .service-tariff__price-panel {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 auto !important;
+    height: auto !important;
+    width: 100% !important;
+    margin-top: calc(-1 * var(--tariff-overlap)) !important;
+    padding: 13px 14px 14px !important;
+    border: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+    background: #20202f !important;
+    z-index: 3;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__price-label {
+    font-size: 14px !important;
+    margin: 0 0 2px !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__price strong {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 :is(.service-tariff__price, .service-tariff__details, .service-tariff__details h4, .service-tariff__details li) {
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__price-columns {
+    gap: 9px !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details {
+    margin-top: 15px !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details-description {
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details h4 {
+    margin: 13px 0 8px !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details ul {
+    gap: 6px !important;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details li {
+    min-height: 22px;
+    padding-left: 29px;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details li::before {
+    width: 19px;
+    height: 19px;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details-note {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__button {
+    min-height: 44px !important;
+    margin-top: 14px !important;
+    font-size: 14px !important;
+  }
+
+  /* The client uses the same device-card reference for both groups. */
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:is(:first-child, :last-child) .service-equipment__intro h2 {
+    font-size: 23px !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    letter-spacing: normal !important;
+    margin-bottom: 24px !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) > .service-equipment__grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: clamp(14px, 4vw, 17px) !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__intro > div {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item {
+    min-height: 0 !important;
+    height: clamp(118px, 34vw, 146px) !important;
+    border-radius: 18px !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) :is(.service-equipment__flip-inner, .service-equipment__face) {
+    min-height: 0 !important;
+    height: 100% !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__face {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px clamp(98px, 30vw, 140px) 14px 15px !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item-image {
+    top: 10% !important;
+    right: 8% !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 25% !important;
+    height: 80% !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:is(:first-child, :last-child) .service-equipment__face--front h3 {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:is(:first-child, :last-child) .service-equipment__item.is-flipped .service-equipment__face--back .service-equipment__item-text,
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:is(:first-child, :last-child) .service-equipment__item.is-flipped .service-equipment__face--back .service-equipment__item-text p {
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__face--back {
+    padding-right: clamp(54px, 20vw, 100px) !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__face--back .service-equipment__item-text {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__item:not(:nth-child(3)).is-flipped .service-equipment__face--back::after {
+    left: auto !important;
+    right: 9% !important;
+    width: 24% !important;
+    transform: translateY(-50%) !important;
+    opacity: .36 !important;
+    filter: blur(1px) brightness(.85) !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:nth-child(2) .service-equipment__face--back h3 {
+    display: none !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__item.is-flipped .service-equipment__face--back {
+    background: rgba(8, 13, 22, .82) !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group .service-equipment__item.is-flipped .service-equipment__face--back::after {
+    filter: blur(1px) !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:is(:first-child, :last-child) .service-equipment__item.is-flipped .service-equipment__item-image {
+    filter: blur(1px) brightness(.82) !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group .service-equipment__flip-toggle {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 8 !important;
+    outline-offset: -4px !important;
+  }
+
+  body.postid-19 .service-pricing--tariffs-3 + .service-equipment .service-equipment__group:is(:first-child, :last-child) .service-equipment__flip-toggle::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 10px 10px auto auto !important;
+    width: 24px !important;
+    height: 24px !important;
+    border: 0 !important;
+    border-radius: 50%;
+    background: #3022af url('../images/equipment-flip.svg') center / 15px 15px no-repeat !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

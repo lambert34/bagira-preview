@@ -1,0 +1,309 @@
+'use strict';
+
+const assert = require('node:assert/strict');
+const { execFileSync } = require('node:child_process');
+const fs = require('node:fs/promises');
+const http = require('node:http');
+const path = require('node:path');
+const { chromium } = require('playwright');
+const sharp = require('sharp');
+
+const root = process.cwd();
+const baseline = path.resolve(process.argv[2]);
+const output = path.resolve(process.env.QA_OUTPUT || 'qa-mobile-review');
+const mobileWidths = [320, 375, 393, 430, 767];
+const widerWidths = [820, 1024, 1280, 1440];
+const pages = ['', 'ohrana-doma/', 'ohrana-obektov/', 'fizicheskaya-ohrana/', 'trevozhnaya-knopka/', 'transportnaya-bezopasnost/'];
+const sections = {
+  hero: '.service-hero',
+  highlights: '.service-hero__highlights',
+  smartphone: '.service-application--smartphone-alarm',
+  tariffs: '.service-pricing--tariffs-3',
+  technologies: '.service-equipment__group:first-child',
+  sensors: '.service-equipment__group:nth-child(2)',
+  form: '#consultation',
+};
+const types = {
+  '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript',
+  '.woff': 'font/woff', '.woff2': 'font/woff2', '.webp': 'image/webp', '.svg': 'image/svg+xml',
+};
+const report = { baseline: process.env.BASE_SHA || 'local', candidate: process.env.GITHUB_SHA || 'local', mobile: {}, wider: {}, forms: {}, errors: [] };
+
+async function serve(directory) {
+  const server = http.createServer(async (request, response) => {
+    try {
+      const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+      const prefix = '/bagira-preview/';
+      if (!pathname.startsWith(prefix)) throw Error('Route outside preview');
+      let file = path.resolve(directory, pathname.slice(prefix.length));
+      if (file !== directory && !file.startsWith(directory + path.sep)) throw Error('Route outside checkout');
+      if ((await fs.stat(file)).isDirectory()) file = path.join(file, 'index.html');
+      response.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
+      response.end(await fs.readFile(file));
+    } catch {
+      response.writeHead(404).end();
+    }
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  return { server, origin: 'http://127.0.0.1:' + server.address().port };
+}
+
+async function open(browser, origin, route, width, motion = 'reduce') {
+  const page = await browser.newPage({
+    viewport: { width, height: 950 },
+    hasTouch: width <= 767,
+    isMobile: width <= 767,
+    reducedMotion: motion,
+  });
+  page.on('pageerror', error => report.errors.push(route + ' ' + width + ': ' + error.message));
+  await page.route('**/*', request => request.request().url().startsWith(origin + '/') ? request.continue() : request.abort());
+  await page.goto(origin + '/bagira-preview/' + route);
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    // Warm the artwork consistently before the pixel comparison.
+    await Promise.all([...document.images].map(image => {
+      image.loading = 'eager';
+      return image.decode().catch(() => {});
+    }));
+  });
+  return page;
+}
+
+async function pixels(before, after) {
+  const [a, b] = await Promise.all([before, after].map(buffer => sharp(buffer).removeAlpha().raw().toBuffer({ resolveWithObject: true })));
+  const sameSize = a.info.width === b.info.width && a.info.height === b.info.height;
+  if (!sameSize) return { sameSize, before: [a.info.width, a.info.height], after: [b.info.width, b.info.height] };
+  let changedPixels = 0;
+  let brighterBluePixels = 0;
+  for (let i = 0; i < a.data.length; i += 3) {
+    if (a.data[i] !== b.data[i] || a.data[i + 1] !== b.data[i + 1] || a.data[i + 2] !== b.data[i + 2]) changedPixels++;
+    if (b.data[i + 2] - a.data[i + 2] > 4 && b.data[i + 2] > b.data[i] + 8) brighterBluePixels++;
+  }
+  return { sameSize, changedPixels, brighterBluePixels };
+}
+
+async function snapshot(before, after, name, selector) {
+  const capture = async (page, phase) => {
+    const target = selector ? page.locator(selector) : page;
+    return target.screenshot({
+      animations: 'disabled',
+      ...(selector ? {} : { fullPage: true }),
+      path: path.join(output, phase, name + '.png'),
+    });
+  };
+  return pixels(await capture(before, 'BEFORE'), await capture(after, 'AFTER'));
+}
+
+async function waitFor(page, test) {
+  await page.waitForFunction(test, null, { timeout: 6000 });
+}
+
+async function verifyMobile(page, width) {
+  const metrics = await page.evaluate(() => {
+    const get = selector => document.querySelector(selector);
+    const all = selector => [...document.querySelectorAll(selector)];
+    const rect = e => e.getBoundingClientRect();
+    const size = e => parseFloat(getComputedStyle(e).fontSize);
+    const phone = get('.service-application__image');
+    const equipment = get('.service-equipment__group:first-child');
+    const sensors = all('.service-equipment__group:nth-child(2) .service-equipment__item');
+    const tariffs = all('.service-tariff');
+    return {
+      pageWidth: document.documentElement.scrollWidth,
+      highlights: all('.service-hero__highlights li').map(e => rect(e).height),
+      applicationFeatures: all('.service-application__features li').map(e => e.innerText),
+      phoneRatio: rect(phone).width / rect(phone.parentElement).width,
+      appHeading: size(get('.service-application h2')),
+      appBody: size(get('.service-application__text p')),
+      tariffHeading: size(get('.service-pricing h2')),
+      tariffLabels: all('.service-tariff__price-label').map(size),
+      tariffs: tariffs.map(card => {
+        const image = card.querySelector('.service-tariff__image');
+        const panel = card.querySelector('.service-tariff__price-panel');
+        const button = card.querySelector('.service-tariff__button');
+        return {
+          height: rect(card).height,
+          photoTop: rect(image).top - rect(card).top,
+          photoHeight: rect(image).height,
+          overlap: rect(image).bottom - rect(panel).top,
+          buttonGap: rect(card).bottom - rect(button).bottom,
+          priceCount: card.querySelectorAll('.service-tariff__price-column').length,
+        };
+      }),
+      technologiesHeading: size(equipment.querySelector('h2')),
+      techDescriptionSize: size(equipment.querySelector('.service-equipment__item-text p')),
+      firstOpen: equipment.querySelector('.service-equipment__flip-toggle').getAttribute('aria-pressed'),
+      arrow: getComputedStyle(equipment.querySelector('.service-equipment__flip-toggle'), '::after').backgroundImage,
+      sensors: sensors.map(card => [rect(card).x, rect(card).y, rect(card).width]),
+    };
+  });
+  report.mobile[width] = metrics;
+  assert.ok(metrics.pageWidth <= width + 1, width + ': no horizontal overflow');
+  assert.equal(metrics.highlights.length, 3);
+  assert.ok(Math.max(...metrics.highlights) - Math.min(...metrics.highlights) > 12, 'Natural highlight card heights');
+  assert.equal(metrics.applicationFeatures.length, 6);
+  assert.equal(new Set(metrics.applicationFeatures).size, 6);
+  assert.ok(Math.abs(metrics.phoneRatio - .6) < .015);
+  assert.equal(metrics.appHeading, 23);
+  assert.equal(metrics.appBody, 14);
+  assert.ok(metrics.tariffHeading >= 21 && metrics.tariffHeading <= 23);
+  assert.deepEqual(metrics.tariffLabels, Array(6).fill(14));
+  assert.equal(new Set(metrics.tariffs.map(card => Math.round(card.height))).size, 1);
+  assert.ok(metrics.tariffs.every(card => card.photoTop <= 2 && card.overlap >= 28 && card.buttonGap <= 20 && card.priceCount === 2));
+  assert.ok(metrics.tariffs[1].photoHeight < metrics.tariffs[0].photoHeight);
+  assert.equal(metrics.technologiesHeading, 23);
+  assert.equal(metrics.techDescriptionSize, 14);
+  assert.equal(metrics.firstOpen, 'true');
+  assert.match(metrics.arrow, /equipment-flip\.svg/);
+  assert.equal(metrics.sensors.length, 4);
+  assert.equal(new Set(metrics.sensors.map(card => card[0])).size, 1);
+  assert.equal(new Set(metrics.sensors.map(card => card[1])).size, 4);
+}
+
+async function verifyInteractions(page) {
+  const highlights = page.locator(sections.highlights);
+  const smartphone = page.locator('.service-application__features');
+  const nextTop = () => page.locator(sections.smartphone).evaluate(el => el.offsetTop);
+  const initialTop = await nextTop();
+  await highlights.press('ArrowRight');
+  await waitFor(page, () => document.querySelector('.service-hero__highlights').scrollLeft > 100);
+  assert.equal(await nextTop(), initialTop, 'Highlight scroll must not move the next section');
+  await smartphone.press('End');
+  for (let i = 0; i < 5; i++) await smartphone.press('ArrowRight');
+  await waitFor(page, () => {
+    const list = document.querySelector('.service-application__features');
+    return list.scrollLeft >= list.scrollWidth - list.clientWidth - 2;
+  });
+  const dots = page.locator('[data-tariff-index]');
+  for (const index of [1, 2, 0]) {
+    await dots.nth(index).click();
+    await page.waitForFunction(index => document.querySelector('[data-tariff-index="' + index + '"]').getAttribute('aria-pressed') === 'true', index, { timeout: 6000 });
+  }
+  const technologies = page.locator(sections.technologies);
+  const first = technologies.locator('.service-equipment__flip-toggle').first();
+  await first.press('Enter');
+  assert.equal(await first.getAttribute('aria-pressed'), 'false');
+  await first.press('Space');
+  assert.equal(await first.getAttribute('aria-pressed'), 'true');
+  const reveal = technologies.locator('.service-equipment__more');
+  await reveal.click();
+  assert.equal(await reveal.getAttribute('aria-expanded'), 'true');
+  assert.ok(await technologies.locator('.service-equipment__item').last().isVisible());
+  await reveal.click();
+  assert.equal(await reveal.getAttribute('aria-expanded'), 'false');
+  const sensors = page.locator(sections.sensors);
+  for (const toggle of await sensors.locator('.service-equipment__flip-toggle').all()) {
+    await toggle.click();
+    assert.equal(await toggle.getAttribute('aria-pressed'), 'true');
+    const description = page.locator('#' + await toggle.getAttribute('aria-controls'));
+    assert.equal(await description.getAttribute('aria-hidden'), 'false');
+    const text = description.locator('.service-equipment__item-text');
+    assert.ok(await text.isVisible());
+    const bounds = await text.boundingBox();
+    const card = await toggle.boundingBox();
+    assert.ok(bounds.y >= card.y - 1 && bounds.y + bounds.height <= card.y + card.height + 1, 'Sensor text fits card');
+    await toggle.click();
+    assert.equal(await toggle.getAttribute('aria-pressed'), 'false');
+  }
+}
+
+async function verifyForms(browser, before, after) {
+  for (const route of pages) {
+    const a = await open(browser, before, route, 393);
+    const b = await open(browser, after, route, 393);
+    try {
+      const name = route.replace('/', '') || 'home';
+      const form = b.locator('#consultation form');
+      const glow = await b.locator('.bagira-v38-form-glow').evaluate(el => ({
+        width: el.clientWidth, image: getComputedStyle(el).backgroundImage, events: getComputedStyle(el).pointerEvents,
+      }));
+      assert.match(glow.image, /form-mobile\.svg/);
+      assert.ok(glow.width > 100 && glow.events === 'none');
+      const comparison = await snapshot(a, b, '393-form-' + name, sections.form);
+      assert.ok(comparison.sameSize && comparison.brighterBluePixels > 100, 'Visible form glow: ' + name);
+      const phone = form.locator('[name="phone"]');
+      const email = form.locator('[name="email"]');
+      await phone.fill('8 (900) 123-45-67');
+      assert.equal(await phone.inputValue(), '89001234567');
+      await email.fill('preview@example.test');
+      assert.equal(await form.evaluate(el => el.checkValidity()), false);
+      await form.locator('[name="consent"]').check();
+      assert.equal(await form.evaluate(el => el.checkValidity()), true);
+      const submissions = [];
+      b.on('request', request => { if (request.method() === 'POST') submissions.push(request.url()); });
+      await form.locator('button[type="submit"]').click();
+      assert.deepEqual(submissions, []);
+      report.forms[name] = comparison;
+      const wideA = await open(browser, before, route, 1280);
+      const wideB = await open(browser, after, route, 1280);
+      try {
+        const wide = await snapshot(wideA, wideB, '1280-form-' + name, sections.form);
+        assert.ok(wide.sameSize && wide.changedPixels === 0, 'Desktop form unchanged: ' + name);
+      } finally {
+        await wideA.close();
+        await wideB.close();
+      }
+    } finally {
+      await a.close();
+      await b.close();
+    }
+  }
+}
+
+async function main() {
+  await fs.mkdir(output, { recursive: true });
+  const before = await serve(baseline);
+  const after = await serve(root);
+  const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
+  try {
+    const changed = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACM', process.env.BASE_SHA || 'HEAD'], { encoding: 'utf8' }).trim().split('\n');
+    assert.ok(!changed.some(file => /\.(?:png|jpe?g|gif|bmp|avif|ico)$/i.test(file) && !file.startsWith('.github/')));
+    for (const width of [...mobileWidths, ...widerWidths]) {
+      const a = await open(browser, before.origin, 'ohrana-doma/', width);
+      const b = await open(browser, after.origin, 'ohrana-doma/', width);
+      try {
+        if (width <= 767) {
+          await verifyMobile(b, width);
+          const hero = await snapshot(a, b, width + '-hero', sections.hero);
+          assert.ok(hero.changedPixels > 100 || !hero.sameSize);
+          if (width === 393) {
+            for (const [name, selector] of Object.entries(sections).filter(([name]) => !['hero', 'form'].includes(name))) {
+              await snapshot(a, b, width + '-' + name, selector);
+            }
+            await verifyInteractions(b);
+          }
+        } else {
+          const result = await snapshot(a, b, width + '-home-security');
+          report.wider[width] = result;
+          assert.ok(result.sameSize && result.changedPixels === 0, width + ': tablet and desktop must match baseline');
+        }
+      } finally {
+        await a.close();
+        await b.close();
+      }
+    }
+    const autoplay = await open(browser, after.origin, 'ohrana-doma/', 393, 'no-preference');
+    try {
+      await autoplay.locator(sections.smartphone).scrollIntoViewIfNeeded();
+      await waitFor(autoplay, () => document.querySelector('.service-application__features').scrollLeft > 50);
+    } finally {
+      await autoplay.close();
+    }
+    await verifyForms(browser, before.origin, after.origin);
+    assert.deepEqual(report.errors, []);
+    report.status = 'PASS';
+  } finally {
+    await browser.close();
+    before.server.close();
+    after.server.close();
+  }
+}
+
+main().catch(error => {
+  report.status = 'FAIL';
+  report.errors.push(error.stack);
+  process.exitCode = 1;
+}).finally(async () => {
+  await fs.writeFile(path.join(output, 'REPORT.json'), JSON.stringify(report, null, 2));
+  console.log(JSON.stringify({ status: report.status, errors: report.errors }));
+});
