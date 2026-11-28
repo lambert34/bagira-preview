@@ -41,7 +41,7 @@
   #consultation > .consultation__panel::after {
     content: "";
     position: absolute;
-    z-index: 4;
+    z-index: 0;
     top: 0;
     left: 0;
     width: min(72%, 380px);
@@ -49,5 +49,10 @@
     border-top-left-radius: inherit;
     pointer-events: none;
     background: url('../images/ellipses-v38/form-mobile.svg') left top / 100% 100% no-repeat;
+  }
+
+  #consultation > .consultation__panel > .consultation__content {
+    position: relative;
+    z-index: 1;
   }
 }
