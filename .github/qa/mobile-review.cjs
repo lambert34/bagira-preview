@@ -94,22 +94,20 @@ function sameRendering(comparison) {
   return comparison.sameSize && comparison.sameGeometry && comparison.maxChannelDelta <= 2;
 }
 
+async function capture(page, phase, name, selector) {
+  const target = page.locator(selector);
+  await target.scrollIntoViewIfNeeded();
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  return target.screenshot({ animations: 'disabled', path: path.join(output, phase, name + '.png') });
+}
+
 async function snapshot(before, after, name, selector) {
-  const capture = async (page, phase) => {
-    const target = page.locator(selector);
-    await target.scrollIntoViewIfNeeded();
-    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-    return target.screenshot({
-      animations: 'disabled',
-      path: path.join(output, phase, name + '.png'),
-    });
-  };
   const geometry = page => page.locator(selector).evaluate(el => {
     const { x, y, width, height } = el.getBoundingClientRect();
     return [x + window.scrollX, y + window.scrollY, width, height];
   });
   const [a, b] = await Promise.all([geometry(before), geometry(after)]);
-  const diff = await pixels(await capture(before, 'BEFORE'), await capture(after, 'AFTER'));
+  const diff = await pixels(await capture(before, 'BEFORE', name, selector), await capture(after, 'AFTER', name, selector));
   return { ...diff, sameGeometry: a.every((value, index) => Math.abs(value - b[index]) < .1) };
 }
 
@@ -179,6 +177,48 @@ async function verifyMobile(page, width) {
   assert.equal(new Set(metrics.sensors.map(card => card[1])).size, 4);
 }
 
+async function verifyArtwork(page, width) {
+  const reveal = page.locator(sections.technologies + ' .service-equipment__more');
+  await reveal.click();
+  const artwork = await page.locator('#home-security-equipment .service-equipment__item-image img').evaluateAll(images => images.map(image => {
+    const card = image.closest('.service-equipment__item').getBoundingClientRect();
+    const slot = image.getBoundingClientRect();
+    const button = image.closest('.service-equipment__item').querySelector('.service-equipment__flip-toggle');
+    const badge = getComputedStyle(button, '::after');
+    const minimumScale = Math.min(slot.width / image.naturalWidth, slot.height / image.naturalHeight);
+    const artWidth = minimumScale * image.naturalWidth;
+    const artHeight = minimumScale * image.naturalHeight;
+    const artTop = slot.top + (slot.height - artHeight) / 2;
+    const artLeft = slot.left + (slot.width - artWidth) / 2;
+    const badgeBottom = card.top + parseFloat(badge.top) + parseFloat(badge.height);
+    const badgeLeft = card.right - parseFloat(badge.right) - parseFloat(badge.width);
+    return {
+      asset: image.currentSrc.split('/').at(-1),
+      label: image.alt,
+      fit: getComputedStyle(image).objectFit,
+      contained: image.naturalWidth > 0 && artLeft >= card.left + 5 && artLeft + artWidth <= card.right - 5
+        && artTop >= card.top + 5 && artTop + artHeight <= card.bottom - 5,
+      underBadge: artTop < badgeBottom && artLeft + artWidth > badgeLeft,
+    };
+  }));
+  assert.deepEqual(artwork.map(item => item.asset).slice(2), [
+    '2325-730.webp', 'mobile-photo-sensor-completed-v23.webp', '2325-736.webp',
+    'infrared-full.webp', 'magnetic-full.webp', 'hover-5.webp',
+    'smoke-full.webp', 'temperature-full.webp', '2325-765.webp', 'gas-full.webp',
+  ]);
+  for (const item of artwork) {
+    assert.ok(item.fit === 'contain' && item.contained && !item.underBadge, width + ' artwork: ' + JSON.stringify(item));
+  }
+  report.mobile[width].equipmentArtwork = artwork;
+  if (width === 393) {
+    const first = page.locator(sections.technologies + ' .service-equipment__flip-toggle').first();
+    await first.press('Enter');
+    await capture(page, 'AFTER', '393-technologies-all', sections.technologies);
+    await first.press('Enter');
+  }
+  await reveal.click();
+}
+
 async function verifyInteractions(page) {
   const highlights = page.locator(sections.highlights);
   const smartphone = page.locator('.service-application__features');
@@ -187,8 +227,21 @@ async function verifyInteractions(page) {
   await highlights.press('ArrowRight');
   await waitFor(page, () => document.querySelector('.service-hero__highlights').scrollLeft > 100);
   assert.equal(await nextTop(), initialTop, 'Highlight scroll must not move the next section');
-  await smartphone.press('End');
-  for (let i = 0; i < 5; i++) await smartphone.press('ArrowRight');
+  await capture(page, 'AFTER', '393-highlights-2', sections.highlights);
+  await highlights.press('ArrowRight');
+  await capture(page, 'AFTER', '393-highlights-3', sections.highlights);
+  for (let index = 1; index < 6; index++) {
+    await smartphone.press('ArrowRight');
+    await smartphone.evaluate(async (list, index) => {
+      const card = list.children[index];
+      const offset = card.offsetLeft - list.children[0].offsetLeft;
+      await new Promise(requestAnimationFrame);
+      if (Math.abs(list.scrollLeft - Math.min(offset, list.scrollWidth - list.clientWidth)) > 2) {
+        throw Error('Feature slide did not advance to ' + (index + 1));
+      }
+    }, index);
+    await capture(page, 'AFTER', '393-smartphone-' + (index + 1), sections.smartphone);
+  }
   await waitFor(page, () => {
     const list = document.querySelector('.service-application__features');
     return list.scrollLeft >= list.scrollWidth - list.clientWidth - 2;
@@ -197,6 +250,7 @@ async function verifyInteractions(page) {
   for (const index of [1, 2, 0]) {
     await dots.nth(index).click();
     await page.waitForFunction(index => document.querySelector('[data-tariff-index="' + index + '"]').getAttribute('aria-pressed') === 'true', index, { timeout: 6000 });
+    if (index) await capture(page, 'AFTER', '393-tariffs-' + (index + 1), sections.tariffs);
   }
   const technologies = page.locator(sections.technologies);
   const first = technologies.locator('.service-equipment__flip-toggle').first();
@@ -292,6 +346,7 @@ async function main() {
           const hero = await snapshot(a, b, width + '-hero', '.service-hero__inner');
           report.mobile[width].hero = hero;
           assert.ok(hero.sameSize && hero.brighterBluePixels > 100, 'Visible V47B glow: ' + width);
+          await verifyArtwork(b, width);
           if (width === 393) {
             for (const [name, selector] of Object.entries(sections).filter(([name]) => !['hero', 'form'].includes(name))) {
               await snapshot(a, b, width + '-' + name, selector);
@@ -338,12 +393,30 @@ main().catch(error => {
   const pairs = (await fs.readdir(path.join(output, 'AFTER')).catch(() => []))
     .filter(name => /^[a-z0-9-]+\.png$/.test(name))
     .sort((a, b) => Number(!a.startsWith('393')) - Number(!b.startsWith('393')) || a.localeCompare(b));
+  const before = new Set(await fs.readdir(path.join(output, 'BEFORE')).catch(() => []));
+  const captions = {
+    'highlights': 'Преимущества — карточки разной высоты',
+    'smartphone': 'Смартфон — телефон 60% и шесть карточек',
+    'tariffs': 'Тарифы — панель поверх фото',
+    'technologies': 'Технологии — раскрытие и полные изображения',
+    'technologies-all': 'Все восемь устройств — закрытые карточки',
+    'sensors': 'Пожар, газ и вода — приборы целиком',
+    'hero': 'Баннер — эллипс',
+    'header': 'Шапка',
+    'form-ohrana-doma': 'Форма заявки — эллипс',
+  };
+  function caption(file) {
+    const [, width, name] = file.match(/^(\d+)-(.+)\.png$/);
+    const slide = name.match(/^(highlights|smartphone|tariffs)-(\d)$/);
+    return slide ? captions[slide[1]] + ' · карточка ' + slide[2] : (captions[name] || name) + ' · ' + width + ' px';
+  }
+  const screenshot = (phase, name, label) => `<article><p>${label}</p><a href="${phase}/${name}"><img loading="lazy" src="${phase}/${name}" alt="${label}"></a></article>`;
   await fs.writeFile(path.join(output, '00_OPEN_COMPARE.html'), `<!doctype html>
 <html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <title>Багира — мобильные правки</title>
 <style>body{font:16px system-ui;background:#141620;color:#fff;max-width:1250px;margin:auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}article{min-width:0}img{max-width:100%;height:auto}h2{font-size:18px}section{margin-bottom:30px}</style>
 <h1>Багира — мобильные правки</h1><p>Chromium QA: ${report.status ?? 'FAIL'}</p>
-${pairs.map(name => `<section><h2>${name.replace('.png', '')}</h2><main><article><p>До</p><a href="BEFORE/${name}"><img loading="lazy" src="BEFORE/${name}" alt="До"></a></article><article><p>После</p><a href="AFTER/${name}"><img loading="lazy" src="AFTER/${name}" alt="После"></a></article></main></section>`).join('')}
+${pairs.map(name => `<section><h2>${caption(name)}</h2><main>${before.has(name) ? screenshot('BEFORE', name, 'До') : ''}${screenshot('AFTER', name, 'После')}</main></section>`).join('')}
 </html>`);
   console.log(JSON.stringify({ status: report.status, errors: report.errors }));
 });
