@@ -372,8 +372,8 @@
   }
   body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__price-label {
     font-family:Montserrat,Arial,sans-serif !important;
-    font-size:16px !important; font-weight:400 !important; line-height:20px !important;
-    letter-spacing:0 !important; color:rgba(255,255,255,.8) !important;
+    font-size:16px !important; font-weight:400 !important; line-height:19.504px !important;
+    letter-spacing:0 !important; color:#fff !important;
     height:auto !important; min-height:0 !important; margin:0 !important;
   }
   body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__price {
@@ -404,12 +404,12 @@
   body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details li {
     font-family:Montserrat,Arial,sans-serif !important;
     font-size:14px !important; font-weight:400 !important; line-height:17.066px !important;
-    letter-spacing:0 !important; color:rgba(255,255,255,.85) !important;
+    letter-spacing:0 !important; color:#fff !important;
   }
   body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details-description { margin:0 !important; }
   body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details h4 {
     font-family:Montserrat,Arial,sans-serif !important;
-    font-size:16px !important; font-weight:700 !important; line-height:20px !important;
+    font-size:16px !important; font-weight:700 !important; line-height:19.504px !important;
     letter-spacing:0 !important; color:#fff !important;
     margin:20px 0 8px !important;
   }
@@ -438,7 +438,7 @@
     max-height:40px !important; margin:20px 0 0 !important; padding:0 12px !important;
     box-sizing:border-box !important; border-radius:10px !important;
     font-family:Montserrat,Arial,sans-serif !important;
-    font-size:16px !important; font-weight:600 !important; line-height:20px !important;
+    font-size:16px !important; font-weight:600 !important; line-height:19.504px !important;
     letter-spacing:0 !important; transform:none !important;
   }
   body.postid-19 .service-page .service-pricing--tariffs-3 .service-pricing__mobile-pagination {
@@ -447,5 +447,19 @@
   }
   body.postid-19 .service-page .service-pricing--tariffs-3 .service-pricing__mobile-pagination button {
     width:16px !important; height:16px !important; padding:0 !important;
+  }
+}
+
+/* V48B: preserve the upper camera artwork and use the exact Figma text fills. */
+@media (max-width:767px) {
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff--dual-price:nth-child(2) .service-tariff__image img {
+    object-position: center top !important;
+  }
+  body.postid-19 .service-page .service-pricing--tariffs-3 .service-tariff__details-description {
+    font-kerning: normal !important;
+    font-feature-settings: normal !important;
+    text-wrap: wrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
   }
 }
