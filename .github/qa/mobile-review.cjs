@@ -74,12 +74,25 @@ async function pixels(before, after) {
   const sameSize = a.info.width === b.info.width && a.info.height === b.info.height;
   if (!sameSize) return { sameSize, before: [a.info.width, a.info.height], after: [b.info.width, b.info.height] };
   let changedPixels = 0;
+  let maxChannelDelta = 0;
   let brighterBluePixels = 0;
   for (let i = 0; i < a.data.length; i += 3) {
-    if (a.data[i] !== b.data[i] || a.data[i + 1] !== b.data[i + 1] || a.data[i + 2] !== b.data[i + 2]) changedPixels++;
+    const delta = Math.max(
+      Math.abs(a.data[i] - b.data[i]),
+      Math.abs(a.data[i + 1] - b.data[i + 1]),
+      Math.abs(a.data[i + 2] - b.data[i + 2])
+    );
+    if (delta) changedPixels++;
+    maxChannelDelta = Math.max(maxChannelDelta, delta);
     if (b.data[i + 2] - a.data[i + 2] > 4 && b.data[i + 2] > b.data[i] + 8) brighterBluePixels++;
   }
-  return { sameSize, changedPixels, brighterBluePixels };
+  return { sameSize, changedPixels, brighterBluePixels, maxChannelDelta, totalPixels: a.info.width * a.info.height };
+}
+
+// Chromium can round a handful of antialiased pixels by one or two levels.
+function sameRendering(comparison) {
+  return comparison.sameSize && comparison.maxChannelDelta <= 2
+    && comparison.changedPixels <= Math.ceil(comparison.totalPixels * .00001);
 }
 
 async function snapshot(before, after, name, selector) {
@@ -238,7 +251,7 @@ async function verifyForms(browser, before, after) {
       const wideB = await open(browser, after, route, 1280);
       try {
         const wide = await snapshot(wideA, wideB, '1280-form-' + name, sections.form);
-        assert.ok(wide.sameSize && wide.changedPixels === 0, 'Desktop form unchanged: ' + name);
+        assert.ok(sameRendering(wide), 'Desktop form unchanged: ' + name);
       } finally {
         await wideA.close();
         await wideB.close();
@@ -276,7 +289,7 @@ async function main() {
         } else {
           const result = await snapshot(a, b, width + '-home-security');
           report.wider[width] = result;
-          assert.ok(result.sameSize && result.changedPixels === 0, width + ': tablet and desktop must match baseline');
+          assert.ok(sameRendering(result), width + ': tablet and desktop must match baseline');
         }
       } finally {
         await a.close();
